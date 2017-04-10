@@ -1,0 +1,5 @@
+package br.com.ecomerce.dao;
+
+public class EditoraDAO {
+
+}
