@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+<title>Ecommerce de Livros</title>
+</h:head>
+<body>
+	<div class="container">
+		<h3>Cadastrar Editora</h3>
+		<h:form>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<h:outputLabel value="Nome"/>
+						<h:inputText value="#{Editora.editora.nome}" styleClass="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<h:outputLabel value="CNPJ"/>
+						<h:inputText value="#{Editora.editora.cnpj}" styleClass="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">	
+				<div class="col-md-4">	
+					<div class="form-group">
+						<h:outputLabel value="Endereço"/>
+						<h:inputText value="#{Editora.editora.endereco}" styleClass="form-control"/>
+					</div>
+				</div>
+			</div>
+			<div class="row">	
+				<div class="col-md-3">	
+					<div class="form-group">
+						<h:outputLabel value="Telefone"/>
+						<h:inputText value="#{Editora.editora.telefone}" styleClass="form-control"/>
+					</div>
+				</div>	
+			</div>
+			<h:commandButton value="Cadastrar" styleClass="btn btn-primary" actionListener="#{Editora.cadastrar}"/>
+		</h:form>
+	</div>
+</body>
+</html>
