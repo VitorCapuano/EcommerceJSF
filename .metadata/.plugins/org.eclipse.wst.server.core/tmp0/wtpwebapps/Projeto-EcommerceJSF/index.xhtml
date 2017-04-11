@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+<title>Ecommerce de Livros</title>
+</h:head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+            	<h:form>
+            	<h:commandLink styleClass="navbar-brand">E-Commerce de Livros </h:commandLink>
+            	</h:form>
+            	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            	   <span class="icon-bar"></span>
+            	   <span class="icon-bar"></span>
+            	   <span class="icon-bar"></span>
+          	     </button>
+          	</div>
+          	<div class="navbar-collapse collapse" id="navbar-main">
+          		<ul class="nav navbar-nav">
+          			<li>
+          				<h:form styleClass="navbar-form navbar-left">
+          					<div class="input-group input-group-search">
+          						<h:inputText value="#" styleClass="form-control"> </h:inputText>
+                                <div class="input-group-btn">
+                                  <button class="btn btn-primary" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                  </button>
+                                </div>
+                            </div>
+          				</h:form>
+                    </li>
+          		</ul>
+          		<ul class="nav navbar-nav navbar-right">
+          			<li>
+          				<h:form>
+          					<div class="input-group">
+          						 <span class="input-group-addon">
+          						 	<i class="glyphicon glyphicon-user"></i>
+          						 </span>
+          						 <h:inputText styleClass="form-control" value=""></h:inputText>
+          					</div>
+          					<div class="input-group">
+          						<span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-lock"></i>
+                                </span>
+                                <h:inputSecret styleClass="form-control"></h:inputSecret>
+          					</div>
+          				</h:form>
+          			</li>
+          		</ul>
+          	</div>
+          </div>
+     </div>     	
+</body>
+</html>

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
-<fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.conexao.Conexao"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.modelo.Editora"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.EditoraDAO"/>
 </qualifiedTypeNameHistroy>
