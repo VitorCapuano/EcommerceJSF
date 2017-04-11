@@ -19,12 +19,10 @@ public class AutorBean {
 		this.autor = autor;
 	}
 
-
 	public void cadastrar(){
 		AutorDAO dao = new AutorDAO();
 		dao.cadastrarAutor(autor);
-	
-}
+	}
 	
 }
 
