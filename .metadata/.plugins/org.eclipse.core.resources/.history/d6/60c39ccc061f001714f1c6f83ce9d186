@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<h:outputStylesheet name="bootstrap/css/bootstrap.min.css"></h:outputStylesheet>
+<h:outputStylesheet name="bootstrap/css/custom.min.css"></h:outputStylesheet>
+<h:outputScript name="bootstrap/js/bootstrap.min.js" target="body"></h:outputScript>
+<h:outputScript name="bootstrap/js/jquery-3.2.0.min.js" target="body"></h:outputScript>
+<title>Ecommerce de Livros</title>
+</h:head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+            	<h:form>
+            	<h:commandLink styleClass="navbar-brand">E-Commerce de Livros </h:commandLink>
+            	</h:form>
+            	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            	   <span class="icon-bar"></span>
+            	   <span class="icon-bar"></span>
+            	   <span class="icon-bar"></span>
+          	     </button>
+          	</div>
+          	<div class="navbar-collapse collapse" id="navbar-main">
+          		<ul class="nav navbar-nav">
+          			<li>
+          				<h:form styleClass="navbar-form navbar-left">
+          					<div class="input-group input-group-search">
+          						<h:inputText styleClass="form-control"></h:inputText>
+          					</div>
+          				</h:form>
+          			</li>
+          		</ul>
+          	</div>
+          </div>
+     </div>     	
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+abr 11, 2017 18:30:56.85 NEW SESSION
+abr 11, 2017 18:30:56.85 [1700:1612:0411/183056.851:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+abr 11, 2017 18:31:27.48 [3900:3740:0411/183127.481:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+abr 11, 2017 18:31:49.69 [3464:2260:0411/183149.698:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+abr 11, 2017 18:35:14.32 [4160:3180:0411/183514.328:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+abr 11, 2017 18:35:36.56 [984:3980:0411/183536.562:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+abr 11, 2017 18:38:14.56 [3660:6552:0411/183814.566:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+abr 11, 2017 18:38:36.77 [4740:6412:0411/183836.772:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+abr 11, 2017 18:48:26.21 [WARNING:..\..\..\..\flash\platform\pepper\pep_module.cpp(63)] SANDBOXED
+abr 11, 2017 18:51:43.35 [4740:6412:0411/185143.353:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -21
+abr 11, 2017 18:51:46.77 [4740:6412:0411/185146.770:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -21
+abr 11, 2017 18:51:49.84 [4740:6412:0411/185149.841:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -21
