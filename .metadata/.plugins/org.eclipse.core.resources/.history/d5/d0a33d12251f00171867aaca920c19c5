@@ -60,7 +60,7 @@ xmlns:f="http://java.sun.com/jsf/core">
           	</div>
           </div>
      </div>
-  <h:outputScript name="bootstrap/js/jquery-3.2.0.min.js"></h:outputScript>
- <h:outputScript name="bootstrap/js/bootstrap.min.js"></h:outputScript>     	
+ <h:outputScript name="bootstrap/js/bootstrap.min.js"></h:outputScript>
+<h:outputScript name="bootstrap/js/jquery-3.2.0.min.js"></h:outputScript>     	
 </body>
 </html>

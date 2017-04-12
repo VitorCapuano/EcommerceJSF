@@ -8,7 +8,8 @@ xmlns:f="http://java.sun.com/jsf/core">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <h:outputStylesheet name="bootstrap/css/bootstrap.min.css"></h:outputStylesheet>
 <h:outputStylesheet name="bootstrap/css/custom.min.css"></h:outputStylesheet>
-
+<h:outputScript name="bootstrap/js/bootstrap.min.js"></h:outputScript>
+<h:outputScript name="bootstrap/js/jquery-3.2.0.min.js"></h:outputScript>
 <title>Ecommerce de Livros</title>
 </h:head>
 <body>
@@ -59,8 +60,6 @@ xmlns:f="http://java.sun.com/jsf/core">
           		</ul>
           	</div>
           </div>
-     </div>
-  <h:outputScript name="bootstrap/js/jquery-3.2.0.min.js"></h:outputScript>
- <h:outputScript name="bootstrap/js/bootstrap.min.js"></h:outputScript>     	
+     </div>     	
 </body>
 </html>

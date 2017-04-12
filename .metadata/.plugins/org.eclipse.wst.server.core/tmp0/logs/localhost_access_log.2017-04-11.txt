@@ -43,3 +43,14 @@
 0:0:0:0:0:0:0:1 - - [11/Apr/2017:19:39:16 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6079
 0:0:0:0:0:0:0:1 - - [11/Apr/2017:19:39:47 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6105
 0:0:0:0:0:0:0:1 - - [11/Apr/2017:19:40:43 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6441
+127.0.0.1 - - [11/Apr/2017:22:57:05 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:22:57:07 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6492
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:22:57:07 -0300] "GET /favicon.ico HTTP/1.1" 404 1084
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:22:57:47 -0300] "GET /favicon.ico HTTP/1.1" 404 1084
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:22:58:51 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6492
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:07:08 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6745
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:07:08 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/bootstrap/js/bootstrap.min.js HTTP/1.1" 200 37090
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:07:08 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/bootstrap/js/jquery-3.2.0.min.js HTTP/1.1" 200 86689
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:08:06 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6739
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:09:37 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6739
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:20:04 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6788

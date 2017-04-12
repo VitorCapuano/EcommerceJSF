@@ -16,13 +16,13 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 			</ol>
 			<div class="carousel-inner">
 				<div class="item active">
-					<h:graphicImage library="imagens" name="teste.png"></h:graphicImage>
+					<h:graphicImage library="img" name="teste.png"></h:graphicImage>
 				</div>
 				<div class="item">
-					<h:graphicImage library="imagens" name="teste.png"></h:graphicImage>										
+					
 				</div>
 				<div class="item">
-					<h:graphicImage library="imagens" name="teste.png"></h:graphicImage>
+				
 				</div>
 			</div>
 			<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
