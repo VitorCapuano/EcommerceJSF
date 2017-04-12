@@ -54,3 +54,8 @@
 0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:08:06 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6739
 0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:09:37 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6739
 0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:20:04 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 6788
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:25:33 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 7754
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:25:33 -0300] "GET /Projeto-EcommerceJSF/faces/RES_NOT_FOUND HTTP/1.1" 500 2952
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:31:31 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 7922
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:31:31 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/teste.png?ln=imagens HTTP/1.1" 200 111418
+0:0:0:0:0:0:0:1 - - [11/Apr/2017:23:38:57 -0300] "GET /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 10314
