@@ -5,6 +5,7 @@ import javax.faces.bean.ViewScoped;
 
 import br.com.ecomerce.dao.EditoraDAO;
 import br.com.ecommerce.modelo.Editora;
+import br.com.ecommerce.util.JavaUtil;
 
 @ManagedBean(name="Editora")
 @ViewScoped
@@ -21,7 +22,10 @@ public class EditoraBean {
 	
 	public void cadastrar(){
 		EditoraDAO dao = new EditoraDAO();
-		dao.cadastrarEditora(editora);
+		boolean cadastrado = dao.cadastrarEditora(editora);
+		if(cadastrado == true){
+			JavaUtil.adicionarMensagemSucesso("Editora cadastrada com sucesso!");
+		}
 	
 }
 	

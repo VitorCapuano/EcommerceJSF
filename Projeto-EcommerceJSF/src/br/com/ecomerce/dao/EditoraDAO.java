@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import br.com.ecommerce.conexao.Conexao;
 import br.com.ecommerce.modelo.Editora;
+import br.com.ecommerce.util.JavaUtil;
 
 public class EditoraDAO {
 	private Connection connection;
@@ -14,7 +15,8 @@ public class EditoraDAO {
     private String sql;
     private ResultSet rs;
     
-    public void cadastrarEditora(Editora editora){
+    public boolean cadastrarEditora(Editora editora){
+    	boolean cadastrado = false;
     	sql = "INSERT INTO EDITORA VALUES ( NULL, ?, ?, ?, ?)";
         connection = Conexao.getConnection();
         
@@ -25,9 +27,13 @@ public class EditoraDAO {
 			p.setString(3, editora.getEndereco());
 			p.setString(4, editora.getTelefone());
 			p.execute();
+			cadastrado = true;
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			JavaUtil.adicionarMensagemErro("Erro ao Cadastrar dados no banco");
 		}
+        return cadastrado;
     }
 }

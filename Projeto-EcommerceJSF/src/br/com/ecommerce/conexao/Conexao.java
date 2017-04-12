@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import br.com.ecommerce.util.JavaUtil;
+
 public class Conexao {
 	  private static Connection connection;
 	  private static String url = "jdbc:oracle:thin:@oracle.fiap.com.br:1521/orcl";

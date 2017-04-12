@@ -1,0 +1,17 @@
+127.0.0.1 - - [12/Apr/2017:00:13:53 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:13:55 -0300] "GET /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 10394
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:14:11 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 11351
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:20:52 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 10487
+127.0.0.1 - - [12/Apr/2017:00:22:08 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:22:27 -0300] "GET /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 10394
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:22:41 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 11409
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:23:33 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 11437
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:24:19 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 11463
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:26:19 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 11463
+127.0.0.1 - - [12/Apr/2017:00:27:05 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:27:07 -0300] "GET /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 10394
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:27:22 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 500 2733
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:28:07 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 500 2110
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:28:18 -0300] "GET /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 10394
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:28:26 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 11546
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:00:28:55 -0300] "POST /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 11546

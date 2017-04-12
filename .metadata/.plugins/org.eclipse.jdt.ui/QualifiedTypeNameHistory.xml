@@ -11,4 +11,8 @@
 <fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Editora"/>
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.EditoraDAO"/>
+<fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
+<fullyQualifiedTypeName name="javax.faces.view.facelets.FaceletContext"/>
+<fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.util.JavaUtil"/>
 </qualifiedTypeNameHistroy>
