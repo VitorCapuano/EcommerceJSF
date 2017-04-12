@@ -19,3 +19,8 @@
 0:0:0:0:0:0:0:1 - - [12/Apr/2017:19:30:47 -0300] "GET /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 10314
 0:0:0:0:0:0:0:1 - - [12/Apr/2017:19:30:47 -0300] "GET /favicon.ico HTTP/1.1" 404 1084
 0:0:0:0:0:0:0:1 - - [12/Apr/2017:19:31:05 -0300] "GET /Projeto-EcommerceJSF/faces/index.xhtml HTTP/1.1" 200 7938
+127.0.0.1 - - [12/Apr/2017:19:50:19 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:19:50:20 -0300] "GET /Projeto-EcommerceJSF/faces/genero.xhtml HTTP/1.1" 500 3815
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:19:51:49 -0300] "GET /Projeto-EcommerceJSF/faces/genero.xhtml HTTP/1.1" 200 9710
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:19:51:49 -0300] "GET /favicon.ico HTTP/1.1" 404 1084
+0:0:0:0:0:0:0:1 - - [12/Apr/2017:19:52:07 -0300] "POST /Projeto-EcommerceJSF/faces/genero.xhtml HTTP/1.1" 200 10599
