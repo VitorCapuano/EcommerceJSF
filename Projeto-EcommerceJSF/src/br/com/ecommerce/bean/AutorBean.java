@@ -5,6 +5,7 @@ import javax.faces.bean.ViewScoped;
 
 import br.com.ecomerce.dao.AutorDAO;
 import br.com.ecommerce.modelo.Autor;
+import br.com.ecommerce.util.JavaUtil;
 
 @ManagedBean(name="Autor")
 @ViewScoped
@@ -21,7 +22,10 @@ public class AutorBean {
 
 	public void cadastrar(){
 		AutorDAO dao = new AutorDAO();
-		dao.cadastrarAutor(autor);
+		boolean cadastrado = dao.cadastrarAutor(autor);
+		if(cadastrado == true){
+			JavaUtil.adicionarMensagemSucesso("Autor cadastrado com sucesso!");
+		}
 	}
 	
 }

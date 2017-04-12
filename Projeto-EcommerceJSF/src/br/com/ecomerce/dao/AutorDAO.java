@@ -15,8 +15,9 @@ public class AutorDAO {
     private String sql;
     private ResultSet rs;
     
-    public void cadastrarAutor(Autor autor){
-    	sql = "INSERT INTO AUTOR (NOME, ENDERECO, CPF, TELEFONE)"
+    public boolean cadastrarAutor(Autor autor){
+    	boolean cadastrou = false;
+    	sql = "INSERT INTO AUTOR (ID_AUTOR, NOME, ENDERECO, CPF, TELEFONE)"
     			+ " VALUES ( NULL, ?, ?, ?, ?)";
         connection = Conexao.getConnection();
         
@@ -27,9 +28,11 @@ public class AutorDAO {
 			p.setString(2, autor.getEndereco());
 			p.setString(4, autor.getTelefone());
 			p.execute();
+			cadastrou = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        return cadastrou;
     }
 }
