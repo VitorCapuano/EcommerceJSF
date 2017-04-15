@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.ecommerce.conexao.Conexao;
 import br.com.ecommerce.modelo.Autor;
@@ -34,5 +35,31 @@ public class AutorDAO {
 			e.printStackTrace();
 		}
         return cadastrou;
+    }
+    
+    
+    public ArrayList<Autor> listarAutor(){
+    	ArrayList<Autor> lista = new ArrayList<Autor>();
+    	sql = "SELECT * FROM AUTOR";
+    	connection = Conexao.getConnection();
+    	
+    	try {
+			p = connection.prepareStatement(sql);
+			rs = p.executeQuery();
+			while(rs.next()){
+				Autor autor = new Autor();
+				autor.setIdAutor(rs.getInt("id_autor"));
+				autor.setNome(rs.getString("nome"));
+				autor.setCpf(rs.getString("cpf"));
+				autor.setEndereco(rs.getString("endereco"));
+				autor.setTelefone(rs.getString("telefone"));
+				lista.add(autor);
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	return lista;
     }
 }

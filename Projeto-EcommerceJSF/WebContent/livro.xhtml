@@ -7,11 +7,11 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <ui:include src="/base.xhtml" />
 
 <div class="container">
-		<h3>Cadastrar Editora</h3>
+		<h3>Cadastrar Livro</h3>
 		<h:messages globalOnly="true" styleClass="alert alert-success" style="list-style: none;"/>
 		<h:form>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-6">
 					<div class="form-group">
 						<h:outputLabel value="Titulo"/>
 						<h:inputText value="#{Livro.livro.titulo}" styleClass="form-control"/>
@@ -19,40 +19,60 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
-					<div class="form-group">
-						<h:outputLabel>Editora:</h:outputLabel>
-						<!-- duvida sobre o value do select one menu se e o id -->
-						<h:selectOneMenu filter="true" value="#{Livro.livro.editora}" styleClass="form-control">
-							<f:selectItem noSelectionOption="true" itemLabel="Selecione a editora" />
-							<f:selectItems value="#{Livro.listaEditora}" var="editora" 
-							itemValue="" itemLabel="#{editora.nome}" />
-						</h:selectOneMenu>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<h:outputLabel>Editora:</h:outputLabel>
+								<h:selectOneMenu filter="true" value="#{Livro.livro.editora}" styleClass="form-control">
+									<f:selectItem noSelectionOption="true" itemLabel="Selecione a editora" />
+									<f:selectItems value="#{Livro.listaEditora}" var="editora" 
+									itemValue="#{editora.idEditora}" itemLabel="#{editora.nome}" />
+								</h:selectOneMenu>
+							</div>
+						</div>	
+						<div class="col-md-6">
+							<div class="form-group">
+								<h:outputLabel>Autor:</h:outputLabel>
+								<h:selectOneMenu filter="true" value="#{Livro.livro.autor}" styleClass="form-control">
+									<f:selectItem itemValue="" itemLabel="Selecione o autor" />
+									<f:selectItems value="#{Livro.listaAutor}" var="autor"
+									itemValue="autor.idAutor" itemLabel="#{autor.nome}" />
+								</h:selectOneMenu>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+				
 			<div class="row">
-				<div class="col-md-4">
-					<div class="form-group">
-						<h:outputLabel>Autor:</h:outputLabel>
-						<h:selectOneMenu filter="true" value="#{Livro.livro.autor}" styleClass="form-control">
-							<f:selectItem itemValue="" itemLabel="Selecione o autor" />
-							<f:selectItems value="#{Livro.listaEditora}" />
-						</h:selectOneMenu>
-					</div>
-				</div>
-			</div>	
-			<div class="row">
-				<div class="col-md-4">
-					<div class="form-group">
-						<h:outputLabel>Genero:</h:outputLabel>
-						<h:selectOneMenu filter="true" value="#{Livro.livro.genero}" styleClass="form-control">
-							<f:selectItem itemValue="" itemLabel="Selecione o genero" />
-							
-						</h:selectOneMenu>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<h:outputLabel>Genero:</h:outputLabel>
+								<h:selectOneMenu filter="true" value="#{Livro.livro.genero}" styleClass="form-control">
+									<f:selectItem itemValue="" itemLabel="Selecione o genero" />
+									<f:selectItems value="#{Livro.listaGenero}" var="genero"
+									itemValue="genero.idGenero" itemLabel="#{genero.nome}" />
+								</h:selectOneMenu>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group">
+						<h:outputLabel>Descrição:</h:outputLabel>
+						<h:inputTextarea rows="8" cols="5" class="form-control">
+						</h:inputTextarea>
+					</div>
+				</div>
+			</div>
+			<h:commandButton value="Cadastrar" styleClass="btn btn-primary"/>
 		</h:form>
 </div>		
 
