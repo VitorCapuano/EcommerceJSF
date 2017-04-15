@@ -1,6 +1,0 @@
-127.0.0.1 - - [02/Apr/2017:14:23:11 -0300] "GET / HTTP/1.1" 404 1073
-127.0.0.1 - - [02/Apr/2017:14:23:33 -0300] "GET / HTTP/1.1" 404 1073
-0:0:0:0:0:0:0:1 - - [02/Apr/2017:14:23:34 -0300] "GET /Projeto-EcommerceJSF/faces/NewFile.xhtml HTTP/1.1" 200 421
-0:0:0:0:0:0:0:1 - - [02/Apr/2017:14:23:34 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/bootstrap.min.css?ln=css HTTP/1.1" 200 121325
-0:0:0:0:0:0:0:1 - - [02/Apr/2017:14:23:45 -0300] "GET /Projeto-EcommerceJSF/faces/NewFile.xhtml HTTP/1.1" 200 421
-0:0:0:0:0:0:0:1 - - [02/Apr/2017:14:23:45 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/bootstrap.min.css?ln=css HTTP/1.1" 200 121325

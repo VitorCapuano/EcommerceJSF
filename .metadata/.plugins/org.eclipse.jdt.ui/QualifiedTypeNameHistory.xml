@@ -9,10 +9,19 @@
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
 <fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
-<fullyQualifiedTypeName name="br.com.ecommerce.modelo.Editora"/>
-<fullyQualifiedTypeName name="br.com.ecomerce.dao.EditoraDAO"/>
 <fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
 <fullyQualifiedTypeName name="javax.faces.view.facelets.FaceletContext"/>
 <fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.util.JavaUtil"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.modelo.Livro"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.LivroDAO"/>
+<fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.modelo.Editora"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.EditoraDAO"/>
 </qualifiedTypeNameHistroy>
