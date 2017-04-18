@@ -8,14 +8,9 @@ import br.com.ecommerce.util.JavaUtil;
 
 public class Conexao {
 	  private static Connection connection;
-	  /*
 	  private static String url = "jdbc:oracle:thin:@oracle.fiap.com.br:1521/orcl";
 	  private static String usuario = "rm75077";
 	  private static String senha = "270185";
-	  */
-	  private static String url = "jdbc:oracle:thin:@localhost:1521/xe";
-	  private static String usuario = "system";
-	  private static String senha = "436973ju";
 	  
 	  public static Connection getConnection(){
 		  if (connection == null) {
