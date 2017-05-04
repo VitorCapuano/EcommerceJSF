@@ -1,5 +1,8 @@
 package br.com.ecommerce.bean;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -11,6 +14,7 @@ import br.com.ecommerce.util.JavaUtil;
 @ViewScoped
 public class EditoraBean {
 	private Editora editora = new Editora();
+	private List<Editora> listarEditora;
 	
 	public Editora getEditora() {
 		return editora;
@@ -18,6 +22,20 @@ public class EditoraBean {
 
 	public void setEditora(Editora editora) {
 		this.editora = editora;
+	}
+	
+	public List<Editora> getListarEditora() {
+		return listarEditora;
+	}
+	
+	public void setListarEditora(List<Editora> listarEditora) {
+		this.listarEditora = listarEditora;
+	}
+	
+	@PostConstruct
+	public void listar(){
+		EditoraDAO dao = new EditoraDAO();
+		listarEditora = dao.listarEditora();
 	}
 	
 	public void cadastrar(){

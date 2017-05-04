@@ -3,8 +3,12 @@ package br.com.ecomerce.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.ecommerce.conexao.Conexao;
+import br.com.ecommerce.modelo.Autor;
 import br.com.ecommerce.modelo.Livro;
 
 public class LivroDAO {
@@ -33,4 +37,27 @@ public class LivroDAO {
 		}
     	return cadastrou;
     }
+
+	public ArrayList<Livro> listarLivro() {
+		ArrayList<Livro> lista = new ArrayList<Livro>();
+		
+		sql = "SELECT * FROM LIVRO";
+    	connection = Conexao.getConnection();
+    	
+    	try {
+			p = connection.prepareStatement(sql);
+			rs = p.executeQuery();
+			while(rs.next()){
+				Livro livro = new Livro();
+				livro.setIdLivro(rs.getInt("livro_id"));
+				livro.setTitulo(rs.getString("titulo"));
+				livro.setDescricao(rs.getString("descricao"));
+				lista.add(livro);
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return lista;
+	}
 }

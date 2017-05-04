@@ -2,6 +2,7 @@ package br.com.ecommerce.bean;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -19,10 +20,25 @@ import br.com.ecommerce.util.JavaUtil;
 @ViewScoped
 public class LivroBean {
 	private Livro livro = new Livro();
+	private List<Livro> listarLivro;
 	private List<Editora> listaEditora;
 	private List<Autor> listaAutor;
 	private List<Genero> listaGenero;
+
 	
+	public List<Livro> getListarLivro() {
+		return listarLivro;
+	}
+	
+	public void setListarLivro(List<Livro> litarLivro) {
+		this.listarLivro = litarLivro;
+	}
+	
+	@PostConstruct
+	public void listar(){
+		LivroDAO livro = new LivroDAO();
+		listarLivro = livro.listarLivro();
+	}
 	
 	//Get e Set do Listar editoras
 	public List<Editora> getListaEditora() {

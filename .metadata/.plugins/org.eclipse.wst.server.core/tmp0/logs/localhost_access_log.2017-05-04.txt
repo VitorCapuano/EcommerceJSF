@@ -123,3 +123,17 @@
 0:0:0:0:0:0:0:1 - - [04/May/2017:16:31:59 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/images/ui-icons_898989_256x240.png?ln=primefaces-aristo HTTP/1.1" 200 5355
 0:0:0:0:0:0:0:1 - - [04/May/2017:16:31:59 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/images/ui-bg_flat_0_2d5972_40x100.png?ln=primefaces-aristo HTTP/1.1" 200 183
 0:0:0:0:0:0:0:1 - - [04/May/2017:16:33:31 -0300] "GET /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 16341
+127.0.0.1 - - [04/May/2017:17:15:30 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:15:34 -0300] "GET /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 16341
+127.0.0.1 - - [04/May/2017:17:28:41 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:28:43 -0300] "GET /Projeto-EcommerceJSF/faces/editora.xhtml HTTP/1.1" 200 16442
+127.0.0.1 - - [04/May/2017:17:33:19 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:33:21 -0300] "GET /Projeto-EcommerceJSF/faces/genero.xhtml HTTP/1.1" 200 14382
+127.0.0.1 - - [04/May/2017:17:34:31 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:34:34 -0300] "GET /Projeto-EcommerceJSF/faces/genero.xhtml HTTP/1.1" 200 14618
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:34:51 -0300] "POST /Projeto-EcommerceJSF/faces/genero.xhtml HTTP/1.1" 200 14743
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:35:00 -0300] "POST /Projeto-EcommerceJSF/faces/genero.xhtml HTTP/1.1" 200 14739
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:35:14 -0300] "GET /Projeto-EcommerceJSF/faces/genero.xhtml HTTP/1.1" 200 15063
+127.0.0.1 - - [04/May/2017:17:53:21 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:53:24 -0300] "GET /Projeto-EcommerceJSF/faces/livro.xhtml HTTP/1.1" 200 16193
+0:0:0:0:0:0:0:1 - - [04/May/2017:17:54:30 -0300] "GET /Projeto-EcommerceJSF/faces/livro.xhtml HTTP/1.1" 200 17166
