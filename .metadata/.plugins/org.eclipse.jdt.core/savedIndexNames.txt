@@ -26,15 +26,15 @@ INDEX VERSION 1.130+C:\Users\Julio Cezar\Desktop\JSFEcommerce\.metadata\.plugins
 622187199.index
 688365908.index
 3155006564.index
-2221491804.index
-2715310064.index
 2263794123.index
+2715310064.index
+2221491804.index
 2907473905.index
-2911469802.index
 1645482675.index
-3530696563.index
 3274236323.index
+3530696563.index
 194205294.index
+2911469802.index
 1539866187.index
 1841280308.index
 3207752230.index
@@ -43,5 +43,5 @@ INDEX VERSION 1.130+C:\Users\Julio Cezar\Desktop\JSFEcommerce\.metadata\.plugins
 2333419045.index
 2997567257.index
 820084027.index
-543038442.index
 2561179376.index
+543038442.index

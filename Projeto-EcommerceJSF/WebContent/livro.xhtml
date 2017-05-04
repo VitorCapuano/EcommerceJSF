@@ -10,70 +10,66 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 		<h3>Cadastrar Livro</h3>
 		<h:messages globalOnly="true" styleClass="alert alert-success" style="list-style: none;"/>
 		<h:form>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="form-group">
-						<h:outputLabel value="Titulo"/>
-						<h:inputText value="#{Livro.livro.titulo}" styleClass="form-control"/>
-					</div>
-				</div>
+			<div class="col-md-4">
+				Inserir Imagem
 			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<h:outputLabel>Editora:</h:outputLabel>
-								<h:selectOneMenu filter="true" value="#{Livro.livro.editora}" styleClass="form-control">
-									<f:selectItem noSelectionOption="true" itemLabel="Selecione a editora" />
-									<f:selectItems value="#{Livro.listaEditora}" var="editora" 
-									itemValue="#{editora.idEditora}" itemLabel="#{editora.nome}" />
-								</h:selectOneMenu>
-							</div>
-						</div>	
-						<div class="col-md-6">
-							<div class="form-group">
-								<h:outputLabel>Autor:</h:outputLabel>
-								<h:selectOneMenu filter="true" value="#{Livro.livro.autor}" styleClass="form-control">
-									<f:selectItem itemValue="" itemLabel="Selecione o autor" />
-									<f:selectItems value="#{Livro.listaAutor}" var="autor"
-									itemValue="autor.idAutor" itemLabel="#{autor.nome}" />
-								</h:selectOneMenu>
-							</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group">
+							<h:outputLabel value="Titulo"/>
+							<h:inputText value="#{Livro.livro.titulo}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group">
+							<h:outputLabel>Editora:</h:outputLabel>
+							<h:selectOneMenu value="#{Livro.livro.editora}" styleClass="form-control"
+							converter="omnifaces.SelectItemsConverter">
+								<f:selectItem noSelectionOption="true" itemLabel="Selecione a editora" />
+								<f:selectItems value="#{Livro.listaEditora}" var="editora" itemValue="#{editora}" itemLabel="#{editora.nome}"/>
+							</h:selectOneMenu>
 						</div>
 					</div>
 				</div>
-			</div>
-				
-			<div class="row">
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<h:outputLabel>Genero:</h:outputLabel>
-								<h:selectOneMenu filter="true" value="#{Livro.livro.genero}" styleClass="form-control">
-									<f:selectItem itemValue="" itemLabel="Selecione o genero" />
-									<f:selectItems value="#{Livro.listaGenero}" var="genero"
-									itemValue="genero.idGenero" itemLabel="#{genero.nome}" />
-								</h:selectOneMenu>
-							</div>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group">
+							<h:outputLabel>Genero:</h:outputLabel>
+							<h:selectOneMenu value="#{Livro.livro.genero}" styleClass="form-control"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem noSelectionOption="true" itemLabel="Selecione o genero"/>
+								<f:selectItems value="#{Livro.listaGenero}" var="genero" itemValue="#{genero}" itemLabel="#{genero.nome}"/>
+							</h:selectOneMenu>
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			
-			<div class="row">
-				<div class="col-md-4">
-					<div class="form-group">
-						<h:outputLabel>Descrição:</h:outputLabel>
-						<h:inputTextarea rows="8" cols="5" class="form-control">
-						</h:inputTextarea>
+				<div class="row">
+					<div class="col-md-5">
+						<div class="form-group">
+							<h:outputLabel>Autor:</h:outputLabel>
+							<h:selectOneMenu value="#{Livro.livro.autor}" styleClass="form-control"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem noSelectionOption="true" itemLabel="Selecione o autor"/>
+								<f:selectItems value="#{Livro.listaAutor}" var="autor" itemValue="#{autor}" itemLabel="#{autor.nome}"/>
+							</h:selectOneMenu>
+						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group">
+							<h:outputLabel>Descrição:</h:outputLabel>
+							<h:inputTextarea rows="5" cols="7" class="form-control" value="#{Livro.livro.descricao}">
+							</h:inputTextarea>
+						</div>
+					</div>
+				</div>
+					<h:commandButton value="Cadastrar" styleClass="btn btn-primary" actionListener="#{Livro.cadastrar}"/>
 			</div>
-			<h:commandButton value="Cadastrar" styleClass="btn btn-primary"/>
-		</h:form>
-</div>		
+		</h:form>			
+	</div>		
 
 </html>

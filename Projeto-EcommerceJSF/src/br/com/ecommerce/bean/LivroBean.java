@@ -31,9 +31,6 @@ public class LivroBean {
 		return listaEditora;
 	}
 
-	public void setListaEditora(List<Editora> listaEditora) {
-		this.listaEditora = listaEditora;
-	}
 	
 	//Get e Set do Listar autor
 	public List<Autor> getListaAutor() {
@@ -43,10 +40,6 @@ public class LivroBean {
 	}
 	
 	//Get e Set do Listar autor
-
-	public void setListaAutor(List<Autor> listaAutor) {
-		this.listaAutor = listaAutor;
-	}
 	
 	
 	//Get e Set do genero

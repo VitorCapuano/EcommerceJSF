@@ -53,5 +53,8 @@ public class Livro {
 		this.autor = autor;
 	}
 	
-	
+	@Override
+	public String toString() {
+	    return String.format("%s[id=%d]", getClass().getSimpleName(), getIdLivro());
+	}
 }

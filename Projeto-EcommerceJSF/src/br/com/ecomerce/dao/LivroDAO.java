@@ -15,17 +15,16 @@ public class LivroDAO {
     
     public boolean cadastrarLivro(Livro livro){
     	boolean cadastrou = false;
-    	sql = "INSERT INTO LIVRO VALUES ( NULL, ?, ?, ?, ?, ?, ?)";
+    	sql = "INSERT INTO LIVRO VALUES ( NULL, ?, NULL, ?, ?, ?, ?)";
     	connection = Conexao.getConnection();
         
         try {
 			p = connection.prepareStatement(sql);
 			p.setString(1, livro.getTitulo());
-			p.setDate(2, livro.getData_cadastro());
-			p.setString(3, livro.getDescricao());
-			p.setInt(4, livro.getEditora().getIdEditora());
-			p.setInt(5, livro.getGenero().getGeneroId());
-			p.setInt(6, livro.getAutor().getIdAutor());
+			p.setString(2, livro.getDescricao());
+			p.setInt(3, livro.getEditora().getIdEditora());
+			p.setInt(4, livro.getGenero().getGeneroId());
+			p.setInt(5, livro.getAutor().getIdAutor());
 			p.execute();
 			cadastrou = true;
         }catch (Exception e) {
