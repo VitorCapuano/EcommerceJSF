@@ -1,5 +1,8 @@
 package br.com.ecommerce.bean;
 
+import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -11,6 +14,7 @@ import br.com.ecommerce.util.JavaUtil;
 @ViewScoped
 public class GeneroBean {
 	private Genero genero = new Genero();
+	private List<Genero> listarGenero;
 
 	public Genero getGenero() {
 		return genero;
@@ -18,6 +22,20 @@ public class GeneroBean {
 
 	public void setGenero(Genero genero) {
 		this.genero = genero;
+	}
+	
+	public List<Genero> getListarGenero() {
+		return listarGenero;
+	}
+	
+	public void setListarGenero(List<Genero> listarGenero) {
+		this.listarGenero = listarGenero;
+	}
+	
+	@PostConstruct
+	public void listar(){
+		GeneroDAO genero = new GeneroDAO();
+		listarGenero = genero.listarGenero();
 	}
 	
 	public void cadastrar(){

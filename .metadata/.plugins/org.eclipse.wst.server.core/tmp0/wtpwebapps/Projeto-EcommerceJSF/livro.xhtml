@@ -3,10 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 xmlns:h="http://java.sun.com/jsf/html"
 xmlns:f="http://java.sun.com/jsf/core"
-xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
 <ui:include src="/base.xhtml" />
 
 <div class="container">
+	<div class="row">
 		<h3>Cadastrar Livro</h3>
 		<h:messages globalOnly="true" styleClass="alert alert-success" style="list-style: none;"/>
 		<h:form>
@@ -68,8 +70,22 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 					</div>
 				</div>
 					<h:commandButton value="Cadastrar" styleClass="btn btn-primary" actionListener="#{Livro.cadastrar}"/>
-			</div>
-		</h:form>			
+				</div>
+			</h:form>
+		</div>	
+		<div class="row">
+			<p:dataTable emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Livro.listarLivro}"  var="livro">
+				<p:column headerText="Titulo" sortBy="#{livro.titulo}">
+					<h:outputText value="#{livro.titulo}"/>
+				</p:column>
+				<p:column headerText="Descrição" sortBy="#{livro.descricao}">
+					<h:outputText value="#{livro.descricao}"/>
+				</p:column>
+				<p:column>
+					<h:commandButton value="Excluir" styleClass="btn btn-danger"/>
+				</p:column>
+			</p:dataTable>
+		</div>		
 	</div>		
 
 </html>
