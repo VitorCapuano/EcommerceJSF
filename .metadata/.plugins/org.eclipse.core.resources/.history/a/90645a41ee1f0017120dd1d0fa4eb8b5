@@ -1,6 +1,0 @@
-package br.com.ecommerce.modelo;
-
-public class Livro {
-	private String titulo;
-	
-}
