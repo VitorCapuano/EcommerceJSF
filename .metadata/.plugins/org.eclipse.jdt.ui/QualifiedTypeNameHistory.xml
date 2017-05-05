@@ -16,15 +16,16 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Livro"/>
-<fullyQualifiedTypeName name="br.com.ecomerce.dao.LivroDAO"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Editora"/>
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.AutorDAO"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.EditoraDAO"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="br.com.ecomerce.dao.AutorDAO"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.GeneroDAO"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.LivroDAO"/>
 <fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
-<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

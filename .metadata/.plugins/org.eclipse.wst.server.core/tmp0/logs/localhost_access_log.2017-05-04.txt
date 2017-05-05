@@ -137,3 +137,10 @@
 127.0.0.1 - - [04/May/2017:17:53:21 -0300] "GET / HTTP/1.1" 404 1073
 0:0:0:0:0:0:0:1 - - [04/May/2017:17:53:24 -0300] "GET /Projeto-EcommerceJSF/faces/livro.xhtml HTTP/1.1" 200 16193
 0:0:0:0:0:0:0:1 - - [04/May/2017:17:54:30 -0300] "GET /Projeto-EcommerceJSF/faces/livro.xhtml HTTP/1.1" 200 17166
+127.0.0.1 - - [04/May/2017:22:20:56 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [04/May/2017:22:20:59 -0300] "GET /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 16341
+127.0.0.1 - - [04/May/2017:22:30:26 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [04/May/2017:22:30:28 -0300] "GET /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 19212
+0:0:0:0:0:0:0:1 - - [04/May/2017:22:30:38 -0300] "POST /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 1642
+0:0:0:0:0:0:0:1 - - [04/May/2017:22:30:49 -0300] "POST /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 1642
+0:0:0:0:0:0:0:1 - - [04/May/2017:22:30:54 -0300] "POST /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 1642

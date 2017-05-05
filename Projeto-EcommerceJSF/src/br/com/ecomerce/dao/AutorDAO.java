@@ -62,4 +62,18 @@ public class AutorDAO {
     	
     	return lista;
     }
+
+
+	public void excluir(Autor autor) {
+		sql = "DELETE FROM AUTOR WHERE ID_AUTOR = ?";
+		connection = Conexao.getConnection();
+		try{
+			p = connection.prepareStatement(sql);
+			p.setInt(1, autor.getIdAutor());
+			p.execute();
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

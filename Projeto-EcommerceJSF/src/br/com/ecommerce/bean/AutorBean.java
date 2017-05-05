@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 
 import br.com.ecomerce.dao.AutorDAO;
 import br.com.ecommerce.modelo.Autor;
@@ -42,8 +43,19 @@ public class AutorBean{
 		AutorDAO dao = new AutorDAO();
 		boolean cadastrado = dao.cadastrarAutor(autor);
 		if(cadastrado == true){
+			listaAutor = dao.listarAutor();
+			autor = new Autor();
 			JavaUtil.adicionarMensagemSucesso("Autor cadastrado com sucesso!");
 		}
+	}
+	
+	public void excluir(ActionEvent evento){
+		autor = (Autor) evento.getComponent().getAttributes().get("autorSelecionado");
+		AutorDAO dao = new AutorDAO();
+		dao.excluir(autor);
+		listaAutor = dao.listarAutor();
+		
+		JavaUtil.adicionarMensagemSucesso("Autor excluído com sucesso!");
 	}
 	
 }
