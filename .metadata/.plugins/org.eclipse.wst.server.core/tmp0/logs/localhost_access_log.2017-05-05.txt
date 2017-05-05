@@ -8,3 +8,7 @@
 127.0.0.1 - - [05/May/2017:01:35:25 -0300] "GET / HTTP/1.1" 404 1073
 0:0:0:0:0:0:0:1 - - [05/May/2017:01:35:28 -0300] "GET /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 20527
 0:0:0:0:0:0:0:1 - - [05/May/2017:01:35:36 -0300] "POST /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 8274
+127.0.0.1 - - [05/May/2017:01:36:48 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [05/May/2017:01:36:51 -0300] "GET /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 20527
+0:0:0:0:0:0:0:1 - - [05/May/2017:01:36:59 -0300] "POST /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 7279
+0:0:0:0:0:0:0:1 - - [05/May/2017:01:37:13 -0300] "POST /Projeto-EcommerceJSF/faces/autor.xhtml HTTP/1.1" 200 6299
