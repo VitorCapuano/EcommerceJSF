@@ -68,7 +68,9 @@ xmlns:p="http://primefaces.org/ui">
 					<p:commandButton value="Excluir" actionListener="#{Autor.excluir}" update=":tabela">
 						<p:confirm header="Confirmação" message="Deseja excluir o autor?"/>
 						<f:attribute name="autorSelecionado" value="#{autor}"/>
-							
+					</p:commandButton>
+					<p:commandButton value="Editar" actionListener="#{Autor.editar}" oncomplete="PF('dialogo').show();" update=":formEdicao:painel">
+						<f:attribute name="autorSelecionado" value="#{autor}"/>
 					</p:commandButton>
 				</p:column>
 			</p:dataTable>
@@ -77,6 +79,50 @@ xmlns:p="http://primefaces.org/ui">
 			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
 			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 		</p:confirmDialog>
+		
+		<p:dialog header="Edição Autor" widgetVar="dialogo" draggable="false" resizable="false" modal="true" closable="false">
+			<h:form id="formEdicao">
+				<h:panelGrid id="painel">
+					<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="Nome"/>
+							<h:inputText value="#{Autor.autor.nome}" styleClass="form-control" size="30"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="CPF"/>
+							<h:inputText value="#{Autor.autor.cpf}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-md-4">	
+						<div class="form-group">
+							<h:outputLabel value="Endereço"/>
+							<h:inputText value="#{Autor.autor.endereco}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-md-3">	
+						<div class="form-group">
+							<h:outputLabel value="Telefone"/>
+							<h:inputText value="#{Autor.autor.telefone}" styleClass="form-control"/>
+						</div>
+					</div>	
+				</div>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+				<h:commandButton value="Salvar" styleClass="btn btn-primary" actionListener="#{Autor.alterar}"
+				update=":tabela "/>
+				<p:commandButton value="Cancelar" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
 	</div>
 </body>
 </html>

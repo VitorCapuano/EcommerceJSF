@@ -58,5 +58,23 @@ public class AutorBean{
 		JavaUtil.adicionarMensagemSucesso("Autor excluído com sucesso!");
 	}
 	
+	public void editar(ActionEvent evento){
+		autor = (Autor) evento.getComponent().getAttributes().get("autorSelecionado");
+		
+	}
+	
+	public void alterar(){
+		AutorDAO dao = new AutorDAO();
+		boolean alterado = dao.editar(autor);
+		if(alterado == true){
+			listaAutor = dao.listarAutor();
+			JavaUtil.adicionarMensagemSucesso("Autor alterado com sucesso!");
+		}
+		else{
+			JavaUtil.adicionarMensagemSucesso("Erro ao editar banco");
+		}
+		
+	}
+	
 }
 
