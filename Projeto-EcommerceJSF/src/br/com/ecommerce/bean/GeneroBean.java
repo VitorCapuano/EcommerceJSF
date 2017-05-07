@@ -7,7 +7,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import br.com.ecomerce.dao.AutorDAO;
 import br.com.ecomerce.dao.GeneroDAO;
+import br.com.ecommerce.modelo.Autor;
 import br.com.ecommerce.modelo.Genero;
 import br.com.ecommerce.util.JavaUtil;
 
@@ -56,5 +58,24 @@ public class GeneroBean {
 		listarGenero = dao.listarGenero();
 		
 		JavaUtil.adicionarMensagemSucesso("Editora excluída com sucesso!");
+	}
+	
+	
+	public void editar(ActionEvent evento){
+		genero = (Genero) evento.getComponent().getAttributes().get("generoSelecionado");
+		
+	}
+	
+	public void alterar(){
+		GeneroDAO dao = new GeneroDAO();
+		boolean alterado = dao.editar(genero);
+		if(alterado == true){
+			listarGenero = dao.listarGenero();
+			JavaUtil.adicionarMensagemSucesso("Genero alterado com sucesso!");
+		}
+		else{
+			JavaUtil.adicionarMensagemSucesso("Erro ao editar banco");
+		}
+		
 	}
 }

@@ -33,6 +33,9 @@ xmlns:p="http://primefaces.org/ui">
 						<p:confirm header="Confirmação" message="Deseja excluir o genero?"/>
 						<f:attribute name="generoSelecionado" value="#{genero}"/>
 					</p:commandButton>
+					<p:commandButton value="Editar" actionListener="#{Genero.editar}" oncomplete="PF('dialogo').show();" update=":formEdicao:painel">
+						<f:attribute name="generoSelecionado" value="#{genero}"/>
+					</p:commandButton>
 				</p:column>
 			</p:dataTable>
 		</div>	
@@ -40,5 +43,25 @@ xmlns:p="http://primefaces.org/ui">
 			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
 			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 		</p:confirmDialog>
+		
+		<p:dialog header="Edição genero" widgetVar="dialogo" draggable="false" resizable="false" modal="true" closable="false">
+			<h:form id="formEdicao">
+				<h:panelGrid id="painel">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<h:outputLabel value="Nome"/>
+								<h:inputText value="#{Genero.genero.nome}" styleClass="form-control"/>
+							</div>
+						</div>
+					</div>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h:commandButton value="Salvar" styleClass="btn btn-primary" actionListener="#{Genero.alterar}"
+					update=":tabela "/>
+					<p:commandButton value="Cancelar" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
 	</div>
 </html>

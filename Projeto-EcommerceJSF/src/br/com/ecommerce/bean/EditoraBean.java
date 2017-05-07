@@ -7,7 +7,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.event.ActionEvent;
 
+import br.com.ecomerce.dao.AutorDAO;
 import br.com.ecomerce.dao.EditoraDAO;
+import br.com.ecommerce.modelo.Autor;
 import br.com.ecommerce.modelo.Editora;
 import br.com.ecommerce.util.JavaUtil;
 
@@ -47,9 +49,6 @@ public class EditoraBean {
 			editora = new Editora();
 			JavaUtil.adicionarMensagemSucesso("Editora cadastrada com sucesso!");
 		}
-		
-		
-	
 	}
 	
 	public void excluir(ActionEvent evento){
@@ -59,6 +58,24 @@ public class EditoraBean {
 		listarEditora = dao.listarEditora();
 		
 		JavaUtil.adicionarMensagemSucesso("Editora excluída com sucesso!");
+	}
+	
+	public void editar(ActionEvent evento){
+		editora = (Editora) evento.getComponent().getAttributes().get("editoraSelecionada");
+		
+	}
+	
+	public void alterar(){
+		EditoraDAO dao = new EditoraDAO();
+		boolean alterado = dao.editar(editora);
+		if(alterado == true){
+			listarEditora = dao.listarEditora();
+			JavaUtil.adicionarMensagemSucesso("Editora alterada com sucesso!");
+		}
+		else{
+			JavaUtil.adicionarMensagemSucesso("Erro ao editar banco");
+		}
+		
 	}
 	
 }

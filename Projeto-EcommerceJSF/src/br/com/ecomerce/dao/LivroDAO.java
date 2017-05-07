@@ -10,6 +10,7 @@ import java.util.List;
 import br.com.ecommerce.conexao.Conexao;
 import br.com.ecommerce.modelo.Autor;
 import br.com.ecommerce.modelo.Livro;
+import br.com.ecommerce.util.JavaUtil;
 
 public class LivroDAO {
 	private Connection connection;
@@ -73,5 +74,27 @@ public class LivroDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public boolean editar(Livro livro) {
+		boolean alterou = false;
+		sql = "UPDATE LIVRO SET TITULO = ?, DESCRICAO = ?, EDITORA_ID_EDITORA = ?, GENERO_ID_GENERO = ?, AUTOR_ID_AUTOR = ? WHERE LIVRO_ID = ? ";
+		connection = Conexao.getConnection();
+		try{
+			p = connection.prepareStatement(sql);
+			p.setString(1, livro.getTitulo());
+			p.setString(2, livro.getDescricao());
+			p.setInt(3, livro.getEditora().getIdEditora());
+			p.setInt(4, livro.getGenero().getGeneroId());
+			p.setInt(5, livro.getAutor().getIdAutor());
+			p.setInt(6, livro.getIdLivro());
+			p.execute();
+			alterou = true;
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JavaUtil.adicionarMensagemSucesso("Erro ao registrar no banco");
+		}
+		return alterou;
 	}
 }

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
+<ui:include src="/base.xhtml" />
+
+	<div class="container">
+		<div class="row">
+			<h3>Cadastrar Editora</h3>
+			<h:messages globalOnly="true" styleClass="alert alert-success" style="list-style: none;"/>
+			<h:form id="formListagem">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="Nome"/>
+							<h:inputText value="#{Editora.editora.nome}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="CNPJ"/>
+							<h:inputText value="#{Editora.editora.cnpj}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-md-4">	
+						<div class="form-group">
+							<h:outputLabel value="Endereço"/>
+							<h:inputText value="#{Editora.editora.endereco}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-md-3">	
+						<div class="form-group">
+							<h:outputLabel value="Telefone"/>
+							<h:inputText value="#{Editora.editora.telefone}" styleClass="form-control"/>
+						</div>
+					</div>	
+				</div>
+				<h:commandButton value="Cadastrar" styleClass="btn btn-primary" actionListener="#{Editora.cadastrar}"/>
+			</h:form>
+		</div>
+		<div class="row">
+			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Editora.listarEditora}"  var="editora">
+				<p:column headerText="Nome" sortBy="#{editora.nome}">
+					<h:outputText value="#{editora.nome}"/>
+				</p:column>
+				<p:column headerText="CNPJ" sortBy="#{editora.cnpj}">
+					<h:outputText value="#{editora.cnpj}"/>
+				</p:column>
+				<p:column headerText="Endereço" sortBy="#{editora.endereco}">
+					<h:outputText value="#{editora.endereco}"/>
+				</p:column>
+				<p:column headerText="Telefone" sortBy="#{editora.telefone}">
+					<h:outputText value="#{editora.telefone}"/>
+				</p:column>
+				<p:column>
+					<p:commandButton value="Excluir" actionListener="#{Editora.excluir}" update=":tabela">
+						<p:confirm header="Confirmação" message="Deseja excluir e editora?"/>
+						<f:attribute name="editoraSelecionada" value="#{editora}"/>
+					</p:commandButton>
+					<p:commandButton value="Editar" actionListener="#{Editora.editar}" oncomplete="PF('dialogo').show();" update=":formEdicao:painel">
+						<f:attribute name="editoraSelecionada" value="#{editora}"/>
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</div>	
+		<p:confirmDialog global="true">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+		
+		<p:dialog header="Edição editora" widgetVar="dialogo" draggable="false" resizable="false" modal="true" closable="false">
+			<h:form id="formEdicao">
+				<h:panelGrid id="painel">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<h:outputLabel value="Nome"/>
+								<h:inputText value="#{Editora.editora.nome}" styleClass="form-control"/>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="CNPJ"/>
+							<h:inputText value="#{Editora.editora.cnpj}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-md-4">	
+						<div class="form-group">
+							<h:outputLabel value="Endereço"/>
+							<h:inputText value="#{Editora.editora.endereco}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-md-3">	
+						<div class="form-group">
+							<h:outputLabel value="Telefone"/>
+							<h:inputText value="#{Editora.editora.telefone}" styleClass="form-control"/>
+						</div>
+					</div>	
+				</div>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h:commandButton value="Salvar" styleClass="btn btn-primary" actionListener="#{Autor.alterar}"
+					update=":tabela "/>
+					<p:commandButton value="Cancelar" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+	</div>
+
+</html>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.ecommerce.conexao.Conexao;
+import br.com.ecommerce.modelo.Autor;
 import br.com.ecommerce.modelo.Genero;
 import br.com.ecommerce.util.JavaUtil;
 
@@ -70,5 +71,23 @@ public class GeneroDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public boolean editar(Genero genero) {
+		boolean alterou = false;
+		sql = "UPDATE GENERO SET NOME = ? WHERE ID_GENERO = ? ";
+		connection = Conexao.getConnection();
+		try{
+			p = connection.prepareStatement(sql);
+			p.setString(1, genero.getNome());
+			p.setInt(2, genero.getGeneroId());
+			p.execute();
+			alterou = true;
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JavaUtil.adicionarMensagemSucesso("Erro ao registrar no banco");
+		}
+		return alterou;
 	}
 }

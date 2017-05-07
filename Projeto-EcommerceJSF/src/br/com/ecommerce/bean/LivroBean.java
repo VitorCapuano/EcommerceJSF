@@ -101,4 +101,22 @@ public class LivroBean {
 		JavaUtil.adicionarMensagemSucesso("Livro excluído com sucesso!");
 		
 	}
+	
+	public void editar(ActionEvent evento){
+		livro = (Livro) evento.getComponent().getAttributes().get("livroSelecionado");
+		
+	}
+	
+	public void alterar(){
+		LivroDAO dao = new LivroDAO();
+		boolean alterado = dao.editar(livro);
+		if(alterado == true){
+			listarLivro = dao.listarLivro();
+			JavaUtil.adicionarMensagemSucesso("Livro alterado com sucesso!");
+		}
+		else{
+			JavaUtil.adicionarMensagemSucesso("Erro ao editar banco");
+		}
+		
+	}
 }
