@@ -47,6 +47,9 @@ public class AutorBean{
 			autor = new Autor();
 			JavaUtil.adicionarMensagemSucesso("Autor cadastrado com sucesso!");
 		}
+		else{
+			JavaUtil.adicionarMensagemErro("Erro ao cadastrar Autor");
+		}
 	}
 	
 	public void excluir(ActionEvent evento){

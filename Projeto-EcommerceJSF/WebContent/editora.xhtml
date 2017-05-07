@@ -10,13 +10,13 @@ xmlns:p="http://primefaces.org/ui">
 	<div class="container">
 		<div class="row">
 			<h3>Cadastrar Editora</h3>
-			<h:messages globalOnly="true" styleClass="alert alert-success" style="list-style: none;"/>
+			<h:messages styleClass="alert alert-success" style="list-style: none;"/>
 			<h:form id="formListagem">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
 							<h:outputLabel value="Nome"/>
-							<h:inputText value="#{Editora.editora.nome}" styleClass="form-control"/>
+							<h:inputText value="#{Editora.editora.nome}" styleClass="form-control" required="true" requiredMessage="O Campo nome é obrigatório"/>
 						</div>
 					</div>
 				</div>
@@ -24,7 +24,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-4">
 						<div class="form-group">
 							<h:outputLabel value="CNPJ"/>
-							<h:inputText value="#{Editora.editora.cnpj}" styleClass="form-control"/>
+							<h:inputText value="#{Editora.editora.cnpj}" styleClass="form-control" required="true" requiredMessage="O Campo CNPJ é obrigatório"/>
 						</div>
 					</div>
 				</div>
@@ -32,7 +32,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-4">	
 						<div class="form-group">
 							<h:outputLabel value="Endereço"/>
-							<h:inputText value="#{Editora.editora.endereco}" styleClass="form-control"/>
+							<h:inputText value="#{Editora.editora.endereco}" styleClass="form-control" required="true" requiredMessage="O Campo Endereço é obrigatório"/>
 						</div>
 					</div>
 				</div>
@@ -40,7 +40,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-3">	
 						<div class="form-group">
 							<h:outputLabel value="Telefone"/>
-							<h:inputText value="#{Editora.editora.telefone}" styleClass="form-control"/>
+							<h:inputText value="#{Editora.editora.telefone}" styleClass="form-control" required="true" requiredMessage="O Campo Telefone é obrigatório"/>
 						</div>
 					</div>	
 				</div>

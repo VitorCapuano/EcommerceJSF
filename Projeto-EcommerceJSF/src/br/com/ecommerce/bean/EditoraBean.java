@@ -73,7 +73,7 @@ public class EditoraBean {
 			JavaUtil.adicionarMensagemSucesso("Editora alterada com sucesso!");
 		}
 		else{
-			JavaUtil.adicionarMensagemSucesso("Erro ao editar banco");
+			JavaUtil.adicionarMensagemErro("Erro ao cadastrar Editora");
 		}
 		
 	}

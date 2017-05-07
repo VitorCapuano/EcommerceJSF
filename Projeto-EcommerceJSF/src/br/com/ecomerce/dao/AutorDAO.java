@@ -34,6 +34,7 @@ public class AutorDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			JavaUtil.adicionarMensagemSucesso("Erro ao cadastrar autor no banco!");
 		}
         return cadastrou;
     }

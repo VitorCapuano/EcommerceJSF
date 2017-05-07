@@ -10,7 +10,7 @@ xmlns:p="http://primefaces.org/ui">
 <div class="container">
 	<div class="row">
 		<h3>Cadastrar Livro</h3>
-		<h:messages globalOnly="true" styleClass="alert alert-success" style="list-style: none;"/>
+		<h:messages styleClass="alert alert-success" style="list-style: none;"/>
 		<h:form>
 			<div class="col-md-4">
 				Inserir Imagem
@@ -20,7 +20,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-7">
 						<div class="form-group">
 							<h:outputLabel value="Titulo"/>
-							<h:inputText value="#{Livro.livro.titulo}" styleClass="form-control"/>
+							<h:inputText value="#{Livro.livro.titulo}" styleClass="form-control" required="true" requiredMessage="O Campo Titulo é obrigatório"/>
 						</div>
 					</div>
 				</div>	
@@ -28,7 +28,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-5">
 						<div class="form-group">
 							<h:outputLabel>Editora:</h:outputLabel>
-							<h:selectOneMenu value="#{Livro.livro.editora}" styleClass="form-control"
+							<h:selectOneMenu value="#{Livro.livro.editora}" styleClass="form-control" required="true" requiredMessage="O Campo Editora é obrigatório"
 							converter="omnifaces.SelectItemsConverter">
 								<f:selectItem noSelectionOption="true" itemLabel="Selecione a editora" />
 								<f:selectItems value="#{Livro.listaEditora}" var="editora" itemValue="#{editora}" itemLabel="#{editora.nome}"/>
@@ -40,7 +40,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-5">
 						<div class="form-group">
 							<h:outputLabel>Genero:</h:outputLabel>
-							<h:selectOneMenu value="#{Livro.livro.genero}" styleClass="form-control"
+							<h:selectOneMenu value="#{Livro.livro.genero}" styleClass="form-control" required="true" requiredMessage="O Campo Gênero é obrigatório"
 								converter="omnifaces.SelectItemsConverter">
 								<f:selectItem noSelectionOption="true" itemLabel="Selecione o genero"/>
 								<f:selectItems value="#{Livro.listaGenero}" var="genero" itemValue="#{genero}" itemLabel="#{genero.nome}"/>
@@ -52,7 +52,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-5">
 						<div class="form-group">
 							<h:outputLabel>Autor:</h:outputLabel>
-							<h:selectOneMenu value="#{Livro.livro.autor}" styleClass="form-control"
+							<h:selectOneMenu value="#{Livro.livro.autor}" styleClass="form-control" required="true" requiredMessage="O Campo Autor é obrigatório"
 								converter="omnifaces.SelectItemsConverter">
 								<f:selectItem noSelectionOption="true" itemLabel="Selecione o autor"/>
 								<f:selectItems value="#{Livro.listaAutor}" var="autor" itemValue="#{autor}" itemLabel="#{autor.nome}"/>
@@ -64,7 +64,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-7">
 						<div class="form-group">
 							<h:outputLabel>Descrição:</h:outputLabel>
-							<h:inputTextarea rows="5" cols="7" class="form-control" value="#{Livro.livro.descricao}">
+							<h:inputTextarea rows="5" cols="7" class="form-control" value="#{Livro.livro.descricao}" required="true" requiredMessage="O Campo Descrição é obrigatório">
 							</h:inputTextarea>
 						</div>
 					</div>

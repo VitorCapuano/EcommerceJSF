@@ -11,13 +11,13 @@ xmlns:p="http://primefaces.org/ui">
 	<div class="container">
 		<div class="row">
 			<h3>Cadastrar Autor</h3>
-			<h:messages globalOnly="true" styleClass="alert alert-success" style="list-style: none;"/>
+			<h:messages id="mensagem" styleClass="alert alert-success" style="list-style: none;"/>
 			<h:form id="formListagem">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
 							<h:outputLabel value="Nome"/>
-							<h:inputText value="#{Autor.autor.nome}" styleClass="form-control"/>
+							<h:inputText value="#{Autor.autor.nome}" styleClass="form-control" required="true" requiredMessage="O Campo Nome é obrigatório"/>
 						</div>
 					</div>
 				</div>
@@ -25,7 +25,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-4">
 						<div class="form-group">
 							<h:outputLabel value="CPF"/>
-							<h:inputText value="#{Autor.autor.cpf}" styleClass="form-control"/>
+							<h:inputText value="#{Autor.autor.cpf}" styleClass="form-control" required="true" requiredMessage="O Campo CPF é obrigatório"/>
 						</div>
 					</div>
 				</div>
@@ -33,7 +33,7 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-4">	
 						<div class="form-group">
 							<h:outputLabel value="Endereço"/>
-							<h:inputText value="#{Autor.autor.endereco}" styleClass="form-control"/>
+							<h:inputText value="#{Autor.autor.endereco}" styleClass="form-control" required="true" requiredMessage="O Campo Endereço é obrigatório"/>
 						</div>
 					</div>
 				</div>
@@ -41,12 +41,12 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-3">	
 						<div class="form-group">
 							<h:outputLabel value="Telefone"/>
-							<h:inputText value="#{Autor.autor.telefone}" styleClass="form-control"/>
+							<h:inputText value="#{Autor.autor.telefone}" styleClass="form-control" required="true" requiredMessage="O Campo Telefone é obrigatório"/>
 						</div>
 					</div>	
 				</div>
 				<h:commandButton value="Cadastrar" styleClass="btn btn-primary" actionListener="#{Autor.cadastrar}"
-				update=":tabela "/>
+				update=":mensagem :tabela "/>
 			</h:form>
 		</div>
 		
@@ -65,11 +65,11 @@ xmlns:p="http://primefaces.org/ui">
 					<h:outputText value="#{autor.telefone}"/>
 				</p:column>
 				<p:column>
-					<p:commandButton value="Excluir" actionListener="#{Autor.excluir}" update=":tabela">
+					<p:commandButton value="Excluir" actionListener="#{Autor.excluir}" update=":mensagem :tabela">
 						<p:confirm header="Confirmação" message="Deseja excluir o autor?"/>
 						<f:attribute name="autorSelecionado" value="#{autor}"/>
 					</p:commandButton>
-					<p:commandButton value="Editar" actionListener="#{Autor.editar}" oncomplete="PF('dialogo').show();" update=":formEdicao:painel">
+					<p:commandButton value="Editar" actionListener="#{Autor.editar}" oncomplete="PF('dialogo').show();" update=":mensagem :formEdicao:painel">
 						<f:attribute name="autorSelecionado" value="#{autor}"/>
 					</p:commandButton>
 				</p:column>
@@ -118,7 +118,7 @@ xmlns:p="http://primefaces.org/ui">
 				</h:panelGrid>
 				<h:panelGrid columns="2">
 				<h:commandButton value="Salvar" styleClass="btn btn-primary" actionListener="#{Autor.alterar}"
-				update=":tabela "/>
+				update=":mensagem :tabela "/>
 				<p:commandButton value="Cancelar" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
 				</h:panelGrid>
 			</h:form>

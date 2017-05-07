@@ -49,6 +49,9 @@ public class GeneroBean {
 			genero = new Genero();
 			JavaUtil.adicionarMensagemSucesso("Genero cadastrada com sucesso!");
 		}
+		else{
+			JavaUtil.adicionarMensagemErro("Genero cadastrada com sucesso!");
+		}
 	}
 	
 	public void excluir(ActionEvent evento){
