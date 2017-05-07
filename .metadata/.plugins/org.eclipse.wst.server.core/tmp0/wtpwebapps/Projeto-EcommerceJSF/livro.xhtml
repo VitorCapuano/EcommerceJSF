@@ -74,7 +74,7 @@ xmlns:p="http://primefaces.org/ui">
 			</h:form>
 		</div>	
 		<div class="row">
-			<p:dataTable emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Livro.listarLivro}"  var="livro">
+			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Livro.listarLivro}"  var="livro">
 				<p:column headerText="Titulo" sortBy="#{livro.titulo}">
 					<h:outputText value="#{livro.titulo}"/>
 				</p:column>
@@ -82,10 +82,17 @@ xmlns:p="http://primefaces.org/ui">
 					<h:outputText value="#{livro.descricao}"/>
 				</p:column>
 				<p:column>
-					<h:commandButton value="Excluir" styleClass="btn btn-danger"/>
+					<p:commandButton value="Excluir" actionListener="#{Livro.excluir}" update=":tabela">
+						<p:confirm header="Confirmação" message="Deseja excluir o livro?"/>
+						<f:attribute name="livroSelecionado" value="#{livro}"/>
+					</p:commandButton>
 				</p:column>
 			</p:dataTable>
 		</div>		
+		<p:confirmDialog global="true">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
 	</div>		
 
 </html>

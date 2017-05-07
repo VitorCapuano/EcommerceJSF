@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 
 import br.com.ecomerce.dao.EditoraDAO;
 import br.com.ecommerce.modelo.Editora;
@@ -42,10 +43,22 @@ public class EditoraBean {
 		EditoraDAO dao = new EditoraDAO();
 		boolean cadastrado = dao.cadastrarEditora(editora);
 		if(cadastrado == true){
+			listarEditora = dao.listarEditora();
+			editora = new Editora();
 			JavaUtil.adicionarMensagemSucesso("Editora cadastrada com sucesso!");
 		}
+		
+		
 	
-}
+	}
 	
+	public void excluir(ActionEvent evento){
+		editora = (Editora) evento.getComponent().getAttributes().get("editoraSelecionada");
+		EditoraDAO dao = new EditoraDAO();
+		dao.excluir(editora);
+		listarEditora = dao.listarEditora();
+		
+		JavaUtil.adicionarMensagemSucesso("Editora excluída com sucesso!");
+	}
 	
 }

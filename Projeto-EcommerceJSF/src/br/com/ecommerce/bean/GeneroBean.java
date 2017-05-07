@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 
 import br.com.ecomerce.dao.GeneroDAO;
 import br.com.ecommerce.modelo.Genero;
@@ -42,7 +43,18 @@ public class GeneroBean {
 		GeneroDAO dao = new GeneroDAO();
 		boolean cadastrado = dao.cadastrarGenero(genero);
 		if(cadastrado == true){
+			listarGenero = dao.listarGenero();
+			genero = new Genero();
 			JavaUtil.adicionarMensagemSucesso("Genero cadastrada com sucesso!");
 		}
+	}
+	
+	public void excluir(ActionEvent evento){
+		genero = (Genero) evento.getComponent().getAttributes().get("generoSelecionado");
+		GeneroDAO dao = new GeneroDAO();
+		dao.excluir(genero);
+		listarGenero = dao.listarGenero();
+		
+		JavaUtil.adicionarMensagemSucesso("Editora excluída com sucesso!");
 	}
 }

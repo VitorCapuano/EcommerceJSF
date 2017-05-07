@@ -64,6 +64,20 @@ public class EditoraDAO {
 		}
     	return lista;
     }
+
+	public void excluir(Editora editora) {
+		sql = "DELETE FROM EDITORA WHERE ID_EDITORA = ?";
+		connection = Conexao.getConnection();
+		try{
+			p = connection.prepareStatement(sql);
+			p.setInt(1, editora.getIdEditora());
+			p.execute();
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
     
     
     /*

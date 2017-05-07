@@ -11,7 +11,7 @@ xmlns:p="http://primefaces.org/ui">
 		<div class="row">
 			<h3>Cadastrar Editora</h3>
 			<h:messages globalOnly="true" styleClass="alert alert-success" style="list-style: none;"/>
-			<h:form>
+			<h:form id="formListagem">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
@@ -48,7 +48,7 @@ xmlns:p="http://primefaces.org/ui">
 			</h:form>
 		</div>
 		<div class="row">
-			<p:dataTable emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Editora.listarEditora}"  var="editora">
+			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Editora.listarEditora}"  var="editora">
 				<p:column headerText="Nome" sortBy="#{editora.nome}">
 					<h:outputText value="#{editora.nome}"/>
 				</p:column>
@@ -62,10 +62,18 @@ xmlns:p="http://primefaces.org/ui">
 					<h:outputText value="#{editora.telefone}"/>
 				</p:column>
 				<p:column>
-					<h:commandButton value="Excluir" styleClass="btn btn-danger"/>
+					<p:commandButton value="Excluir" actionListener="#{Editora.excluir}" update=":tabela">
+						<p:confirm header="Confirmação" message="Deseja excluir e editora?"/>
+						<f:attribute name="editoraSelecionada" value="#{editora}"/>
+						
+					</p:commandButton>
 				</p:column>
 			</p:dataTable>
 		</div>	
+		<p:confirmDialog global="true">
+			<p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
 	</div>
 
 </html>

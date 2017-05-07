@@ -57,4 +57,18 @@ public class GeneroDAO {
         
         return lista;
     }
+
+	public void excluir(Genero genero) {
+		sql = "DELETE FROM GENERO WHERE ID_GENERO = ?";
+		connection = Conexao.getConnection();
+		try{
+			p = connection.prepareStatement(sql);
+			p.setInt(1, genero.getGeneroId());
+			p.execute();
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }

@@ -60,4 +60,18 @@ public class LivroDAO {
 		}
     	return lista;
 	}
+
+	public void excluir(Livro livro) {
+		sql = "DELETE FROM LIVRO WHERE LIVRO_ID = ?";
+		connection = Conexao.getConnection();
+		try{
+			p = connection.prepareStatement(sql);
+			p.setInt(1, livro.getIdLivro());
+			p.execute();
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }

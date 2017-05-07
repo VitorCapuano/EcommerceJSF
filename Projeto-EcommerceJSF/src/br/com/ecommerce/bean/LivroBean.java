@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
 
 import br.com.ecomerce.dao.AutorDAO;
 import br.com.ecomerce.dao.EditoraDAO;
@@ -85,7 +86,19 @@ public class LivroBean {
 		LivroDAO dao = new LivroDAO();
 		boolean cadastrou = dao.cadastrarLivro(livro);
 		if(cadastrou == true){
+			listarLivro = dao.listarLivro();
+			livro = new Livro();
 			JavaUtil.adicionarMensagemSucesso("Editora cadastrada com sucesso!");
 		}
+	}
+	
+	public void excluir(ActionEvent evento){
+		livro = (Livro) evento.getComponent().getAttributes().get("livroSelecionado");
+		LivroDAO dao = new LivroDAO();
+		dao.excluir(livro);
+		listarLivro = dao.listarLivro();
+		
+		JavaUtil.adicionarMensagemSucesso("Livro excluído com sucesso!");
+		
 	}
 }
