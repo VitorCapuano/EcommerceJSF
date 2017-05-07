@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import br.com.ecommerce.conexao.Conexao;
 import br.com.ecommerce.modelo.Autor;
 import br.com.ecommerce.modelo.Editora;
+import br.com.ecommerce.util.JavaUtil;
 
 public class AutorDAO {
 	private Connection connection;
@@ -75,5 +76,27 @@ public class AutorDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+
+	public boolean editar(Autor autor) {
+		boolean alterou = false;
+		sql = "UPDATE AUTOR SET NOME = ?, CPF = ?, ENDERECO = ?, TELEFONE = ? WHERE ID_AUTOR = ? ";
+		connection = Conexao.getConnection();
+		try{
+			p = connection.prepareStatement(sql);
+			p.setString(1, autor.getNome());
+			p.setString(2, autor.getCpf());
+			p.setString(3, autor.getEndereco());
+			p.setString(4, autor.getTelefone());
+			p.setInt(5, autor.getIdAutor());
+			p.execute();
+			alterou = true;
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JavaUtil.adicionarMensagemSucesso("Erro ao registrar no banco");
+		}
+		return alterou;
 	}
 }
