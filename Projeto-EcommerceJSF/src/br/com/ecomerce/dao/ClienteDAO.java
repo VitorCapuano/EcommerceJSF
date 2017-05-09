@@ -15,9 +15,9 @@ public class ClienteDAO {
     private String sql;
     private ResultSet rs;
     
-    public boolean cadastrarAutor(Pessoa pessoa){
+    public boolean cadastrarCliente(Pessoa pessoa){
     	boolean cadastrou = false;
-    	sql = "INSERT INTO PESSOA (?, 'C', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    	sql = "INSERT INTO PESSOA VALUES (?, 'C', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         connection = Conexao.getConnection();
         try {
 			p = connection.prepareStatement(sql);

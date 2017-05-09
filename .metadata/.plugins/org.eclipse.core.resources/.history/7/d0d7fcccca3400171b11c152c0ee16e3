@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
+<ui:include src="/base.xhtml" />
+
+<body>
+	<div class="container">
+		<div class="row">
+			<h3>Cadastro de Cliente</h3>
+			<h:messages id="mensagem" styleClass="alert alert-success" style="list-style: none;"/>
+			<h:form id="formListagem">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="Nome"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="CPF"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="CEP"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<h:outputLabel value="Rua"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="form-group">
+							<h:outputLabel value="Número"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="Bairro"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="Cidade"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="Telefone"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="Celular"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="Email"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="Senha"/>
+							<h:inputText styleClass="form-control" />
+						</div>
+					</div>
+				</div>	
+			</h:form>
+		</div>				
+	</div>	
+</body>
+</html>

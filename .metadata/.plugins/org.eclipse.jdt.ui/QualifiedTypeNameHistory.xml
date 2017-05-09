@@ -13,8 +13,6 @@
 <fullyQualifiedTypeName name="javax.faces.view.facelets.FaceletContext"/>
 <fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.util.JavaUtil"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.bind.v2.schemagen.xmlschema.List"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
@@ -31,4 +29,10 @@
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.LivroDAO"/>
 <fullyQualifiedTypeName name="javax.faces.event.ActionEvent"/>
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.AutorDAO"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.modelo.Usuario"/>
+<fullyQualifiedTypeName name="java.lang.Character"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.modelo.Pessoa"/>
 </qualifiedTypeNameHistroy>
