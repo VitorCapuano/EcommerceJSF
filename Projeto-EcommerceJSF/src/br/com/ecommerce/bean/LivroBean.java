@@ -88,7 +88,7 @@ public class LivroBean {
 		if(cadastrou == true){
 			listarLivro = dao.listarLivro();
 			livro = new Livro();
-			JavaUtil.adicionarMensagemSucesso("Editora cadastrada com sucesso!");
+			JavaUtil.adicionarMensagemSucesso("Livro cadastrado com sucesso!");
 		}
 	}
 	

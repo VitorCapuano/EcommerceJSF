@@ -17,7 +17,7 @@ xmlns:p="http://primefaces.org/ui">
 			</div>
 			<div class="col-md-8">
 				<div class="row">
-					<div class="col-md-7">
+					<div class="col-md-12">
 						<div class="form-group">
 							<h:outputLabel value="Titulo"/>
 							<h:inputText value="#{Livro.livro.titulo}" styleClass="form-control" required="true" requiredMessage="O Campo Titulo é obrigatório"/>
@@ -25,7 +25,7 @@ xmlns:p="http://primefaces.org/ui">
 					</div>
 				</div>	
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="form-group">
 							<h:outputLabel>Editora:</h:outputLabel>
 							<h:selectOneMenu value="#{Livro.livro.editora}" styleClass="form-control" required="true" requiredMessage="O Campo Editora é obrigatório"
@@ -35,9 +35,8 @@ xmlns:p="http://primefaces.org/ui">
 							</h:selectOneMenu>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-5">
+				
+					<div class="col-md-6">
 						<div class="form-group">
 							<h:outputLabel>Genero:</h:outputLabel>
 							<h:selectOneMenu value="#{Livro.livro.genero}" styleClass="form-control" required="true" requiredMessage="O Campo Gênero é obrigatório"
@@ -49,7 +48,7 @@ xmlns:p="http://primefaces.org/ui">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="form-group">
 							<h:outputLabel>Autor:</h:outputLabel>
 							<h:selectOneMenu value="#{Livro.livro.autor}" styleClass="form-control" required="true" requiredMessage="O Campo Autor é obrigatório"
@@ -60,6 +59,20 @@ xmlns:p="http://primefaces.org/ui">
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<h:outputLabel>Preço:</h:outputLabel>
+							<h:inputText value="#{Livro.livro.preco}" required="true" requiredMessage="O Campo Preço é obrigatório" styleClass="form-control"/>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<h:outputLabel>Desconto:</h:outputLabel>
+							<h:inputText value="#{Livro.livro.desconto}" styleClass="form-control"/>
+						</div>
+					</div>
+				</div>			
 				<div class="row">
 					<div class="col-md-7">
 						<div class="form-group">
@@ -77,6 +90,12 @@ xmlns:p="http://primefaces.org/ui">
 			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Livro.listarLivro}"  var="livro">
 				<p:column headerText="Titulo" sortBy="#{livro.titulo}">
 					<h:outputText value="#{livro.titulo}"/>
+				</p:column>
+				<p:column headerText="Preço" sortBy="#{livro.preco}">
+					<h:outputText value="#{livro.preco}"/>
+				</p:column>
+				<p:column headerText="Desconto" sortBy="#{livro.desconto}">
+					<h:outputText value="#{livro.desconto}"/>
 				</p:column>
 				<p:column headerText="Descrição" sortBy="#{livro.descricao}">
 					<h:outputText value="#{livro.descricao}"/>
@@ -145,6 +164,20 @@ xmlns:p="http://primefaces.org/ui">
 							</div>
 						</div>
 					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<h:outputLabel>Preço:</h:outputLabel>
+								<h:inputText value="#{Livro.livro.preco}"  styleClass="form-control"/>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<h:outputLabel>Desconto:</h:outputLabel>
+								<h:inputText value="#{Livro.livro.desconto}" styleClass="form-control"/>
+							</div>
+						</div>
+					</div>	
 					<div class="row">
 						<div class="col-md-7">
 							<div class="form-group">

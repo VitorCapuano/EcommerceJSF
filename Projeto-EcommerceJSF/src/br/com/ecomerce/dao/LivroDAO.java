@@ -20,7 +20,7 @@ public class LivroDAO {
     
     public boolean cadastrarLivro(Livro livro){
     	boolean cadastrou = false;
-    	sql = "INSERT INTO LIVRO VALUES ( NULL, ?, NULL, ?, ?, ?, ?)";
+    	sql = "INSERT INTO LIVRO VALUES ( NULL, ?, ?, ?, ?, ?, ?, ?)";
     	connection = Conexao.getConnection();
         
         try {
@@ -30,6 +30,8 @@ public class LivroDAO {
 			p.setInt(3, livro.getEditora().getIdEditora());
 			p.setInt(4, livro.getGenero().getGeneroId());
 			p.setInt(5, livro.getAutor().getIdAutor());
+			p.setBigDecimal(6, livro.getPreco());
+			p.setBigDecimal(7, livro.getDesconto());
 			p.execute();
 			cadastrou = true;
         }catch (Exception e) {
@@ -52,6 +54,8 @@ public class LivroDAO {
 				Livro livro = new Livro();
 				livro.setIdLivro(rs.getInt("livro_id"));
 				livro.setTitulo(rs.getString("titulo"));
+				livro.setPreco(rs.getBigDecimal("preco"));
+				livro.setDesconto(rs.getBigDecimal("desconto"));
 				livro.setDescricao(rs.getString("descricao"));
 				lista.add(livro);
 			}
@@ -78,7 +82,7 @@ public class LivroDAO {
 	
 	public boolean editar(Livro livro) {
 		boolean alterou = false;
-		sql = "UPDATE LIVRO SET TITULO = ?, DESCRICAO = ?, EDITORA_ID_EDITORA = ?, GENERO_ID_GENERO = ?, AUTOR_ID_AUTOR = ? WHERE LIVRO_ID = ? ";
+		sql = "UPDATE LIVRO SET TITULO = ?, DESCRICAO = ?, EDITORA_ID_EDITORA = ?, GENERO_ID_GENERO = ?, AUTOR_ID_AUTOR = ? , DESCONTO = ?, PRECO = ? WHERE LIVRO_ID = ? ";
 		connection = Conexao.getConnection();
 		try{
 			p = connection.prepareStatement(sql);
@@ -87,7 +91,9 @@ public class LivroDAO {
 			p.setInt(3, livro.getEditora().getIdEditora());
 			p.setInt(4, livro.getGenero().getGeneroId());
 			p.setInt(5, livro.getAutor().getIdAutor());
-			p.setInt(6, livro.getIdLivro());
+			p.setBigDecimal(6, livro.getDesconto());
+			p.setBigDecimal(7, livro.getPreco());
+			p.setInt(8, livro.getIdLivro());
 			p.execute();
 			alterou = true;
 		}catch (SQLException e) {

@@ -1,27 +1,36 @@
 package br.com.ecommerce.modelo;
 
-import java.sql.Date;
+import java.math.BigDecimal;
 
 public class Livro {
 	private int idLivro;
-	private Date data_cadastro;
 	private String titulo;
 	private String descricao;
 	private Editora editora;
 	private Genero genero;
 	private Autor autor;
+	private BigDecimal preco;
+	private BigDecimal desconto;
+	
+	public BigDecimal getDesconto() {
+		return desconto;
+	}
+	public void setDesconto(BigDecimal desconto) {
+		this.desconto = desconto;
+	}
+	public BigDecimal getPreco() {
+		return preco;
+	}
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
 	public int getIdLivro() {
 		return idLivro;
 	}
 	public void setIdLivro(int idLivro) {
 		this.idLivro = idLivro;
 	}
-	public Date getData_cadastro() {
-		return data_cadastro;
-	}
-	public void setData_cadastro(Date data_cadastro) {
-		this.data_cadastro = data_cadastro;
-	}
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -60,7 +69,6 @@ public class Livro {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result + ((data_cadastro == null) ? 0 : data_cadastro.hashCode());
 		result = prime * result + ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((editora == null) ? 0 : editora.hashCode());
 		result = prime * result + ((genero == null) ? 0 : genero.hashCode());
@@ -81,11 +89,6 @@ public class Livro {
 			if (other.autor != null)
 				return false;
 		} else if (!autor.equals(other.autor))
-			return false;
-		if (data_cadastro == null) {
-			if (other.data_cadastro != null)
-				return false;
-		} else if (!data_cadastro.equals(other.data_cadastro))
 			return false;
 		if (descricao == null) {
 			if (other.descricao != null)
