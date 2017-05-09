@@ -1,0 +1,62 @@
+package br.com.ecommerce.modelo;
+
+import java.sql.Date;
+
+public class Cliente {
+	private int idCliente;
+	private Date dt_cadastro;
+	private Pessoa pessoa;
+	public int getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(int idCliente) {
+		this.idCliente = idCliente;
+	}
+	public Date getDt_cadastro() {
+		return dt_cadastro;
+	}
+	public void setDt_cadastro(Date dt_cadastro) {
+		this.dt_cadastro = dt_cadastro;
+	}
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dt_cadastro == null) ? 0 : dt_cadastro.hashCode());
+		result = prime * result + idCliente;
+		result = prime * result + ((pessoa == null) ? 0 : pessoa.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		if (dt_cadastro == null) {
+			if (other.dt_cadastro != null)
+				return false;
+		} else if (!dt_cadastro.equals(other.dt_cadastro))
+			return false;
+		if (idCliente != other.idCliente)
+			return false;
+		if (pessoa == null) {
+			if (other.pessoa != null)
+				return false;
+		} else if (!pessoa.equals(other.pessoa))
+			return false;
+		return true;
+	}
+	
+	
+
+}

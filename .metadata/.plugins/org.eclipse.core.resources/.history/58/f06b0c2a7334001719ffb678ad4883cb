@@ -1,0 +1,30 @@
+package br.com.ecomerce.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import br.com.ecommerce.conexao.Conexao;
+import br.com.ecommerce.modelo.Cliente;
+
+public class ClienteDAO {
+	private Connection connection;
+	private PreparedStatement p;
+	private ResultSet rs;
+	private String sql;
+	
+	
+	public void registrarCliente(Cliente cliente) {
+		try {
+			connection = Conexao.getConnection();
+			sql = "INSERT INTO CLIENTE VALUES(NULL,?,?,?,?,?,?)";
+			p = connection.prepareStatement(sql);
+			p.setDate(1, cliente.getDt_cadastro());
+			p.setString(2, cliente.getPessoa().getCpf());
+			p.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
+}
