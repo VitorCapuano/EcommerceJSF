@@ -12,7 +12,27 @@ public class Pessoa {
 	private String email;
 	private String cidade;
 	private String senha;
-	private Character tipo;
+	private String tipo;
+	
+	public Pessoa(){
+		
+	}
+	
+	public Pessoa(String nome2, String cpf2, String rua2, String numero2, String bairro2, String cep2, String telefone2, String email2, String senha2, 
+			String celular2, String cidade2, String tipo2) {
+		this.nome = nome2;
+		this.cpf = cpf2;
+		this.rua = rua2;
+		this.numero = numero2;
+		this.bairro = bairro2;
+		this.cep = cep2;
+		this.telefone = telefone2;
+		this.celular = celular2;
+		this.email = email2;
+		this.cidade = cidade2;
+		this.senha = senha2; 
+		this.tipo = tipo2;
+	}
 	
 	public String getSenha() {
 		return senha;
@@ -20,10 +40,10 @@ public class Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Character getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
-	public void setTipo(Character tipo) {
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 	public String getNome() {
@@ -163,6 +183,14 @@ public class Pessoa {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Pessoa [nome=" + nome + ", cpf=" + cpf + ", rua=" + rua + ", numero=" + numero + ", bairro=" + bairro
+				+ ", cep=" + cep + ", telefone=" + telefone + ", celular=" + celular + ", email=" + email + ", cidade="
+				+ cidade + ", senha=" + senha + ", tipo=" + tipo + "]";
+	}
+	
 	
 	
 }

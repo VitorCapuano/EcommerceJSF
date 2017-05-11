@@ -8,12 +8,16 @@ body{padding-top:50px}body>.navbar{-webkit-transition:background-color .3s ease-
 }
 
 .input-group-search{
-    width: 400px;
+    width: 360px;
     margin-left: 15px;
 }
 
 .navbar-form input[type=text]{
-    width: 300px;
+    width: 180px;
+}
+
+.navbar-form btn-primary{
+	margin-left: 10px;
 }
 
 

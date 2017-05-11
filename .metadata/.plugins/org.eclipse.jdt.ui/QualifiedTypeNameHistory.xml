@@ -18,7 +18,6 @@
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Autor"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Editora"/>
@@ -34,5 +33,9 @@
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Usuario"/>
 <fullyQualifiedTypeName name="java.lang.Character"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.UsuarioDAO"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Pessoa"/>
+<fullyQualifiedTypeName name="javax.annotation.PostConstruct"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.ClienteDAO"/>
+<fullyQualifiedTypeName name="javax.faces.bean.SessionScoped"/>
 </qualifiedTypeNameHistroy>
