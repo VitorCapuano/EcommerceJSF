@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
+<ui:include src="/base.xhtml" />
+
+<section class="secao">
+	<div class="container" style="margin-top: 80px;">
+		<div class="row">
+			
+			<div class="col-md-4">
+				<a href="#" class="thumbnail">
+					<img src="http://placehold.it/350x250" alt="" />
+				</a>
+			</div>
+		
+			<div class="col-sm-4" style="padding-left: 30px;">
+			  	<h3> Titulo do Livro</h3>
+				  <del class="precoAtual">De: R$ 000,00</del>
+				  <span class="precoDesconto" style="display: block">Por: <span class="preco">R$ 000,00</span></span>
+				  <button class="btn btn-primary btn-comprar">Comprar</button>
+			</div>
+			
+			 <div class="col-sm-4">
+			  	<form class="form-inline">
+			  		<div class="form-group">
+			  			<h:inputText styleClass="form-control"/>
+			  		</div>		
+			  		<button class="btn btn-primary">Calcular Frete</button>
+			  		<label style="margin-top: 20px;">Valor do Frete: </label>
+			  		<span style="display: block; margin-top: 60px; font-size: 1.4em;">Preço Total: <span style="font-size: 1.6em">R$000,00</span></span>
+			  	</form>
+		  	</div>	
+		</div>
+	</div>						
+</section>
+
+</html>
