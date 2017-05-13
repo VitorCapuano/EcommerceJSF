@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<ui:include src="/base.xhtml" />
+
+<div class="container">
+		<h:messages styleClass="alert alert-success" style="list-style: none;"/>
+		<div class="row" style="margin-top: 40px;">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<h:graphicImage library="imagens" name="teste.png"></h:graphicImage>
+					</div>
+					<div class="item">
+						<h:graphicImage library="imagens" name="teste.png"></h:graphicImage>										
+					</div>
+					<div class="item">
+						<h:graphicImage library="imagens" name="teste.png"></h:graphicImage>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+				   	<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+				   	<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>		
+			</div>
+		</div>
+	</div>
+	
+	<div class="section" style="margin-top: 60px; margin-bottom: 40px;">
+		<div class="row">
+			<div class="container" style="margin-bottom: 40px;">
+				<div class="row">
+					<h2>Livros mais Vendidos</h2>
+				</div>
+			</div>	
+		</div>		
+	</div>
+</html>

@@ -25,3 +25,29 @@ abr 14, 2017 22:51:20.73 [4860:5380:0414/225120.732:ERROR:child_thread_impl.cc(7
 abr 15, 2017 14:34:49.49 NEW SESSION
 abr 15, 2017 14:34:49.49 [4672:7788:0415/143449.470:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
 abr 15, 2017 14:51:10.63 [6776:5736:0415/145110.630:ERROR:child_thread_impl.cc(762)] Request for unknown Channel-associated interface: ui::mojom::GpuMain
+
+mai 12, 2017 16:12:08.88 NEW SESSION
+mai 12, 2017 16:12:08.88 [4500:2496:0512/161208.889:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -101
+mai 12, 2017 16:12:28.07 [4500:2496:0512/161228.072:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -101
+mai 12, 2017 16:12:31.44 [4500:2496:0512/161231.444:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -101
+mai 12, 2017 16:12:50.66 [4500:2496:0512/161250.665:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+mai 12, 2017 19:27:14.11 NEW SESSION
+mai 12, 2017 19:27:14.11 [2960:5420:0512/192714.111:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 12, 2017 19:27:37.29 [2960:5420:0512/192737.293:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 12, 2017 19:27:48.47 [2960:1560:0512/192748.470:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-105).
+mai 12, 2017 19:27:48.48 [2960:1560:0512/192748.470:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-105).
+mai 12, 2017 19:28:31.45 [2960:5420:0512/192831.452:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 12, 2017 19:30:22.97 [2960:5420:0512/193022.975:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 12, 2017 19:30:46.98 [2960:1560:0512/193046.979:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 12, 2017 19:31:12.04 [2960:1560:0512/193112.043:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 12, 2017 19:32:11.35 [2960:1560:0512/193211.354:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 12, 2017 19:33:15.11 [2960:5420:0512/193315.111:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 12, 2017 19:34:05.19 [2960:1560:0512/193405.192:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 12, 2017 19:37:13.50 [2960:1560:0512/193713.499:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 12, 2017 19:38:41.38 [2960:5420:0512/193841.388:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -202
+mai 12, 2017 19:49:02.79 [2960:5420:0512/194902.788:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
+mai 12, 2017 20:56:11.27 [2960:5420:0512/205611.276:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -21
+mai 12, 2017 20:56:13.79 [2960:5420:0512/205613.786:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -21
+mai 12, 2017 20:56:32.26 [2960:5420:0512/205632.262:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -21
+mai 12, 2017 20:59:30.92 [4472:3400:0512/205930.921:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -118
