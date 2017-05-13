@@ -11,7 +11,16 @@ public class Livro {
 	private Autor autor;
 	private BigDecimal preco;
 	private BigDecimal desconto;
+	private BigDecimal precoAtual;
 	
+	
+	
+	public BigDecimal getPrecoAtual() {
+		return precoAtual;
+	}
+	public void setPrecoAtual(BigDecimal precoAtual) {
+		this.precoAtual = precoAtual;
+	}
 	public BigDecimal getDesconto() {
 		return desconto;
 	}

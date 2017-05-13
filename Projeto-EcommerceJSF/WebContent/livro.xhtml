@@ -63,13 +63,19 @@ xmlns:p="http://primefaces.org/ui">
 					<div class="col-md-3">
 						<div class="form-group">
 							<h:outputLabel>Preço:</h:outputLabel>
-							<h:inputText value="#{Livro.livro.preco}" required="true" requiredMessage="O Campo Preço é obrigatório" styleClass="form-control"/>
+							<h:inputText value="#{Livro.livro.preco}" required="true" requiredMessage="O Campo Preço é obrigatório" styleClass="form-control preco"/>
 						</div>
 					</div>
 					<div class="col-md-3">
 						<div class="form-group">
 							<h:outputLabel>Desconto:</h:outputLabel>
-							<h:inputText value="#{Livro.livro.desconto}" styleClass="form-control"/>
+							<h:inputText value="#{Livro.livro.desconto}" styleClass="form-control desconto" />
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<h:outputLabel>Valor com desconto</h:outputLabel>
+							<h:inputText value="#{Livro.livro.precoAtual}" styleClass="form-control vlDesconto"/>
 						</div>
 					</div>
 				</div>			
@@ -96,6 +102,9 @@ xmlns:p="http://primefaces.org/ui">
 				</p:column>
 				<p:column headerText="Desconto" sortBy="#{livro.desconto}">
 					<h:outputText value="#{livro.desconto}"/>
+				</p:column>
+				<p:column headerText="Preco com desconto" sortBy="#{livro.precoAtual}">
+					<h:outputText value="#{livro.precoAtual}"/>
 				</p:column>
 				<p:column headerText="Descrição" sortBy="#{livro.descricao}">
 					<h:outputText value="#{livro.descricao}"/>
@@ -168,13 +177,13 @@ xmlns:p="http://primefaces.org/ui">
 						<div class="col-md-3">
 							<div class="form-group">
 								<h:outputLabel>Preço:</h:outputLabel>
-								<h:inputText value="#{Livro.livro.preco}"  styleClass="form-control"/>
+								<h:inputText value="#{Livro.livro.preco}"  styleClass="form-control" id="preco"/>
 							</div>
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
 								<h:outputLabel>Desconto:</h:outputLabel>
-								<h:inputText value="#{Livro.livro.desconto}" styleClass="form-control"/>
+								<h:inputText value="#{Livro.livro.desconto}" styleClass="form-control" id="desconto"/>
 							</div>
 						</div>
 					</div>	
@@ -196,5 +205,28 @@ xmlns:p="http://primefaces.org/ui">
 			</h:form>
 		</p:dialog>
 	</div>		
+	
+	<script>
+		$(function(){
+			$('.preco').on('blur', function(){
+				var preco = $(this).val();
+				var desconto = $('.desconto').val();
+				var total = preco - ((parseFloat(desconto)/100) * preco);
+				if(desconto != ""){
+					$('.vlDesconto').val(total);	
+				}
+				
+			});
+			
+			$('.desconto').on('blur', function(){
+				var desconto = $(this).val();
+				var preco = $('.preco').val();
+				var total = preco - ((parseFloat(desconto)/100) * preco);
+				if(preco != ""){
+					$('.vlDesconto').val(total);
+				}
+			});
+		});
+	</script>
 
 </html>
