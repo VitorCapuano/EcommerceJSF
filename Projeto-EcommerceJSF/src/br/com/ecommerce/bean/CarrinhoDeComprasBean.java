@@ -1,25 +1,30 @@
 package br.com.ecommerce.bean;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import br.com.ecommerce.modelo.Livro;
-import br.com.ecommerce.modelo.Pessoa;
 
+@ManagedBean(name="Carrinho")
+@SessionScoped
 public class CarrinhoDeComprasBean {
-	private List<Livro> carrinho = new ArrayList();
-	private Livro livro = new Livro();
-	private Pessoa cliente = new Pessoa();
+	private Livro livroComprado = new Livro();
 	
-	public Livro getLivro() {
-		return livro;
+	
+	public Livro getLivroComprado() {
+		return livroComprado;
+	}
+
+	public void setLivroComprado(Livro livroComprado) {
+		this.livroComprado = livroComprado;
 	}
 	
-	public Pessoa getCliente() {
-		return cliente;
+	public void livroSelecionado(ActionEvent evento){
+		livroComprado = (Livro) evento.getComponent().getAttributes().get("livroComprado");
 	}
 	
-	public void adicionarNoCarrinho() {
-		
+	public String redirecionar(){
+		return "produto";
 	}
 }

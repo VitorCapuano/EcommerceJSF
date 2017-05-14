@@ -1,0 +1,27 @@
+package br.com.ecommerce.bean;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.faces.event.ActionEvent;
+
+import br.com.ecommerce.modelo.Livro;
+import br.com.ecommerce.modelo.Pessoa;
+
+public class CarrinhoDeComprasBean {
+	private Livro livroComprado = new Livro();
+	
+	
+	
+	public Livro getLivroComprado() {
+		return livroComprado;
+	}
+
+	public void setLivroComprado(Livro livroComprado) {
+		this.livroComprado = livroComprado;
+	}
+	
+	public void livroSelecionado(ActionEvent evento){
+		livroComprado = (Livro) evento.getComponent().getAttributes().get("livroComprado");
+	}
+}

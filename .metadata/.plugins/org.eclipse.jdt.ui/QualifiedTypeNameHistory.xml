@@ -27,7 +27,6 @@
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.LivroDAO"/>
 <fullyQualifiedTypeName name="javax.faces.event.ActionEvent"/>
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.AutorDAO"/>
-<fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Usuario"/>
@@ -38,4 +37,5 @@
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.ClienteDAO"/>
 <fullyQualifiedTypeName name="javax.faces.bean.SessionScoped"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
 </qualifiedTypeNameHistroy>

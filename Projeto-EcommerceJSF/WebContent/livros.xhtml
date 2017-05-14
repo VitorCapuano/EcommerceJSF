@@ -65,14 +65,15 @@ xmlns:p="http://primefaces.org/ui">
 		<div class="col-md-3 item">
 			<h:outputText value="#{livro.titulo}" style="font-size: 16px; color: #a3a3a3"/>
 			<img src="" width="170" height="200" style="border: 1px solid #c3c3c3"/>
-			<del style="margin-right: 20px; display: block"><h:outputText value="#{livro.preco}"/></del>
+			 <del style="margin-right: 20px; display: block">R$ <h:outputText value="#{livro.preco}"/></del>
 			<span style="font-size: 1.4em; font-weight: bold; color: orange">
                 <span class="precoComDesconto">R$ <h:outputText value="#{livro.precoAtual}"/></span>
                 <span class="desconto" style="font-size: 0.6em; color: blue;">(-<h:outputText value="#{livro.desconto}"/>)</span>
             </span>
-            <h:commandButton styleClass="btn btn-primary" value="Adicionar no carrinho"/><!-- envia para o carrinho -->
+            <p:commandButton styleClass="btn btn-primary" value="Adicionar no carrinho"><!-- envia para o carrinho -->
+            	<f:attribute name="livroComprado" value="#{livro}"/>
+            </p:commandButton>
 		</div>
 	</ui:repeat>
 </div>
-		
 </html>

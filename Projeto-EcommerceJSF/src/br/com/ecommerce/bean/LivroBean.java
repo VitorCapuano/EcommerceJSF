@@ -26,7 +26,7 @@ public class LivroBean {
 	private List<Autor> listaAutor;
 	private List<Genero> listaGenero;
 
-	
+
 	public List<Livro> getListarLivro() {
 		return listarLivro;
 	}
@@ -107,6 +107,8 @@ public class LivroBean {
 		LivroDAO dao = new LivroDAO();
 		listarLivro = dao.listarLivro();
 	}
+	
+	
 	
 	public void alterar(){
 		LivroDAO dao = new LivroDAO();
