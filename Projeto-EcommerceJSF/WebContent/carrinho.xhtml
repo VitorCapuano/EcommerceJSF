@@ -1,33 +1,48 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html"
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <ui:include src="/base.xhtml" />
 
-	<div class="container">
+<div class="container">
+	<br/>
+	<br/>
+	<div class="row">
 		<h3>Carrinho de compras</h3>
-		<div class="row">
-			<p:dataTable id="carrinhoCompras" emptyMessage="Nenhum item no carrinho">
-				<p:column headerText="Livro">
-					<h:outputText value="Titulo do livro"/>
-				</p:column>
-				<p:column headerText="Autor">
-					<h:outputText value="Nome do autor"/>
+		<h:form id="formCarrinho">
+			<p:dataTable id="carrinhoCompras" emptyMessage="Nenhum registro encontrado" value="#{Pedido.carrinhoCompra}" var="carrinho">
+				<p:column headerText="Titulo">
+					<h:outputText value="#{carrinho.livro.titulo}" />
 				</p:column>
 				<p:column headerText="Quantidade">
-					<h:outputText value="quantidade de livros"/>
+					<h:outputText value="#{carrinho.quantidade}">
+						<f:convertNumber locale="pt_BR" minIntegerDigits="2"/>
+					</h:outputText>
+					<p:commandButton icon="ui-icon-plus" styleClass="btn btn-default" actionListener="#{Pedido.atualizar}"
+						update=":formCarrinho:carrinhoCompras">
+						<f:attribute name="selecionado" value="#{carrinho}"/>
+					</p:commandButton>
 				</p:column>
-				<p:column headerText="Valor total">
-					<h:outputText value="Valor do livro"/>
+				<p:column headerText="Preço">
+					<h:outputText value="#{carrinho.preco}">
+						<f:convertNumber locale="pt_BR" minFractionDigits="2" />
+					</h:outputText>
 				</p:column>
 				<p:column>
-					<h:commandButton value="Finalizar compra" />
-					<h:commandButton value="Excluir" />
+					<p:commandButton styleClass="btn btn-primary" value="Finalizar compra" action="produto.xhtml"/>
+<!-- 						<f:attribute name="livroSelecionado" value="#{carrinnho}" /> -->
+<!-- 					</p:commandButton> -->
+					
+					<p:commandButton styleClass="btn btn-danger" value="Remover" actionListener="#{Pedido.removerItem}"
+						update=":formCarrinho:carrinhoCompras">
+						<f:attribute name="livroSelecionado" value="#{carrinho}" />
+					</p:commandButton>
 				</p:column>
 			</p:dataTable>
-		</div>
+		</h:form>
 	</div>
+</div>
 </html>
