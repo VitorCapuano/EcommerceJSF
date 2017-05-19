@@ -7,8 +7,8 @@ INDEX VERSION 1.130+C:\Users\Julio Cezar\Desktop\JSFEcommerce\.metadata\.plugins
 1500444764.index
 3925490168.index
 648612256.index
-3141958188.index
 2701144764.index
+3141958188.index
 3072676376.index
 3383775654.index
 954383223.index
@@ -17,8 +17,8 @@ INDEX VERSION 1.130+C:\Users\Julio Cezar\Desktop\JSFEcommerce\.metadata\.plugins
 3252568445.index
 1020225511.index
 628019425.index
-922380862.index
 1522023493.index
+922380862.index
 2470519452.index
 1477788888.index
 3684109068.index

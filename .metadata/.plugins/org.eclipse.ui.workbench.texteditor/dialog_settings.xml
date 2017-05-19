@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&lt;h3&gt;&lt;h:outputText value=&quot;Titulo&quot;/&gt;&lt;/h3&gt;"/>
 			<item value="webxml"/>
 			<item value="glyphicons"/>
 			<item value="@font"/>

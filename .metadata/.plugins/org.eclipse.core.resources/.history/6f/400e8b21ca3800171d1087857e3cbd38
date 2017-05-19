@@ -1,0 +1,16 @@
+botaoCadastrar = Cadastrar
+botaoEntrar = Entrar
+botaoEditar = Editar
+botaoExcluir = Excluir
+botaoSim = Sim
+botaoNao = Não
+campoNome = Nome
+campoTitulo = Titulo
+campoEditora = Editora
+campoGenero = Genero
+campoAutor = Autor
+campoPreco = Preco
+campoDesconto = Desconto
+campoValorComDesconto = Valor com desconto
+campoDescricao = Descricao
+TituloCadastrarLivro = Cadastrar Livro

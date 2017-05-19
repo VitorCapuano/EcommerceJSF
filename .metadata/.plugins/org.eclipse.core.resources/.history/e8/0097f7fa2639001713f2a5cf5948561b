@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<h:outputStylesheet name="bootstrap/css/bootstrap.min.css"></h:outputStylesheet>
+<h:outputStylesheet name="bootstrap/css/custom.min.css"></h:outputStylesheet>
+
+<title>Ecommerce de Livros</title>
+</h:head>
+<body>
+	<div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+            	<h:form>
+            	<a class="navbar-brand" href="/Projeto-EcommerceJSF/faces/index.xhtml"><h:outputText value="#{mensagem.NomeDoSite}"/></a>
+            	</h:form>
+            	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            	   <span class="icon-bar"></span>
+            	   <span class="icon-bar"></span>
+            	   <span class="icon-bar"></span>
+          	     </button>
+          	</div>
+          	<div class="navbar-collapse collapse" id="navbar-main">
+          		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block">
+          			<ul class="nav navbar-nav navbar-left">
+          				<li class="active"><a href="/Projeto-EcommerceJSF/faces/index.xhtml"><h:outputText value="#{mensagem.menuInicio}" /></a></li>
+          				<li><a href="/Projeto-EcommerceJSF/faces/Cliente.xhtml"><h:outputText value="#{mensagem.menuCadastro}" /></a></li>
+          			</ul>
+          		</h:panelGrid>
+          		<h:panelGrid rendered="#{Autentica.adminLogado != null}" style="display: inline-block">
+          		<ul class="nav navbar-nav">
+          			<li class="active"><a href="/Projeto-EcommerceJSF/faces/index.xhtml"><h:outputText value="#{mensagem.menuInicio}" /></a></li>
+          			<li><a href="/Projeto-EcommerceJSF/faces/Admin.xhtml"><h:outputText value="#{mensagem.menuCadastro}" /></a></li>
+          			<li><a href="/Projeto-EcommerceJSF/faces/autor.xhtml"><h:outputText value="#{mensagem.menuAutor}" /></a></li>
+          			<li><a href="/Projeto-EcommerceJSF/faces/editora.xhtml"><h:outputText value="#{mensagem.menuEditora}" /></a></li>
+          			<li><a href="/Projeto-EcommerceJSF/faces/genero.xhtml"><h:outputText value="#{mensagem.menuGenero}" /></a></li>
+          			<li><a href="/Projeto-EcommerceJSF/faces/livro.xhtml"><h:outputText value="#{mensagem.menuLivro}" /></a></li>
+          		</ul>
+          		</h:panelGrid>
+          		<h:panelGrid rendered="#{Autentica.clienteLogado == null}" style="display: inline-block" styleClass="pull-right">
+          		<h:panelGrid rendered="#{Autentica.adminLogado == null}" style="display: inline-block" styleClass="pull-right">
+          		<ul class="nav navbar-nav navbar-right">
+          			<li>
+          				<h:form styleClass="form-inline" style="margin-top: 10px;">
+          					<div class="input-group">
+          						<span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-user"></i>
+                                </span>
+                                <h:inputText styleClass="form-control" value="#{Autentica.pessoa.email}"/>
+          					</div>
+          					<div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-lock"></i>
+                                </span>
+                                <h:inputSecret value="#{Autentica.pessoa.senha}" styleClass="form-control" maxlength="8" required="true" requiredMessage="Informar a senha"/>
+                            </div>
+                            <h:commandButton value="#{mensagem.botaoEntrar}" actionListener="#{Autentica.autenticar}" styleClass="btn btn-primary"/>
+          				</h:form>
+          			</li>
+          		</ul>
+          		</h:panelGrid>
+          		</h:panelGrid>
+          		
+          		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block" styleClass="pull-right">
+          			<h:form>
+          				<h:commandButton value="#{mensagem.botaoSair}" actionListener="#{Autentica.Sair}" styleClass="btn btn-link" style="margin: 8px 0px 0px 10px;"/>
+          			</h:form>	
+          		</h:panelGrid>
+          		<h:panelGrid rendered="#{Autentica.adminLogado != null}" style="display: inline-block" styleClass="pull-right">
+          			<h:form>
+          				<h:commandButton value="#{mensagem.botaoSair}" actionListener="#{Autentica.Sair}" styleClass="btn btn-link" style="margin: 8px 0px 0px 10px;"/>
+          			</h:form>	
+          		</h:panelGrid>
+          		
+          		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block" styleClass="pull-right">
+          			<h:outputText styleClass="navbar-text navbar-right"  value="#{mensagem.msgBemVindo} #{Autentica.clienteLogado.nome}"/>
+          		</h:panelGrid>
+          		<h:panelGrid rendered="#{Autentica.adminLogado != null}" style="display: inline-block" styleClass="pull-right">
+          			<h:outputText styleClass="navbar-text navbar-right"  value="Bem vindo #{Autentica.adminLogado.nome}"/>
+          		</h:panelGrid>
+          		
+          	</div>
+          </div>
+     </div>
+  <h:outputScript name="bootstrap/js/jquery-3.2.0.min.js"></h:outputScript>
+ <h:outputScript name="bootstrap/js/bootstrap.min.js"></h:outputScript>     	
+</body>
+</html>

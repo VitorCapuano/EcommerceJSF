@@ -13,8 +13,7 @@ public class Livro {
 	private BigDecimal desconto;
 	private BigDecimal precoAtual;
 	
-	
-	
+		
 	public BigDecimal getPrecoAtual() {
 		return precoAtual;
 	}

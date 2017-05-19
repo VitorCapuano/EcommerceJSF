@@ -7,8 +7,6 @@
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.conexao.Conexao"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
-<fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
 <fullyQualifiedTypeName name="javax.faces.application.FacesMessage"/>
 <fullyQualifiedTypeName name="javax.faces.view.facelets.FaceletContext"/>
 <fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
@@ -17,14 +15,12 @@
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="org.apache.jasper.tagplugins.jstl.core.ForEach"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Autor"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Editora"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Genero"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Livro"/>
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.EditoraDAO"/>
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.GeneroDAO"/>
-<fullyQualifiedTypeName name="br.com.ecomerce.dao.LivroDAO"/>
 <fullyQualifiedTypeName name="javax.faces.event.ActionEvent"/>
 <fullyQualifiedTypeName name="br.com.ecomerce.dao.AutorDAO"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
@@ -38,4 +34,8 @@
 <fullyQualifiedTypeName name="javax.faces.bean.SessionScoped"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ManagedBean"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ViewScoped"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.LivroDAO"/>
 </qualifiedTypeNameHistroy>

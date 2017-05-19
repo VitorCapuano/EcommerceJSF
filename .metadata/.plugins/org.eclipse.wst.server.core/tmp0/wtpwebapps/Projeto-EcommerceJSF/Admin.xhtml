@@ -10,13 +10,13 @@ xmlns:p="http://primefaces.org/ui">
 <body>
 	<div class="container">
 		<div class="row">
-			<h3>Cadastro de Administrador</h3>
+			<h3><h:outputText value="#{mensagem.TituloCadastroAdmin}"/></h3>
 			<h:messages id="mensagem" styleClass="alert alert-success" style="list-style: none;"/>
 			<h:form id="formListagem">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
-							<h:outputLabel value="Nome"/>
+							<h:outputLabel value="#{mensagem.campoNome}"/>
 							<h:inputText value="#{Admin.admin.nome}" styleClass="form-control" />
 						</div>
 					</div>
@@ -30,7 +30,7 @@ xmlns:p="http://primefaces.org/ui">
 					</div>
 					<div class="col-md-2">
 						<div class="form-group">
-							<h:outputLabel value="CEP"/>
+							<h:outputLabel value="#{mensagem.campoCEP}"/>
 							<h:inputText value="#{Admin.admin.cep}" styleClass="form-control" />
 						</div>
 					</div>
@@ -38,13 +38,13 @@ xmlns:p="http://primefaces.org/ui">
 				<div class="row">
 					<div class="col-md-3">
 						<div class="form-group">
-							<h:outputLabel value="Rua"/>
+							<h:outputLabel value="#{mensagem.campoRua}"/>
 							<h:inputText value="#{Admin.admin.rua}" styleClass="form-control" />
 						</div>
 					</div>
 					<div class="col-md-1">
 						<div class="form-group">
-							<h:outputLabel value="Número"/>
+							<h:outputLabel value="#{mensagem.campoNumero}"/>
 							<h:inputText value="#{Admin.admin.numero}" styleClass="form-control" />
 						</div>
 					</div>
@@ -52,13 +52,13 @@ xmlns:p="http://primefaces.org/ui">
 				<div class="row">
 					<div class="col-md-2">
 						<div class="form-group">
-							<h:outputLabel value="Bairro"/>
+							<h:outputLabel value="#{mensagem.campoBairro}"/>
 							<h:inputText value="#{Admin.admin.bairro}" styleClass="form-control" />
 						</div>
 					</div>
 					<div class="col-md-2">
 						<div class="form-group">
-							<h:outputLabel value="Cidade"/>
+							<h:outputLabel value="#{mensagem.campoCidade}"/>
 							<h:inputText value="#{Admin.admin.cidade}" styleClass="form-control" />
 						</div>
 					</div>
@@ -66,13 +66,13 @@ xmlns:p="http://primefaces.org/ui">
 				<div class="row">
 					<div class="col-md-2">
 						<div class="form-group">
-							<h:outputLabel value="Telefone"/>
+							<h:outputLabel value="#{mensagem.campoTelefone}"/>
 							<h:inputText value="#{Admin.admin.telefone}" styleClass="form-control" />
 						</div>
 					</div>
 					<div class="col-md-2">
 						<div class="form-group">
-							<h:outputLabel value="Celular"/>
+							<h:outputLabel value="#{mensagem.campoCelular}"/>
 							<h:inputText value="#{Admin.admin.celular}" styleClass="form-control" />
 						</div>
 					</div>
@@ -80,7 +80,7 @@ xmlns:p="http://primefaces.org/ui">
 				<div class="row">
 					<div class="col-md-4">
 						<div class="form-group">
-							<h:outputLabel value="Email"/>
+							<h:outputLabel value="#{mensagem.campoEmail}"/>
 							<h:inputText value="#{Admin.admin.email}" styleClass="form-control" />
 						</div>
 					</div>
@@ -88,12 +88,12 @@ xmlns:p="http://primefaces.org/ui">
 				<div class="row">
 					<div class="col-md-2">
 						<div class="form-group">
-							<h:outputLabel value="Senha"/>
+							<h:outputLabel value="#{mensagem.campoSenha}"/>
 							<h:inputSecret value="#{Admin.admin.senha}" styleClass="form-control" />
 						</div>
 					</div>
 				</div>
-				<h:commandButton value="Cadastrar" styleClass="btn btn-primary" actionListener="#{Admin.cadastrar}"/>	
+				<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary" actionListener="#{Admin.cadastrar}"/>	
 			</h:form>
 		</div>		
 	</div>

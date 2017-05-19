@@ -106,4 +106,127 @@ public class LivroDAO {
 		}
 		return alterou;
 	}
+	
+	
+	/*Buscar Livros por Titulo*/
+	public ArrayList<Livro> buscarPorLivro(String pesquisa) {
+		ArrayList<Livro> lista = new ArrayList<Livro>();
+		sql = "SELECT * FROM LIVRO WHERE TITULO = ?";
+		connection = Conexao.getConnection();
+		try {
+			p = connection.prepareStatement(sql);
+			p.setString(1, pesquisa);
+			rs = p.executeQuery();
+			while(rs.next()){
+				Livro livro = new Livro();
+				livro.setIdLivro(rs.getInt("livro_id"));
+				livro.setTitulo(rs.getString("titulo"));
+				livro.setPreco(rs.getBigDecimal("preco"));
+				livro.setDesconto(rs.getBigDecimal("desconto"));
+				livro.setPrecoAtual(rs.getBigDecimal("precototal"));
+				livro.setDescricao(rs.getString("descricao"));
+				lista.add(livro);
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return lista;
+	}
+	
+	
+	/*Buscar Lista de Livros por Autores*/
+	public List<Livro> buscarLivroPorAutor(int idAutor) {
+		ArrayList<Livro> lista = new ArrayList<Livro>();
+		sql = "SELECT * FROM LIVRO WHERE AUTOR_ID_AUTOR = ?";
+		connection = Conexao.getConnection();
+		try {
+			p = connection.prepareStatement(sql);
+			p.setInt(1, idAutor);
+			rs = p.executeQuery();
+			while(rs.next()){
+				Livro livro = new Livro();
+				livro.setIdLivro(rs.getInt("livro_id"));
+				livro.setTitulo(rs.getString("titulo"));
+				livro.setPreco(rs.getBigDecimal("preco"));
+				livro.setDesconto(rs.getBigDecimal("desconto"));
+				livro.setPrecoAtual(rs.getBigDecimal("precototal"));
+				livro.setDescricao(rs.getString("descricao"));
+				lista.add(livro);
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return lista;
+	}
+	
+	
+	public int buscarAutor(String pesquisa){
+		int lista = 0;
+		sql = "SELECT * FROM AUTOR WHERE NOME = ?";
+		connection = Conexao.getConnection();
+		try {
+			p = connection.prepareStatement(sql);
+			p.setString(1, pesquisa);
+			rs = p.executeQuery();
+			while(rs.next()){
+				int idAutor = rs.getInt("id_autor");
+				lista = idAutor;
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return lista;
+	}
+	
+	
+	
+	
+	/*Listar Livros por Editora*/
+	public List<Livro> buscarLivroPorEditora(int idEditora) {
+		ArrayList<Livro> lista = new ArrayList<Livro>();
+		sql = "SELECT * FROM LIVRO WHERE EDITORA_ID_EDITORA = ?";
+		connection = Conexao.getConnection();
+		try {
+			p = connection.prepareStatement(sql);
+			p.setInt(1, idEditora);
+			rs = p.executeQuery();
+			while(rs.next()){
+				Livro livro = new Livro();
+				livro.setIdLivro(rs.getInt("livro_id"));
+				livro.setTitulo(rs.getString("titulo"));
+				livro.setPreco(rs.getBigDecimal("preco"));
+				livro.setDesconto(rs.getBigDecimal("desconto"));
+				livro.setPrecoAtual(rs.getBigDecimal("precototal"));
+				livro.setDescricao(rs.getString("descricao"));
+				lista.add(livro);
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return lista;
+	}
+	
+	public int buscarEditora(String pesquisa) {
+		int lista = 0;
+		sql = "SELECT * FROM EDITORA WHERE NOME = ?";
+		connection = Conexao.getConnection();
+		try {
+			p = connection.prepareStatement(sql);
+			p.setString(1, pesquisa);
+			rs = p.executeQuery();
+			while(rs.next()){
+				int idEditora = rs.getInt("id_editora");
+				lista = idEditora;
+			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return lista;
+	}
+		
 }

@@ -5,12 +5,11 @@ xmlns:h="http://java.sun.com/jsf/html"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 xmlns:p="http://primefaces.org/ui">
-<ui:include src="/base.xhtml" />
-	
+<ui:include src="/base.xhtml" />	
 	<div class="col-md-2" style="background: #e7e7e7; height: 600px; border-bottom: 1px solid #c3c3c3">
 		<div class="row">
 			<div class="col-md-12">
-				<h4>Categorias</h4>
+				<h4><h:outputText value="#{mensagem.TituloCategorias}"/></h4>
 				<ul style="margin-left: -30px;">
 					<li style="list-style: none">Administração e Negócios</li>
 					<li style="list-style: none">Animais e Estimação</li>
@@ -22,47 +21,65 @@ xmlns:p="http://primefaces.org/ui">
 				</ul>
 			</div>
 			<div class="col-md-12">
-				<h4>Desconto</h4>
-				<div class="checkbox">
+				<h4><h:outputText value="#{mensagem.campoDesconto}"/></h4>
+				<h:form id="formOne">
+					<div class="checkbox">
+				    	<label>	
+				      		<h:selectBooleanCheckbox/> Até 10%
+				      	</label>
+				  	</div>
+				  	<div class="checkbox">
+				    	<label>	
+				      		<h:selectBooleanCheckbox /> De 10% até 30%
+				      	</label>
+			  		</div>
+			  		<div class="checkbox">
 			    	<label>	
-			      		<h:selectBooleanCheckbox value=""/> Até 10%
+			      		<h:selectBooleanCheckbox/> De 30% até 60%
 			      	</label>
 			  	</div>
-			  	<div class="checkbox">
-			    	<label>	
-			      		<h:selectBooleanCheckbox value=""/> De 10% até 30%
-			      	</label>
-			  	</div>
-			  	<div class="checkbox">
-			    	<label>	
-			      		<h:selectBooleanCheckbox value=""/> De 30% até 60%
-			      	</label>
-			  	</div>
-			</div>
-			<div class="col-md-12">
-				<h4>Preço</h4>
-				<div class="checkbox">
-			    	<label>	
-			      		<h:selectBooleanCheckbox value=""/> Até R$ 30
-			      	</label>
-			  	</div>
-			  	<div class="checkbox">
+			  	</h:form>
+			 </div>
+			 
+			 <div class="col-md-12">
+				<h4><h:outputText value="#{mensagem.campoPreco}"/></h4>
+				<h:form id="formTwo">
+					<div class="checkbox">
+				    	<label>	
+				      		<h:selectBooleanCheckbox/> Até R$ 30,00
+				      	</label>
+				  	</div>
+				  	<div class="checkbox">
 			    	<label>	
 			      		<h:selectBooleanCheckbox value=""/> R$ 30,00 à R$ 60,00
 			      	</label>
-			  	</div>
-			  	<div class="checkbox">
-			    	<label>	
-			      		<h:selectBooleanCheckbox value=""/> R$ 60,00 à R$ 100,00
-			      	</label>
-			  	</div>
-			</div>
-					
+				  	</div>
+				  	<div class="checkbox">
+				    	<label>	
+				      		<h:selectBooleanCheckbox value=""/> R$ 60,00 à R$ 100,00
+				      	</label>
+				  	</div>
+				</h:form>  	
+			 </div>	
 		</div>
-	</div>
-<div class="col-md-8" style=" display: block; margin-top: 40px">
-	<ui:repeat value="#{Livro.listarLivro}" var="livro">
-		<div class="col-md-3 item">
+	</div>		
+		
+	<div class="col-md-8" style=" display: block; margin-top: 40px">
+		<div class="row">
+			<h:form styleClass="form-inline" style="margin: 0px 0px 20px 35px" id="formThree">
+				<div class="form-group">
+					<h:inputText value="#{Livro.livroSelecionado}" styleClass="form-control"/>
+					<h:selectOneMenu value="#{Livro.comboSelecionado}" converter="omnifaces.SelectItemsConverter" styleClass="form-control">
+						<f:selectItem itemValue="Autor"></f:selectItem>
+						<f:selectItem itemValue="Editora"></f:selectItem>
+						<f:selectItem itemValue="Titulo"></f:selectItem>
+					</h:selectOneMenu>
+					<h:commandButton value="#{mensagem.botaoPesquisar}" styleClass="btn btn-primary" style="margin-left: 10px;" actionListener="#{Livro.filtrar}"  />
+				</div>
+			</h:form>
+		</div>
+		<ui:repeat value="#{Livro.listarLivro}" var="livro">
+		<div class="col-md-3 item" style="margin-top: 20px;">
 			<h:outputText value="#{livro.titulo}" style="font-size: 16px; color: #a3a3a3"/>
 			<img src="" width="170" height="200" style="border: 1px solid #c3c3c3"/>
 			 <del style="margin-right: 20px; display: block">R$ <h:outputText value="#{livro.preco}"/></del>
@@ -70,10 +87,10 @@ xmlns:p="http://primefaces.org/ui">
                 <span class="precoComDesconto">R$ <h:outputText value="#{livro.precoAtual}"/></span>
                 <span class="desconto" style="font-size: 0.6em; color: blue;">(-<h:outputText value="#{livro.desconto}"/>)</span>
             </span>
-            <p:commandButton styleClass="btn btn-primary" value="Adicionar no carrinho"><!-- envia para o carrinho -->
+            <p:commandButton styleClass="btn btn-primary" value="#{mensagem.botaoAdicionarCarrinho}"><!-- envia para o carrinho -->
             	<f:attribute name="livroComprado" value="#{livro}"/>
             </p:commandButton>
 		</div>
 	</ui:repeat>
-</div>
+	</div>
 </html>

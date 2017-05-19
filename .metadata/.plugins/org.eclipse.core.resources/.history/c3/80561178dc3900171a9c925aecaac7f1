@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
+<ui:include src="/base.xhtml" />
+
+	<h:outputText value="Teste" />
+	
+	<div class="col-md-2" style="background: #e7e7e7; height: 600px; border-bottom: 1px solid #c3c3c3">
+		<div class="row">
+			<div class="col-md-12">
+				<h4><h:outputText value="#{mensagem.TituloCategorias}"/></h4>
+				<ul style="margin-left: -30px;">
+					<li style="list-style: none">Administração e Negócios</li>
+					<li style="list-style: none">Animais e Estimação</li>
+					<li style="list-style: none">Biografia</li>
+					<li style="list-style: none">Informática</li>
+					<li style="list-style: none">Moda e Beleza</li>
+					<li style="list-style: none">Viagem</li>
+					<li style="list-style: none">Psicologia</li>
+				</ul>
+			</div>
+			<div class="col-md-12">
+				<h4><h:outputText value="#{mensagem.campoDesconto}"/></h4>
+				<h:form id="formOne">
+					<div class="checkbox">
+				    	<label>	
+				      		<h:selectBooleanCheckbox/> Até 10%
+				      	</label>
+				  	</div>
+				  	<div class="checkbox">
+				    	<label>	
+				      		<h:selectBooleanCheckbox /> De 10% até 30%
+				      	</label>
+			  		</div>
+			  		<div class="checkbox">
+			    	<label>	
+			      		<h:selectBooleanCheckbox/> De 30% até 60%
+			      	</label>
+			  	</div>
+			  	</h:form>
+			 </div>
+			 
+			 <div class="col-md-12">
+				<h4><h:outputText value="#{mensagem.campoPreco}"/></h4>
+				<h:form id="formTwo">
+					<div class="checkbox">
+				    	<label>	
+				      		<h:selectBooleanCheckbox/> Até R$ 30,00
+				      	</label>
+				  	</div>
+				</h:form>  	
+			 </div>	
+		</div>
+	</div>		
+		
+	<div class="col-md-8" style=" display: block; margin-top: 40px">
+		<div class="row">
+			<h:form styleClass="form-inline" style="margin: 0px 0px 20px 35px" id="formThree">
+				<div class="form-group">
+					<h:selectOneMenu value="#{Teste.timePreferido}" converter="omnifaces.SelectItemsConverter" styleClass="form-control">
+						<f:selectItem itemValue="Corinthians"></f:selectItem>
+						<f:selectItem itemValue="São Paulo"></f:selectItem>
+						<f:selectItem itemValue="Palmeiras"></f:selectItem>
+					</h:selectOneMenu>
+					<h:commandButton value="#{mensagem.botaoPesquisar}" styleClass="btn btn-primary" style="margin-left: 10px;" actionListener="#{Teste.Testar}"/>
+				</div>
+			</h:form>
+		</div>
+	</div>
+
+</html>

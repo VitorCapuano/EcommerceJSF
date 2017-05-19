@@ -16,7 +16,7 @@ xmlns:f="http://java.sun.com/jsf/core">
         <div class="container">
             <div class="navbar-header">
             	<h:form>
-            	<a class="navbar-brand" href="/Projeto-EcommerceJSF/faces/index.xhtml">E-Commerce de Livros</a>
+            	<a class="navbar-brand" href="/Projeto-EcommerceJSF/faces/index.xhtml"><h:outputText value="#{mensagem.NomeDoSite}"/></a>
             	</h:form>
             	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             	   <span class="icon-bar"></span>
@@ -58,7 +58,7 @@ xmlns:f="http://java.sun.com/jsf/core">
                                 </span>
                                 <h:inputSecret value="#{Autentica.pessoa.senha}" styleClass="form-control" maxlength="8" required="true" requiredMessage="Informar a senha"/>
                             </div>
-                            <h:commandButton value="Entrar" actionListener="#{Autentica.autenticar}" styleClass="btn btn-primary"/>
+                            <h:commandButton value="#{mensagem.botaoEntrar}" actionListener="#{Autentica.autenticar}" styleClass="btn btn-primary"/>
           				</h:form>
           			</li>
           		</ul>
@@ -67,17 +67,17 @@ xmlns:f="http://java.sun.com/jsf/core">
           		
           		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block" styleClass="pull-right">
           			<h:form>
-          				<h:commandButton value="Sair" actionListener="#{Autentica.Sair}" styleClass="btn btn-link" style="margin: 8px 0px 0px 10px;"/>
+          				<h:commandButton value="#{mensagem.botaoSair}" actionListener="#{Autentica.Sair}" styleClass="btn btn-link" style="margin: 8px 0px 0px 10px;"/>
           			</h:form>	
           		</h:panelGrid>
           		<h:panelGrid rendered="#{Autentica.adminLogado != null}" style="display: inline-block" styleClass="pull-right">
           			<h:form>
-          				<h:commandButton value="Sair" actionListener="#{Autentica.Sair}" styleClass="btn btn-link" style="margin: 8px 0px 0px 10px;"/>
+          				<h:commandButton value="#{mensagem.botaoSair}" actionListener="#{Autentica.Sair}" styleClass="btn btn-link" style="margin: 8px 0px 0px 10px;"/>
           			</h:form>	
           		</h:panelGrid>
           		
           		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block" styleClass="pull-right">
-          			<h:outputText styleClass="navbar-text navbar-right"  value="Bem vindo #{Autentica.clienteLogado.nome}"/>
+          			<h:outputText styleClass="navbar-text navbar-right"  value="#{mensagem.msgBemVindo} #{Autentica.clienteLogado.nome}"/>
           		</h:panelGrid>
           		<h:panelGrid rendered="#{Autentica.adminLogado != null}" style="display: inline-block" styleClass="pull-right">
           			<h:outputText styleClass="navbar-text navbar-right"  value="Bem vindo #{Autentica.adminLogado.nome}"/>

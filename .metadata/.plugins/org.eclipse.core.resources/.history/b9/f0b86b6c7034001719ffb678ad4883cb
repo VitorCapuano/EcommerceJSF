@@ -1,9 +1,0 @@
-package br.com.ecommerce.modelo;
-
-import java.sql.Date;
-
-public class Cliente {
-	private int idCliente;
-	
-
-}

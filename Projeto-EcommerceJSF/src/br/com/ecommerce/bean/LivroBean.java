@@ -1,5 +1,6 @@
 package br.com.ecommerce.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -25,8 +26,30 @@ public class LivroBean {
 	private List<Editora> listaEditora;
 	private List<Autor> listaAutor;
 	private List<Genero> listaGenero;
+	
+	/* Filtro de livros*/
+	private String livroSelecionado;
+	private String comboSelecionado;
+	
+	
 
+	public String getLivroSelecionado() {
+		return livroSelecionado;
+	}
 
+	public void setLivroSelecionado(String livroSelecionado) {
+		this.livroSelecionado = livroSelecionado;
+	}
+	
+	public String getComboSelecionado() {
+		return comboSelecionado;
+	}
+
+	public void setComboSelecionado(String comboSelecionado) {
+		this.comboSelecionado = comboSelecionado;
+	}
+
+	//Get e Set do Listar Livros
 	public List<Livro> getListarLivro() {
 		return listarLivro;
 	}
@@ -34,11 +57,13 @@ public class LivroBean {
 	public void setListarLivro(List<Livro> litarLivro) {
 		this.listarLivro = litarLivro;
 	}
-	
+
+	//Carregar o Livro ao iniciar a pagina
 	@PostConstruct
 	public void listar(){
 		LivroDAO livro = new LivroDAO();
 		listarLivro = livro.listarLivro();
+		//gerando novo string
 	}
 	
 	//Get e Set do Listar editoras
@@ -47,7 +72,6 @@ public class LivroBean {
 		listaEditora = dao.listarEditora();
 		return listaEditora;
 	}
-
 	
 	//Get e Set do Listar autor
 	public List<Autor> getListaAutor() {
@@ -55,9 +79,6 @@ public class LivroBean {
 		listaAutor = dao.listarAutor();
 		return listaAutor;
 	}
-	
-	//Get e Set do Listar autor
-	
 	
 	//Get e Set do genero
 	public List<Genero> getListaGenero() {
@@ -81,7 +102,7 @@ public class LivroBean {
 	}
 	
 	
-	
+	//Método para cadastrar o livro
 	public void cadastrar(){
 		LivroDAO dao = new LivroDAO();
 		boolean cadastrou = dao.cadastrarLivro(livro);
@@ -92,6 +113,7 @@ public class LivroBean {
 		}
 	}
 	
+	//Método para excluir o livro selecionado
 	public void excluir(ActionEvent evento){
 		livro = (Livro) evento.getComponent().getAttributes().get("livroSelecionado");
 		LivroDAO dao = new LivroDAO();
@@ -102,6 +124,7 @@ public class LivroBean {
 		
 	}
 	
+	//Pegar livro selecionado
 	public void editar(ActionEvent evento){
 		livro = (Livro) evento.getComponent().getAttributes().get("livroSelecionado");
 		LivroDAO dao = new LivroDAO();
@@ -109,7 +132,7 @@ public class LivroBean {
 	}
 	
 	
-	
+	//Método para Alterar os dados do livro selecionado
 	public void alterar(){
 		LivroDAO dao = new LivroDAO();
 		boolean alterado = dao.editar(livro);
@@ -123,4 +146,23 @@ public class LivroBean {
 		
 	}
 	
+	public void filtrar(){
+		LivroDAO dao = new LivroDAO();
+		if(livroSelecionado == ""){
+			listarLivro = dao.listarLivro();
+		}
+		else{
+			if (comboSelecionado.equalsIgnoreCase("titulo")){
+				listarLivro = dao.buscarPorLivro(livroSelecionado);
+			}
+			else if(comboSelecionado.equalsIgnoreCase("autor")){
+				int idAutor = dao.buscarAutor(livroSelecionado);
+				listarLivro = dao.buscarLivroPorAutor(idAutor);
+			}
+			else{
+				int idEditora = dao.buscarEditora(livroSelecionado);
+				listarLivro = dao.buscarLivroPorEditora(idEditora);
+			}
+		}
+	}
 }
