@@ -1,6 +1,5 @@
 package br.com.ecommerce.bean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -30,8 +29,6 @@ public class LivroBean {
 	/* Filtro de livros*/
 	private String livroSelecionado;
 	private String comboSelecionado;
-	
-	
 
 	public String getLivroSelecionado() {
 		return livroSelecionado;
@@ -148,12 +145,14 @@ public class LivroBean {
 	
 	public void filtrar(){
 		LivroDAO dao = new LivroDAO();
+				
 		if(livroSelecionado == ""){
 			listarLivro = dao.listarLivro();
 		}
 		else{
 			if (comboSelecionado.equalsIgnoreCase("titulo")){
 				listarLivro = dao.buscarPorLivro(livroSelecionado);
+				
 			}
 			else if(comboSelecionado.equalsIgnoreCase("autor")){
 				int idAutor = dao.buscarAutor(livroSelecionado);

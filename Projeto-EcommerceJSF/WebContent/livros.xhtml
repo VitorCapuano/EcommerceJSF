@@ -9,7 +9,7 @@ xmlns:p="http://primefaces.org/ui">
 	<div class="col-md-2" style="background: #e7e7e7; height: 600px; border-bottom: 1px solid #c3c3c3">
 		<div class="row">
 			<div class="col-md-12">
-				<h4><h:outputText value="#{mensagem.TituloCategorias}"/></h4>
+				<h4 style="margin-top: 20px;"><h:outputText value="#{mensagem.TituloCategorias}"/></h4>
 				<ul style="margin-left: -30px;">
 					<li style="list-style: none">Administração e Negócios</li>
 					<li style="list-style: none">Animais e Estimação</li>
@@ -23,42 +23,21 @@ xmlns:p="http://primefaces.org/ui">
 			<div class="col-md-12">
 				<h4><h:outputText value="#{mensagem.campoDesconto}"/></h4>
 				<h:form id="formOne">
-					<div class="checkbox">
-				    	<label>	
-				      		<h:selectBooleanCheckbox/> Até 10%
-				      	</label>
-				  	</div>
-				  	<div class="checkbox">
-				    	<label>	
-				      		<h:selectBooleanCheckbox /> De 10% até 30%
-				      	</label>
-			  		</div>
-			  		<div class="checkbox">
-			    	<label>	
-			      		<h:selectBooleanCheckbox/> De 30% até 60%
-			      	</label>
-			  	</div>
+					<p:selectManyCheckbox layout="grid" columns="1">
+						<f:selectItem itemValue="10" itemLabel="Até 10%"/>
+						<f:selectItem itemValue="30" itemLabel="De 10% até 30%"/>
+						<f:selectItem itemValue="60" itemLabel="De 30% até 60%"/>
+					</p:selectManyCheckbox>
 			  	</h:form>
 			 </div>
-			 
 			 <div class="col-md-12">
 				<h4><h:outputText value="#{mensagem.campoPreco}"/></h4>
 				<h:form id="formTwo">
-					<div class="checkbox">
-				    	<label>	
-				      		<h:selectBooleanCheckbox/> Até R$ 30,00
-				      	</label>
-				  	</div>
-				  	<div class="checkbox">
-			    	<label>	
-			      		<h:selectBooleanCheckbox value=""/> R$ 30,00 à R$ 60,00
-			      	</label>
-				  	</div>
-				  	<div class="checkbox">
-				    	<label>	
-				      		<h:selectBooleanCheckbox value=""/> R$ 60,00 à R$ 100,00
-				      	</label>
-				  	</div>
+					<p:selectManyCheckbox layout="grid" columns="1">
+						<f:selectItem itemValue="R10" itemLabel="Até R$30,00"/>
+						<f:selectItem itemValue="R30" itemLabel="R$30,00 à R$60,00"/>
+						<f:selectItem itemValue="R60" itemLabel="R$60,00 à R$100,00"/>
+					</p:selectManyCheckbox>
 				</h:form>  	
 			 </div>	
 		</div>
@@ -93,4 +72,8 @@ xmlns:p="http://primefaces.org/ui">
 		</div>
 	</ui:repeat>
 	</div>
+	
+	<script>
+	
+	</script>
 </html>

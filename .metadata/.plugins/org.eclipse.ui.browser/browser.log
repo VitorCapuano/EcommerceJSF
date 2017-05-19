@@ -85,3 +85,6 @@ mai 17, 2017 11:31:23.03 [4068:7592:0517/113123.033:ERROR:ssl_client_socket_impl
 mai 17, 2017 11:31:27.18 [4068:7592:0517/113127.180:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -101
 mai 17, 2017 11:41:50.38 [4068:7592:0517/114150.382:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100
 mai 17, 2017 11:41:50.92 [4068:7592:0517/114150.923:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -100
+
+mai 19, 2017 14:37:27.14 NEW SESSION
+mai 19, 2017 14:37:27.15 [5768:5772:0519/143727.142:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -101

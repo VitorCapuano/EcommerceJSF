@@ -1,0 +1,34 @@
+	$(function(){
+			$('input[type="checkbox"]').on('click', function(){
+				if($(this).is(':checked')){
+					var variavel = $(this).val();
+					if(variavel == 10){
+						alert("foi selecionado o checkbox com valor 10");
+					}
+					else if(variavel == 30){
+						alert("foi selecionado o checkbox com valor 10 ate 30");
+					}
+					else if(variavel == 60){
+						alert("foi selecionado o checkbox com valor 30 ate 60");
+					}
+					else if(variavel == 'R10'){
+						alert("foi selecionado o checkbox com valor ate R$30");
+					}
+					else if(variavel == 'R30'){
+						alert("foi selecionado o checkbox com valor R$30 à 60");
+					}
+					else{
+						alert("foi selecionado o checkbox com valor R$60 à 100");
+					}
+				}
+			});
+			
+			$('.item').each(function(){
+				var desconto = $(this).find('.desconto').text().substring(2, 4);
+				var descontoo = parseFloat(desconto);
+				alert(descontoo);
+				if(descontoo > 0 && descontoo <= 30){
+					$(this).css('color', 'pink');
+				}
+			});
+		});

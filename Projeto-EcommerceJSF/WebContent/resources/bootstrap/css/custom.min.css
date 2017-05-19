@@ -150,3 +150,7 @@ body{padding-top:50px}body>.navbar{-webkit-transition:background-color .3s ease-
     font-style: italic;
     line-height: 20px;
 }
+
+.omitir{
+	display: none;
+}

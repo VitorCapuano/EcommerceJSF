@@ -61,3 +61,10 @@
 0:0:0:0:0:0:0:1 - - [18/May/2017:21:32:08 -0300] "POST /Projeto-EcommerceJSF/faces/livros.xhtml HTTP/1.1" 200 20301
 0:0:0:0:0:0:0:1 - - [18/May/2017:21:32:28 -0300] "POST /Projeto-EcommerceJSF/faces/livros.xhtml HTTP/1.1" 200 16317
 0:0:0:0:0:0:0:1 - - [18/May/2017:21:32:39 -0300] "POST /Projeto-EcommerceJSF/faces/livros.xhtml HTTP/1.1" 200 20301
+127.0.0.1 - - [18/May/2017:21:51:33 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [18/May/2017:21:51:36 -0300] "GET /Projeto-EcommerceJSF/faces/livros.xhtml HTTP/1.1" 200 20530
+0:0:0:0:0:0:0:1 - - [18/May/2017:21:51:36 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/bootstrap/js/bootstrap.min.js;jsessionid=864461BEE4B426FA1956041F5B6B3072 HTTP/1.1" 200 37096
+0:0:0:0:0:0:0:1 - - [18/May/2017:21:51:36 -0300] "GET /Projeto-EcommerceJSF/faces/javax.faces.resource/bootstrap/js/jquery-3.2.0.min.js;jsessionid=864461BEE4B426FA1956041F5B6B3072 HTTP/1.1" 200 86693
+0:0:0:0:0:0:0:1 - - [18/May/2017:21:51:36 -0300] "GET /favicon.ico HTTP/1.1" 404 1084
+127.0.0.1 - - [18/May/2017:21:54:29 -0300] "GET / HTTP/1.1" 404 1073
+0:0:0:0:0:0:0:1 - - [18/May/2017:21:54:32 -0300] "GET /Projeto-EcommerceJSF/faces/livros.xhtml HTTP/1.1" 200 20265
