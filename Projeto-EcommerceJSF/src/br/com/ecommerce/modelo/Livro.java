@@ -9,28 +9,28 @@ public class Livro {
 	private Editora editora;
 	private Genero genero;
 	private Autor autor;
-	private BigDecimal preco;
-	private BigDecimal desconto;
-	private BigDecimal precoAtual;
+	private Double preco;
+	private Double desconto;
+	private Double precoAtual;
 	
 	
 	
-	public BigDecimal getPrecoAtual() {
+	public Double getPrecoAtual() {
 		return precoAtual;
 	}
-	public void setPrecoAtual(BigDecimal precoAtual) {
+	public void setPrecoAtual(Double precoAtual) {
 		this.precoAtual = precoAtual;
 	}
-	public BigDecimal getDesconto() {
+	public Double getDesconto() {
 		return desconto;
 	}
-	public void setDesconto(BigDecimal desconto) {
+	public void setDesconto(Double desconto) {
 		this.desconto = desconto;
 	}
-	public BigDecimal getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 	public int getIdLivro() {

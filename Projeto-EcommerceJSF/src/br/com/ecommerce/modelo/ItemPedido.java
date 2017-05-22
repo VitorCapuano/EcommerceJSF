@@ -3,8 +3,10 @@ package br.com.ecommerce.modelo;
 public class ItemPedido {
 	private Pedido pedido;
 	private Livro livro;
-	private int quantidade;
+	private Integer quantidade;
 	private Double preco;
+	private Double precoComDesconto;
+	private Double precoFinal;
 	
 	public Livro getLivro() {
 		return livro;
@@ -19,11 +21,23 @@ public class ItemPedido {
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
-	public int getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(Integer quantidade) {
 		this.quantidade = quantidade;
+	}
+	public Double getPrecoFinal() {
+		return precoFinal;
+	}
+	public void setPrecoFinal(Double precoFinal) {
+		this.precoFinal = precoFinal;
+	}
+	public Double getPrecoComDesconto() {
+		return precoComDesconto;
+	}
+	public void setPrecoComDesconto(Double precoComDesconto) {
+		this.precoComDesconto = precoComDesconto;
 	}
 	public Double getPreco() {
 		return preco;
