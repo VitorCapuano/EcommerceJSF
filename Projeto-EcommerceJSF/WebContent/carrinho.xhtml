@@ -23,18 +23,17 @@
 				<p:column headerText="Quantidade">
 					<span style="display: block; text-align: center;">
 						<span>
-							<h:outputText id="quantidade" value="#{carrinho.quantidade}">
+							<h:outputText id="quantidade" value="#{carrinho.quantidade}" >
 								<f:convertNumber locale="pt_BR" minIntegerDigits="2"/>
 							</h:outputText>
 						</span>
 						
-						<p:commandButton icon="ui-icon-plus" styleClass="btn btn-default" actionListener="#{Pedido.aumentar}"
-							update=":formCarrinho:carrinhoCompras">
+						<p:commandButton icon="ui-icon-plus" styleClass="btn btn-default" actionListener="#{Pedido.aumentar}" update=":formCarrinho:carrinhoCompras">
 							<f:attribute name="selecionado" value="#{carrinho}"/>
 						</p:commandButton>
 						
 						<p:commandButton icon="ui-icon-minus" styleClass="btn btn-default" actionListener="#{Pedido.diminuir}"
-							update=":formCarrinho:carrinhoCompras">
+							update=":formCarrinho:carrinhoCompras" ajax="true">
 							<f:attribute name="livroSel" value="#{carrinho}"/>
 						</p:commandButton>
 					</span>
@@ -67,7 +66,7 @@
 					</p:commandButton>
 				</p:column>
 				<!-- atualiza o form toda vez que inserir no carrinho -->
-				<p:poll interval="1" update="@form, :carrinhoCompras"/>
+				<p:poll interval="1" update="@form, :carrinhoCompras" ajax="true"/>
 			</p:dataTable>
 			<br/>
 			<p:commandButton styleClass="btn btn-success" value="Finalizar compra"/>

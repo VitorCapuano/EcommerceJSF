@@ -5,14 +5,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
-
-import org.primefaces.component.commandbutton.CommandButton;
-import org.primefaces.component.inputtext.InputText;
-
-import com.sun.faces.taglib.html_basic.OutputTextTag;
-
 import br.com.ecomerce.dao.LivroDAO;
 import br.com.ecommerce.modelo.ItemPedido;
 import br.com.ecommerce.modelo.Livro;
@@ -22,7 +17,7 @@ import br.com.ecommerce.util.JavaUtil;
 @SessionScoped
 public class PedidoBean {
 	private List<Livro> livros;
-	private List<ItemPedido> carrinhoCompra = new ArrayList();
+	private List<ItemPedido> carrinhoCompra;
 	private Livro livro = new Livro();
 	
 	public List<Livro> getLivros() {
@@ -53,6 +48,7 @@ public class PedidoBean {
 	public void listar(){
 		LivroDAO livro = new LivroDAO();
 		livros = livro.listarLivro();
+		carrinhoCompra = new ArrayList();
 	}
 
 	// insere no carrinho
@@ -103,41 +99,42 @@ public class PedidoBean {
 
 		int achouL = -1;
 		int achouP = -1;
-		for(int i = 0; i < livros.size();i++) {
-			for(int j = 0; j < carrinhoCompra.size(); j++) {
-				if((livros.get(i).getPrecoAtual().equals(it.getPrecoComDesconto())
+		// percorre o o array de livro e o do carrinho
+		for (int i = 0; i < livros.size(); i++) {
+			for (int j = 0; j < carrinhoCompra.size(); j++) {
+				// verifica se a linha retornada é igual a que foi selecionada
+				if ((livros.get(i).getPrecoAtual().equals(it.getPrecoComDesconto())
 						&& carrinhoCompra.get(j).getLivro().equals(it.getLivro()))) {
 					achouP = i;
-					achouL = j; 
+					achouL = j;
 				}
 			}
 		}
-		
+
+		// se achou passa o numero da linha para as variaveis
 		ItemPedido iPedido = carrinhoCompra.get(achouL);
 		Livro l = livros.get(achouP);
-		if(achouL > -1 && achouP > -1) {
+		if (achouL > -1 && achouP > -1) {
 			iPedido.setQuantidade(iPedido.getQuantidade() + 1);
-			double v = l.getPrecoAtual()*iPedido.getQuantidade();
+			double v = l.getPrecoAtual() * iPedido.getQuantidade();
 			iPedido.setPrecoFinal(v);
 		}
 	}
 
 	public void diminuir(ActionEvent e) {
-		ItemPedido it = (ItemPedido) e.getComponent().getAttributes().get("selecionado");
-
+		ItemPedido it = (ItemPedido) e.getComponent().getAttributes().get("livroSel");
 		int achouL = -1;
-		int achouP = -1;
 		for(int i = 0; i < carrinhoCompra.size(); i++) {
 			if(carrinhoCompra.get(i).getLivro().equals(it.getLivro())
 					&& carrinhoCompra.get(i).getPrecoFinal().equals(it.getPrecoFinal())) {
 				achouL = i;
 			}
 		}
-		
-		ItemPedido iPedido = carrinhoCompra.get(achouL);
-		if(achouL > -1 && achouP > -1) {
+	
+		if(achouL > -1) {
+			ItemPedido iPedido = carrinhoCompra.get(achouL);
 			iPedido.setQuantidade(iPedido.getQuantidade() - 1);
-			iPedido.setPrecoFinal(iPedido.getPrecoFinal() -iPedido.getPrecoComDesconto());
+			iPedido.setPrecoFinal(iPedido.getPrecoFinal() - iPedido.getPrecoComDesconto());
 		}
 	}
 }

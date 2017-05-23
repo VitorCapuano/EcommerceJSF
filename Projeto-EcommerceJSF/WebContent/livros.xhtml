@@ -21,43 +21,42 @@ xmlns:p="http://primefaces.org/ui">
 					<li style="list-style: none">Psicologia</li>
 				</ul>
 			</div>
-<!-- 			<div class="col-md-12"> -->
-<!-- 				<h4>Desconto</h4> -->
-<!-- 				<div class="checkbox"> -->
-<!-- 			    	<label>	 -->
-<!-- 			      		<h:selectBooleanCheckbox value=""/> Até 10% -->
-<!-- 			      	</label> -->
-<!-- 			  	</div> -->
-<!-- 			  	<div class="checkbox"> -->
-<!-- 			    	<label>	 -->
-<!-- 			      		<h:selectBooleanCheckbox value=""/> De 10% até 30% -->
-<!-- 			      	</label> -->
-<!-- 			  	</div> -->
-<!-- 			  	<div class="checkbox"> -->
-<!-- 			    	<label>	 -->
-<!-- 			      		<h:selectBooleanCheckbox value=""/> De 30% até 60% -->
-<!-- 			      	</label> -->
-<!-- 			  	</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="col-md-12"> -->
-<!-- 				<h4>Preço</h4> -->
-<!-- 				<div class="checkbox"> -->
-<!-- 			    	<label>	 -->
-<!-- 			      		<h:selectBooleanCheckbox value=""/> Até R$ 30 -->
-<!-- 			      	</label> -->
-<!-- 			  	</div> -->
-<!-- 			  	<div class="checkbox"> -->
-<!-- 			    	<label>	 -->
-<!-- 			      		<h:selectBooleanCheckbox value=""/> R$ 30,00 à R$ 60,00 -->
-<!-- 			      	</label> -->
-<!-- 			  	</div> -->
-<!-- 			  	<div class="checkbox"> -->
-<!-- 			    	<label>	 -->
-<!-- 			      		<h:selectBooleanCheckbox value=""/> R$ 60,00 à R$ 100,00 -->
-<!-- 			      	</label> -->
-<!-- 			  	</div> -->
-<!-- 			</div> -->
-					
+			<div class="col-md-12">
+				<h4>Desconto</h4>
+				<div class="checkbox">
+			    	<label>	
+			      		<h:selectBooleanCheckbox value=""/> Até 10%
+			      	</label>
+			  	</div>
+			  	<div class="checkbox">
+			    	<label>	
+			      		<h:selectBooleanCheckbox value=""/> De 10% até 30%
+			      	</label>
+			  	</div>
+			  	<div class="checkbox">
+			    	<label>	
+			      		<h:selectBooleanCheckbox value=""/> De 30% até 60%
+			      	</label>
+			  	</div>
+			</div>
+			<div class="col-md-12">
+				<h4>Preço</h4>
+				<div class="checkbox">
+			    	<label>	
+			      		<h:selectBooleanCheckbox value=""/> Até R$ 30
+			      	</label>
+			  	</div>
+			  	<div class="checkbox">
+			    	<label>	
+			      		<h:selectBooleanCheckbox value=""/> R$ 30,00 à R$ 60,00
+			      	</label>
+			  	</div>
+			  	<div class="checkbox">
+			    	<label>	
+			      		<h:selectBooleanCheckbox value=""/> R$ 60,00 à R$ 100,00
+			      	</label>
+			  	</div>
+			</div>
 		</div>
 	</div>
 <div class="col-md-8" style=" display: block; margin-top: 40px">
@@ -72,7 +71,7 @@ xmlns:p="http://primefaces.org/ui">
                 <span class="desconto" style="font-size: 0.6em; color: blue;">(-<h:outputText value="#{livro.desconto}"/>)</span>
             </span>
             <p:commandButton styleClass="btn btn-link" actionListener="#{Pedido.adicionarItem}" value="Adicionar no carrinho"
-				update=":mensagem">
+				update=":mensagem" ajax="true">
 				<f:attribute name="livroAdicionado" value="#{livro}" />
 			</p:commandButton> 	<!-- envia para o carrinho -->
 			<p:commandButton styleClass="btn btn-link" value="Adicionar a lista de desejos" actionListener="#{Livro.listaDesejo}" 
