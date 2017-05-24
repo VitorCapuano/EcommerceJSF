@@ -8,8 +8,8 @@ xmlns:p="http://primefaces.org/ui">
 <ui:include src="/base.xhtml" />
 
 <div class="container">
-	<div class="row">
-		<h3><h:outputText value="#{mensagem.TituloCadastrarLivro}"/></h3>
+	<div class="row" style="margin-top: 30px;">
+		<h3 style="margin-bottom: 30px;"><h:outputText value="#{mensagem.TituloCadastrarLivro}"/></h3>
 		<h:messages styleClass="alert alert-success" style="list-style: none;"/>
 		<h:form>
 			<div class="col-md-4">
@@ -88,25 +88,25 @@ xmlns:p="http://primefaces.org/ui">
 						</div>
 					</div>
 				</div>
-					<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary" actionListener="#{Livro.cadastrar}"/>
+					<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary btn-cadastrar" actionListener="#{Livro.cadastrar}"/>
 				</div>
 			</h:form>
 		</div>	
 		<div class="row">
 			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Livro.listarLivro}"  var="livro">
-				<p:column headerText="#{mensagem.campoTitulo}" sortBy="#{livro.titulo}">
+				<p:column headerText="#{mensagem.campoTitulo}" sortBy="#{livro.titulo}" style="width: 270px;">
 					<h:outputText value="#{livro.titulo}"/>
 				</p:column>
-				<p:column headerText="#{mensagem.campoPreco}" sortBy="#{livro.preco}">
+				<p:column headerText="#{mensagem.campoPreco}" sortBy="#{livro.preco}" style="width: 90px;">
 					<h:outputText value="#{livro.preco}"/>
 				</p:column>
-				<p:column headerText="#{mensagem.campoDesconto}" sortBy="#{livro.desconto}">
+				<p:column headerText="#{mensagem.campoDesconto}" sortBy="#{livro.desconto}" style="width: 120px;">
 					<h:outputText value="#{livro.desconto}"/>
 				</p:column>
-				<p:column headerText="#{mensagem.campoValorComDesconto}" sortBy="#{livro.precoAtual}">
+				<p:column headerText="#{mensagem.campoValorComDesconto}" sortBy="#{livro.precoAtual}" style="width: 120px;">
 					<h:outputText value="#{livro.precoAtual}"/>
 				</p:column>
-				<p:column headerText="#{mensagem.campoDescricao}" sortBy="#{livro.descricao}">
+				<p:column headerText="#{mensagem.campoDescricao}" sortBy="#{livro.descricao}" style="width: 340px;">
 					<h:outputText value="#{livro.descricao}"/>
 				</p:column>
 				<p:column>
@@ -127,9 +127,10 @@ xmlns:p="http://primefaces.org/ui">
 		</p:confirmDialog>
 		
 		<p:dialog header="Edição livro" widgetVar="dialogo" draggable="false" resizable="false" modal="true" closable="false">
+			<div style="height: 550px">
 			<h:form id="formEdicao">
-				<h:panelGrid id="painel">
-					<div class="row">
+				<h:panelGrid id="painel" columns="1">
+					<div class="row" style="margin-top: 20px;">
 						<div class="col-md-7">
 							<div class="form-group">
 								<h:outputText value="#{mensagem.campoTitulo}"/>
@@ -197,12 +198,13 @@ xmlns:p="http://primefaces.org/ui">
 						</div>
 					</div>
 				</h:panelGrid>
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="2" style="margin-top: 20px;">
 					<h:commandButton value="#{mensagem.botaoSalvar}" styleClass="btn btn-primary" actionListener="#{Livro.alterar}"
-					update=":tabela "/>
-					<p:commandButton value="#{mensagem.botaoCancelar}" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
+					update=":tabela " style="margin-right: 10px;"/>
+					<h:commandButton value="#{mensagem.botaoCancelar}" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
 				</h:panelGrid>
 			</h:form>
+		</div>
 		</p:dialog>
 	</div>		
 	

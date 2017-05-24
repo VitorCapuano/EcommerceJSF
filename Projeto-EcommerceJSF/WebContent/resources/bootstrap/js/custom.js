@@ -3,7 +3,6 @@
 				if($(this).is(':checked')){
 					var variavel = $(this).val();
 					if(variavel == 10){
-						/*Funciao para desaparecer*/
 						$('.item').each(function(){
 							var desconto = $(this).find('.desconto').text().substring(2, 4);
 							var descontoo = parseFloat(desconto);
@@ -11,9 +10,8 @@
 								$(this).addClass("omitir");
 							}
 						});
-					}
-					else if(variavel == 30){
-						/*Funciao para desaparecer*/
+					}else if(variavel == 30){
+						
 						$('.item').each(function(){
 							var desconto = $(this).find('.desconto').text().substring(2, 4);
 							var descontoo = parseFloat(desconto);
@@ -21,9 +19,8 @@
 								$(this).addClass("omitir");
 							}
 						});
-					}
-					else if(variavel == 60){
-						/*Funciao para desaparecer*/
+					}else if(variavel == 60){
+						
 						$('.item').each(function(){
 							var desconto = $(this).find('.desconto').text().substring(2, 4);
 							var descontoo = parseFloat(desconto);
@@ -31,24 +28,21 @@
 								$(this).addClass("omitir");
 							}
 						});
-					}
-					else if(variavel == 'R10'){
+					}else if(variavel == 'R10'){
 						$('.item').each(function(){
 							var preco = $(this).find('.precoComDesconto').text().substring(3);
 							if(!(parseFloat(preco) > 0 && parseFloat(preco) <= 30)){
 								$(this).addClass("omitir");
 							}
 						});
-					}
-					else if(variavel == 'R30'){
+					}else if(variavel == 'R30'){
 						$('.item').each(function(){
 							var preco = $(this).find('.precoComDesconto').text().substring(3);
 							if(!(parseFloat(preco) >= 30 && parseFloat(preco) <= 60)){
 								$(this).addClass("omitir");
 							}
 						});
-					}
-					else{
+					}else{
 						$('.item').each(function(){
 							var preco = $(this).find('.precoComDesconto').text().substring(3);
 							if(!(parseFloat(preco) >= 60 && parseFloat(preco) <= 100)){
@@ -63,4 +57,4 @@
 					});
 				}
 			});
-		});
+	});	

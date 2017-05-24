@@ -9,8 +9,8 @@ xmlns:p="http://primefaces.org/ui">
 
 <body>
 	<div class="container">
-		<div class="row">
-			<h3> <h:outputText value="#{mensagem.TituloCadastroAutor}"/> </h3>
+		<div class="row" style="margin-top: 30px;">
+			<h3 style="margin-bottom: 30px;"> <h:outputText value="#{mensagem.TituloCadastroAutor}"/> </h3>
 			<h:messages id="mensagem" styleClass="alert alert-success" style="list-style: none;"/>
 			<h:form id="formListagem">
 				<div class="row">
@@ -45,7 +45,7 @@ xmlns:p="http://primefaces.org/ui">
 						</div>
 					</div>	
 				</div>
-				<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary" actionListener="#{Autor.cadastrar}"
+				<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary btn-cadastrar" actionListener="#{Autor.cadastrar}"
 				update=":mensagem :tabela "/>
 			</h:form>
 		</div>
@@ -83,7 +83,7 @@ xmlns:p="http://primefaces.org/ui">
 		<p:dialog header="Edição Autor" widgetVar="dialogo" draggable="false" resizable="false" modal="true" closable="false">
 			<h:form id="formEdicao">
 				<h:panelGrid id="painel">
-					<div class="row">
+					<div class="row" style="margin-top: 20px;">
 					<div class="col-md-4">
 						<div class="form-group">
 							<h:outputLabel value="#{mensagem.campoNome}"/>
@@ -116,10 +116,10 @@ xmlns:p="http://primefaces.org/ui">
 					</div>	
 				</div>
 				</h:panelGrid>
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="2" style="margin-top: 20px;">
 				<h:commandButton value="#{mensagem.botaoSalvar}" styleClass="btn btn-primary" actionListener="#{Autor.alterar}"
-				update=":mensagem :tabela "/>
-				<p:commandButton value="#{mensagem.botaoCancelar}" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
+				update=":mensagem :tabela " style="margin-right: 10px;"/>
+				<h:commandButton value="#{mensagem.botaoCancelar}" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
 				</h:panelGrid>
 			</h:form>
 		</p:dialog>

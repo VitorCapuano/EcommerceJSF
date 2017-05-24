@@ -1,0 +1,32 @@
+package br.com.ecomerce.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+import br.com.ecommerce.conexao.Conexao;
+import br.com.ecommerce.modelo.Venda;
+import br.com.ecommerce.util.JavaUtil;
+
+public class VendaDAO {
+	private Connection connection;
+    private PreparedStatement p;
+    private String sql;
+    private ResultSet rs;
+    
+    public boolean cadastrarGenero(Venda venda){
+    	boolean cadastrado = false;
+    	sql = "INSERT INTO PEDIDO VALUES ( NULL, ?, ?, ?, ?)";
+    	connection = Conexao.getConnection();
+    	
+    	try {
+    		
+    	}catch (Exception e) {
+			// TODO: handle exception
+        	e.printStackTrace();
+			JavaUtil.adicionarMensagemErro("Erro ao Cadastrar dados no banco");
+		}
+    	
+    	return cadastrado;
+    }
+}

@@ -1,8 +1,11 @@
 package br.com.ecommerce.bean;
 
+import java.io.IOException;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import br.com.ecomerce.dao.ClienteDAO;
 import br.com.ecommerce.modelo.Pessoa;
@@ -16,8 +19,6 @@ public class AutenticaBean {
 	private Pessoa clienteLogado;
 	private Pessoa AdminLogado;
 	
-	
-
 	public Pessoa getClienteLogado() {
 		return clienteLogado;
 	}
@@ -58,7 +59,7 @@ public class AutenticaBean {
 		pessoa = new Pessoa();
 	}
 	
-	public void autenticar(){
+	public void autenticar() throws IOException{
 		ClienteDAO dao = new ClienteDAO();
 		pessoaLogada = dao.autenticar(pessoa.getEmail(), pessoa.getSenha());
 		clienteLogado = null;
@@ -67,6 +68,7 @@ public class AutenticaBean {
 		if(pessoaLogada != null){
 			if(pessoaLogada.getTipo().equalsIgnoreCase("c")){
 				clienteLogado = pessoaLogada;
+				FacesContext.getCurrentInstance().getExternalContext().redirect("livros.xhtml");
 			}
 			else{
 				AdminLogado = pessoaLogada;

@@ -1,26 +1,35 @@
 package br.com.ecommerce.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import br.com.ecomerce.dao.AutorDAO;
 import br.com.ecomerce.dao.EditoraDAO;
 import br.com.ecomerce.dao.GeneroDAO;
 import br.com.ecomerce.dao.LivroDAO;
+import br.com.ecomerce.dao.VendaDAO;
 import br.com.ecommerce.modelo.Autor;
 import br.com.ecommerce.modelo.Editora;
 import br.com.ecommerce.modelo.Genero;
+import br.com.ecommerce.modelo.ItemVenda;
 import br.com.ecommerce.modelo.Livro;
+import br.com.ecommerce.modelo.Pessoa;
+import br.com.ecommerce.modelo.Venda;
 import br.com.ecommerce.util.JavaUtil;
 
 @ManagedBean(name="Livro")
 @ViewScoped
 public class LivroBean {
+	private Pessoa pessoa;
+	private Venda venda;
 	private Livro livro = new Livro();
+	private List<Venda> listaVenda;
 	private List<Livro> listarLivro;
 	private List<Editora> listaEditora;
 	private List<Autor> listaAutor;
@@ -29,6 +38,120 @@ public class LivroBean {
 	/* Filtro de livros*/
 	private String livroSelecionado;
 	private String comboSelecionado;
+	
+	/*carrinho de compra */
+	
+	private List<ItemVenda> itensVenda; //criado inicializacao no postConstruct
+	
+	public List<ItemVenda> getItensVenda() {
+		return itensVenda;
+	}
+	
+	public void setItensVenda(List<ItemVenda> itensVenda) {
+		this.itensVenda = itensVenda;
+	}
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
+	public void adicionar(ActionEvent evento){
+		Livro l = (Livro) evento.getComponent().getAttributes().get("livroComprado");
+		
+		int achou = -1;
+		
+		for (int i = 0; i < itensVenda.size(); i++) {
+			if(itensVenda.get(i).getLivro().equals(l)){
+				achou = i;
+			}
+		}
+		
+		if(achou == -1){
+			ItemVenda item = new ItemVenda();
+			item.setQuantidade(1);
+			item.setValorParcial(l.getPrecoAtual());
+			item.setLivro(l);
+			item.setPessoa(pessoa);
+			itensVenda.add(item);
+		}else{
+			ItemVenda itemVenda = itensVenda.get(achou);
+			itemVenda.setQuantidade(itemVenda.getQuantidade() + 1);
+			itemVenda.setValorParcial(l.getPrecoAtual() * itemVenda.getQuantidade());
+		}
+		
+		calcularValorTotal();
+	}
+	
+	public void remover(ActionEvent evento){
+		ItemVenda itemVenda =  (ItemVenda) evento.getComponent().getAttributes().get("itemAdicionado");
+		
+		int achou = -1;
+		for (int i = 0; i < itensVenda.size(); i++) {
+			if(itensVenda.get(i).getLivro().equals(itemVenda.getLivro())){
+				achou = i;
+			}
+		}
+		
+		if(achou > -1){
+			itensVenda.remove(achou);
+			calcularValorTotal();
+		}
+	}
+	
+	public void calcularValorTotal(){
+		venda.setPrecoTotal(0.00);
+		
+		for (int i = 0; i < itensVenda.size(); i++) {
+			ItemVenda itemVenda = itensVenda.get(i);
+			venda.setPrecoTotal(venda.getPrecoTotal() + itemVenda.getValorParcial());
+		}
+	}
+	
+	public void finalizar(){
+		if(venda.getPrecoTotal() == 0){
+			JavaUtil.adicionarMensagemSucesso("Informe pelo menos 1 tem de venda!");
+		}
+		else{
+			VendaDAO dao = new VendaDAO();
+			for (int i = 0; i < itensVenda.size(); i++) {
+				System.out.println(itensVenda.get(i).getLivro().getIdLivro()+"\n");
+				System.out.println(itensVenda.get(i).getValorParcial()+"\n");
+				System.out.println(itensVenda.get(i).getPessoa().getCpf()+"\n");
+				
+				
+			}
+			//vou criar um List e este list vai receber um list do carrinho
+			//mudar o List do item pedido para adicionar o id do cliente e o id do livro
+		}
+	}
+	/*fim carrinho de compra */
+	
+	/*
+	 Classe venda
+	 */
+	
+		public Venda getVenda() {
+			return venda;
+		}
+		
+		public void setVenda(Venda venda) {
+			this.venda = venda;
+		}
+		
+		public List<Venda> getListaVenda() {
+			return listaVenda;
+		}
+		
+		public void setListaVenda(List<Venda> listaVenda) {
+			this.listaVenda = listaVenda;
+		}
+	/*
+	 * fim classe venda
+	 */
 
 	public String getLivroSelecionado() {
 		return livroSelecionado;
@@ -60,6 +183,10 @@ public class LivroBean {
 	public void listar(){
 		LivroDAO livro = new LivroDAO();
 		listarLivro = livro.listarLivro();
+		itensVenda = new ArrayList<>();
+		venda = new Venda();
+		venda.setPrecoTotal(0.00);
+		pessoa = new Pessoa();
 		//gerando novo string
 	}
 	

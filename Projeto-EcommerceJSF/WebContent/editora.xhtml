@@ -8,8 +8,8 @@ xmlns:p="http://primefaces.org/ui">
 <ui:include src="/base.xhtml" />
 
 	<div class="container">
-		<div class="row">
-			<h3> <h:outputText value="#{mensagem.TituloCadastroEditora}" /> </h3>
+		<div class="row" style="margin-top: 30px;">
+			<h3 style="margin-bottom: 30px;">  <h:outputText value="#{mensagem.TituloCadastroEditora}" /> </h3>
 			<h:messages styleClass="alert alert-success" style="list-style: none;"/>
 			<h:form id="formListagem">
 				<div class="row">
@@ -31,7 +31,7 @@ xmlns:p="http://primefaces.org/ui">
 				<div class="row">	
 					<div class="col-md-4">	
 						<div class="form-group">
-							<h:outputLabel value="#{mensagem.campoEditora}"/>
+							<h:outputLabel value="#{mensagem.campoEndereco}"/>
 							<h:inputText value="#{Editora.editora.endereco}" styleClass="form-control" required="true" requiredMessage="O Campo Endereço é obrigatório"/>
 						</div>
 					</div>
@@ -44,7 +44,7 @@ xmlns:p="http://primefaces.org/ui">
 						</div>
 					</div>	
 				</div>
-				<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary" actionListener="#{Editora.cadastrar}"/>
+				<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary btn-cadastrar" actionListener="#{Editora.cadastrar}"/>
 			</h:form>
 		</div>
 		<div class="row">
@@ -80,7 +80,7 @@ xmlns:p="http://primefaces.org/ui">
 		<p:dialog header="Edição editora" widgetVar="dialogo" draggable="false" resizable="false" modal="true" closable="false">
 			<h:form id="formEdicao">
 				<h:panelGrid id="painel">
-					<div class="row">
+					<div class="row" style="margin-top: 20px;">
 						<div class="col-md-4">
 							<div class="form-group">
 								<h:outputLabel value="#{mensagem.campoNome}"/>
@@ -113,10 +113,10 @@ xmlns:p="http://primefaces.org/ui">
 					</div>	
 				</div>
 				</h:panelGrid>
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="2" style="margin-top: 20px;">
 					<h:commandButton value="#{mensagem.botaoSalvar}" styleClass="btn btn-primary" actionListener="#{Editora.alterar}"
-					update=":tabela "/>
-					<p:commandButton value="#{mensagem.botaoCancelar}" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
+					update=":tabela " style="margin-right: 10px;"/>
+					<h:commandButton value="#{mensagem.botaoCancelar}" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
 				</h:panelGrid>
 			</h:form>
 		</p:dialog>

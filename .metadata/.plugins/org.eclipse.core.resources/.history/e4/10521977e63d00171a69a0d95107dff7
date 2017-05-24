@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
+<ui:include src="/base.xhtml" />
+
+<div class="container">
+	<div class="row" style="margin-top: 30px;">
+		<h3 style="margin-bottom: 30px;"><h:outputText value="#{mensagem.TituloCadastrarLivro}"/></h3>
+		<h:messages styleClass="alert alert-success" style="list-style: none;"/>
+		<h:form>
+			<div class="col-md-4">
+				Inserir Imagem
+			</div>
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoTitulo}"/>
+							<h:inputText value="#{Livro.livro.titulo}" styleClass="form-control" required="true" requiredMessage="O Campo Titulo é obrigatório"/>
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoEditora}"/>
+							<h:selectOneMenu value="#{Livro.livro.editora}" styleClass="form-control" required="true" requiredMessage="O Campo Editora é obrigatório"
+							converter="omnifaces.SelectItemsConverter">
+								<f:selectItem noSelectionOption="true" itemLabel="Selecione a editora" />
+								<f:selectItems value="#{Livro.listaEditora}" var="editora" itemValue="#{editora}" itemLabel="#{editora.nome}"/>
+							</h:selectOneMenu>
+						</div>
+					</div>
+				
+					<div class="col-md-6">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoGenero}" />
+							<h:selectOneMenu value="#{Livro.livro.genero}" styleClass="form-control" required="true" requiredMessage="O Campo Gênero é obrigatório"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem noSelectionOption="true" itemLabel="Selecione o genero"/>
+								<f:selectItems value="#{Livro.listaGenero}" var="genero" itemValue="#{genero}" itemLabel="#{genero.nome}"/>
+							</h:selectOneMenu>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoAutor}" />
+							<h:selectOneMenu value="#{Livro.livro.autor}" styleClass="form-control" required="true" requiredMessage="O Campo Autor é obrigatório"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem noSelectionOption="true" itemLabel="Selecione o autor"/>
+								<f:selectItems value="#{Livro.listaAutor}" var="autor" itemValue="#{autor}" itemLabel="#{autor.nome}"/>
+							</h:selectOneMenu>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoPreco}" />
+							<h:inputText value="#{Livro.livro.preco}" required="true" requiredMessage="O Campo Preço é obrigatório" styleClass="form-control preco"/>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoDesconto}" />
+							<h:inputText value="#{Livro.livro.desconto}" styleClass="form-control desconto" />
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoValorComDesconto}" />
+							<h:inputText value="#{Livro.livro.precoAtual}" styleClass="form-control vlDesconto"/>
+						</div>
+					</div>
+				</div>			
+				<div class="row">
+					<div class="col-md-7">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoDescricao}" />
+							<h:inputTextarea rows="5" cols="7" class="form-control" value="#{Livro.livro.descricao}" required="true" requiredMessage="O Campo Descrição é obrigatório">
+							</h:inputTextarea>
+						</div>
+					</div>
+				</div>
+					<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary btn-cadastrar" actionListener="#{Livro.cadastrar}"/>
+				</div>
+			</h:form>
+		</div>	
+		<div class="row">
+			<p:dataTable id="tabela" emptyMessage="Nenhum registro encontrado" paginator="true" value="#{Livro.listarLivro}"  var="livro">
+				<p:column headerText="#{mensagem.campoTitulo}" sortBy="#{livro.titulo}" style="width: 270px;">
+					<h:outputText value="#{livro.titulo}"/>
+				</p:column>
+				<p:column headerText="#{mensagem.campoPreco}" sortBy="#{livro.preco}" style="width: 90px;">
+					<h:outputText value="#{livro.preco}"/>
+				</p:column>
+				<p:column headerText="#{mensagem.campoDesconto}" sortBy="#{livro.desconto}" style="width: 120px;">
+					<h:outputText value="#{livro.desconto}"/>
+				</p:column>
+				<p:column headerText="#{mensagem.campoValorComDesconto}" sortBy="#{livro.precoAtual}" style="width: 120px;">
+					<h:outputText value="#{livro.precoAtual}"/>
+				</p:column>
+				<p:column headerText="#{mensagem.campoDescricao}" sortBy="#{livro.descricao}" style="width: 340px;">
+					<h:outputText value="#{livro.descricao}"/>
+				</p:column>
+				<p:column>
+					<p:commandButton value="#{mensagem.botaoExcluir}" actionListener="#{Livro.excluir}" update=":tabela">
+						<p:confirm header="Confirmação" message="Deseja excluir o livro?"/>
+						<f:attribute name="livroSelecionado" value="#{livro}"/>
+					</p:commandButton>
+					
+					<p:commandButton value="#{mensagem.botaoEditar}" actionListener="#{Livro.editar}" oncomplete="PF('dialogo').show();" update=":formEdicao:painel">
+						<f:attribute name="livroSelecionado" value="#{livro}"/>
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</div>		
+		<p:confirmDialog global="true">
+			<p:commandButton value="#{mensagem.botaoSim}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			<p:commandButton value="#{mensagem.botaoNao}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		</p:confirmDialog>
+		
+		<p:dialog header="Edição livro" widgetVar="dialogo" draggable="false" resizable="false" modal="true" closable="false">
+			<h:form id="formEdicao">
+				<h:panelGrid id="painel">
+					<div class="row">
+						<div class="col-md-7">
+							<div class="form-group">
+								<h:outputText value="#{mensagem.campoTitulo}"/>
+								<h:inputText value="#{Livro.livro.titulo}" styleClass="form-control"/>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-5">
+							<div class="form-group">
+								<h:outputText value="#{mensagem.campoEditora}"/>
+								<h:selectOneMenu value="#{Livro.livro.editora}" styleClass="form-control"
+								converter="omnifaces.SelectItemsConverter">
+									<f:selectItem noSelectionOption="true" itemLabel="Selecione a editora" />
+									<f:selectItems value="#{Livro.listaEditora}" var="editora" itemValue="#{editora}" itemLabel="#{editora.nome}"/>
+								</h:selectOneMenu>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<div class="form-group">
+								<h:outputText value="#{mensagem.campoGenero}"/>
+								<h:selectOneMenu value="#{Livro.livro.genero}" styleClass="form-control"
+									converter="omnifaces.SelectItemsConverter">
+									<f:selectItem noSelectionOption="true" itemLabel="Selecione o genero"/>
+									<f:selectItems value="#{Livro.listaGenero}" var="genero" itemValue="#{genero}" itemLabel="#{genero.nome}"/>
+								</h:selectOneMenu>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<div class="form-group">
+								<h:outputText value="#{mensagem.campoAutor}"/>
+								<h:selectOneMenu value="#{Livro.livro.autor}" styleClass="form-control"
+									converter="omnifaces.SelectItemsConverter">
+									<f:selectItem noSelectionOption="true" itemLabel="Selecione o autor"/>
+									<f:selectItems value="#{Livro.listaAutor}" var="autor" itemValue="#{autor}" itemLabel="#{autor.nome}"/>
+								</h:selectOneMenu>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<h:outputText value="#{mensagem.campoPreco}"/>
+								<h:inputText value="#{Livro.livro.preco}"  styleClass="form-control" id="preco"/>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<h:outputText value="#{mensagem.campoDesconto}"/>
+								<h:inputText value="#{Livro.livro.desconto}" styleClass="form-control" id="desconto"/>
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-7">
+							<div class="form-group">
+								<h:outputText value="#{mensagem.campoDescricao}"/>
+								<h:inputTextarea rows="5" cols="7" class="form-control" value="#{Livro.livro.descricao}">
+								</h:inputTextarea>
+							</div>
+						</div>
+					</div>
+				</h:panelGrid>
+				<h:panelGrid columns="2">
+					<h:commandButton value="#{mensagem.botaoSalvar}" styleClass="btn btn-primary" actionListener="#{Livro.alterar}"
+					update=":tabela "/>
+					<p:commandButton value="#{mensagem.botaoCancelar}" styleClass="btn btn-primary" oncomplete="PF('dialogo').hide()"/>
+				</h:panelGrid>
+			</h:form>
+		</p:dialog>
+	</div>		
+	
+	<script>
+		$(function(){
+			$('.preco').on('blur', function(){
+				var preco = $(this).val();
+				var desconto = $('.desconto').val();
+				var total = preco - ((parseFloat(desconto)/100) * preco);
+				if(desconto != ""){
+					$('.vlDesconto').val(total);	
+				}
+				
+			});
+			
+			$('.desconto').on('blur', function(){
+				var desconto = $(this).val();
+				var preco = $('.preco').val();
+				var total = preco - ((parseFloat(desconto)/100) * preco);
+				if(preco != ""){
+					$('.vlDesconto').val(total);
+				}
+			});
+		});
+	</script>
+
+</html>

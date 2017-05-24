@@ -1,0 +1,68 @@
+	$(function(){
+			$('input[type="checkbox"]').on('click', function(){
+				/*
+				if($(this).is(':checked')){
+					var variavel = $(this).val();
+					if(variavel == 10){
+						
+						$('.item').each(function(){
+							var desconto = $(this).find('.desconto').text().substring(2, 4);
+							var descontoo = parseFloat(desconto);
+							if(!(descontoo > 0 && descontoo <= 10)){
+								$(this).addClass("omitir");
+							}
+						});
+					}
+					else if(variavel == 30){
+						
+						$('.item').each(function(){
+							var desconto = $(this).find('.desconto').text().substring(2, 4);
+							var descontoo = parseFloat(desconto);
+							if(!(descontoo > 10 && descontoo <= 30)){
+								$(this).addClass("omitir");
+							}
+						});
+					}
+					else if(variavel == 60){
+						
+						$('.item').each(function(){
+							var desconto = $(this).find('.desconto').text().substring(2, 4);
+							var descontoo = parseFloat(desconto);
+							if(!(descontoo > 30 && descontoo <= 60)){
+								$(this).addClass("omitir");
+							}
+						});
+					}
+					else if(variavel == 'R10'){
+						$('.item').each(function(){
+							var preco = $(this).find('.precoComDesconto').text().substring(3);
+							if(!(parseFloat(preco) > 0 && parseFloat(preco) <= 30)){
+								$(this).addClass("omitir");
+							}
+						});
+					}
+					else if(variavel == 'R30'){
+						$('.item').each(function(){
+							var preco = $(this).find('.precoComDesconto').text().substring(3);
+							if(!(parseFloat(preco) >= 30 && parseFloat(preco) <= 60)){
+								$(this).addClass("omitir");
+							}
+						});
+					}
+					else{
+						$('.item').each(function(){
+							var preco = $(this).find('.precoComDesconto').text().substring(3);
+							if(!(parseFloat(preco) >= 60 && parseFloat(preco) <= 100)){
+								$(this).addClass("omitir");
+							}
+						});
+					}
+				}
+				else{
+					$('.item').each(function(){
+						$(this).removeClass("omitir");
+					});
+				}
+				*/
+			});
+		});

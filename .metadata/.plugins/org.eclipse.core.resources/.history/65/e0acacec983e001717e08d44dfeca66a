@@ -1,0 +1,11 @@
+package br.com.ecommerce.modelo;
+
+import java.math.BigDecimal;
+
+public class ItemVenda {
+	private int quantidade;
+	private BigDecimal valorParcial;
+	private Livro livro;
+	private Venda venda;
+	
+}

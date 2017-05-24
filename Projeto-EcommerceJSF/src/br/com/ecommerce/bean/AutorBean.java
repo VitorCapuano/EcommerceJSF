@@ -71,6 +71,7 @@ public class AutorBean{
 		boolean alterado = dao.editar(autor);
 		if(alterado == true){
 			listaAutor = dao.listarAutor();
+			autor = new Autor();
 			JavaUtil.adicionarMensagemSucesso("Autor alterado com sucesso!");
 		}
 		else{

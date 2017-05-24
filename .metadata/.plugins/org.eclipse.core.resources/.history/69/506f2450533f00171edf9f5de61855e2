@@ -1,0 +1,29 @@
+package br.com.ecommerce.modelo;
+
+import java.util.Date;
+
+public class Venda {
+	private Date horario;
+	private double precoTotal;
+	private Pessoa pessoa;
+	public Date getHorario() {
+		return horario;
+	}
+	public void setHorario(Date horario) {
+		this.horario = horario;
+	}
+	public double getPrecoTotal() {
+		return precoTotal;
+	}
+	public void setPrecoTotal(double precoTotal) {
+		this.precoTotal = precoTotal;
+	}
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
+	
+}

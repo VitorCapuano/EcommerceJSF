@@ -28,13 +28,14 @@ xmlns:f="http://java.sun.com/jsf/core">
           	<div class="navbar-collapse collapse" id="navbar-main">
           		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block">
           			<ul class="nav navbar-nav navbar-left">
-          				<li class="active"><a href="/Projeto-EcommerceJSF/faces/index.xhtml">Inicio</a></li>
+          				<li><a href="/Projeto-EcommerceJSF/faces/index.xhtml">Inicio</a></li>
           				<li><a href="/Projeto-EcommerceJSF/faces/Cliente.xhtml">Cadastro</a></li>
+          				<li><a href="/Projeto-EcommerceJSF/faces/livros.xhtml">Livros</a></li>
           			</ul>
           		</h:panelGrid>
           		<h:panelGrid rendered="#{Autentica.adminLogado != null}" style="display: inline-block">
           		<ul class="nav navbar-nav">
-          			<li class="active"><a href="/Projeto-EcommerceJSF/faces/index.xhtml">Inicio</a></li>
+          			<li><a href="/Projeto-EcommerceJSF/faces/index.xhtml">Inicio</a></li>
           			<li><a href="/Projeto-EcommerceJSF/faces/Admin.xhtml">Cadastro</a></li>
           			<li><a href="/Projeto-EcommerceJSF/faces/autor.xhtml">Autor</a></li>
           			<li><a href="/Projeto-EcommerceJSF/faces/editora.xhtml">Editora</a></li>
@@ -57,9 +58,9 @@ xmlns:f="http://java.sun.com/jsf/core">
                                 <span class="input-group-addon">
                                     <i class="glyphicon glyphicon-lock"></i>
                                 </span>
-                                <h:inputSecret value="#{Autentica.pessoa.senha}" styleClass="form-control" maxlength="8" required="true" requiredMessage="Informar a senha"/>
+                                <h:inputSecret class="senha" value="#{Autentica.pessoa.senha}" styleClass="form-control" maxlength="8" required="true" requiredMessage="Informar a senha"/>
                             </div>
-                            <h:commandButton value="#{mensagem.botaoEntrar}" actionListener="#{Autentica.autenticar}" styleClass="btn btn-primary"/>
+                            <h:commandButton value="#{mensagem.botaoEntrar}" actionListener="#{Autentica.autenticar}" styleClass="btn btn-primary entrar"/>
           				</h:form>
           			</li>
           		</ul>

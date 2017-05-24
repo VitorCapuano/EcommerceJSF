@@ -1,0 +1,288 @@
+package br.com.ecommerce.bean;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.faces.event.ActionEvent;
+
+import br.com.ecomerce.dao.AutorDAO;
+import br.com.ecomerce.dao.EditoraDAO;
+import br.com.ecomerce.dao.GeneroDAO;
+import br.com.ecomerce.dao.LivroDAO;
+import br.com.ecomerce.dao.VendaDAO;
+import br.com.ecommerce.modelo.Autor;
+import br.com.ecommerce.modelo.Editora;
+import br.com.ecommerce.modelo.Genero;
+import br.com.ecommerce.modelo.ItemVenda;
+import br.com.ecommerce.modelo.Livro;
+import br.com.ecommerce.modelo.Pessoa;
+import br.com.ecommerce.modelo.Venda;
+import br.com.ecommerce.util.JavaUtil;
+
+@ManagedBean(name="Livro")
+@ViewScoped
+public class LivroBean {
+	private Pessoa pessoa;
+	private Venda venda;
+	private Livro livro = new Livro();
+	private List<Venda> listaVenda;
+	private List<Livro> listarLivro;
+	private List<Editora> listaEditora;
+	private List<Autor> listaAutor;
+	private List<Genero> listaGenero;
+	
+	/* Filtro de livros*/
+	private String livroSelecionado;
+	private String comboSelecionado;
+	
+	/*carrinho de compra */
+	
+	private List<ItemVenda> itensVenda; //criado inicializacao no postConstruct
+	
+	public List<ItemVenda> getItensVenda() {
+		return itensVenda;
+	}
+	
+	public void setItensVenda(List<ItemVenda> itensVenda) {
+		this.itensVenda = itensVenda;
+	}
+	
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+	
+	public void adicionar(ActionEvent evento){
+		Livro l = (Livro) evento.getComponent().getAttributes().get("livroComprado");
+		
+		int achou = -1;
+		
+		for (int i = 0; i < itensVenda.size(); i++) {
+			if(itensVenda.get(i).getLivro().equals(l)){
+				achou = i;
+			}
+		}
+		
+		if(achou == -1){
+			ItemVenda item = new ItemVenda();
+			item.setQuantidade(1);
+			item.setValorParcial(l.getPrecoAtual());
+			item.setLivro(l);
+			item.setPessoa(pessoa);
+			itensVenda.add(item);
+		}else{
+			ItemVenda itemVenda = itensVenda.get(achou);
+			itemVenda.setQuantidade(itemVenda.getQuantidade() + 1);
+			itemVenda.setValorParcial(l.getPrecoAtual() * itemVenda.getQuantidade());
+		}
+		
+		calcularValorTotal();
+	}
+	
+	public void remover(ActionEvent evento){
+		ItemVenda itemVenda =  (ItemVenda) evento.getComponent().getAttributes().get("itemAdicionado");
+		
+		int achou = -1;
+		for (int i = 0; i < itensVenda.size(); i++) {
+			if(itensVenda.get(i).getLivro().equals(itemVenda.getLivro())){
+				achou = i;
+			}
+		}
+		
+		if(achou > -1){
+			itensVenda.remove(achou);
+			calcularValorTotal();
+		}
+	}
+	
+	public void calcularValorTotal(){
+		venda.setPrecoTotal(0.00);
+		
+		for (int i = 0; i < itensVenda.size(); i++) {
+			ItemVenda itemVenda = itensVenda.get(i);
+			venda.setPrecoTotal(venda.getPrecoTotal() + itemVenda.getValorParcial());
+		}
+	}
+	
+	public void finalizar(){
+		if(venda.getPrecoTotal() == 0){
+			JavaUtil.adicionarMensagemSucesso("Informe pelo menos 1 tem de venda!");
+		}
+		else{
+			VendaDAO dao = new VendaDAO();
+			for (int i = 0; i < itensVenda.size(); i++) {
+				System.out.println(itensVenda.get(i).getLivro().getIdLivro()+"\n");
+			}
+			//vou criar um List e este list vai receber um list do carrinho
+			//mudar o List do item pedido para adicionar o id do cliente e o id do livro
+		}
+	}
+	/*fim carrinho de compra */
+	
+	/*
+	 Classe venda
+	 */
+	
+		public Venda getVenda() {
+			return venda;
+		}
+		
+		public void setVenda(Venda venda) {
+			this.venda = venda;
+		}
+		
+		public List<Venda> getListaVenda() {
+			return listaVenda;
+		}
+		
+		public void setListaVenda(List<Venda> listaVenda) {
+			this.listaVenda = listaVenda;
+		}
+	/*
+	 * fim classe venda
+	 */
+
+	public String getLivroSelecionado() {
+		return livroSelecionado;
+	}
+
+	public void setLivroSelecionado(String livroSelecionado) {
+		this.livroSelecionado = livroSelecionado;
+	}
+	
+	public String getComboSelecionado() {
+		return comboSelecionado;
+	}
+
+	public void setComboSelecionado(String comboSelecionado) {
+		this.comboSelecionado = comboSelecionado;
+	}
+
+	//Get e Set do Listar Livros
+	public List<Livro> getListarLivro() {
+		return listarLivro;
+	}
+	
+	public void setListarLivro(List<Livro> litarLivro) {
+		this.listarLivro = litarLivro;
+	}
+
+	//Carregar o Livro ao iniciar a pagina
+	@PostConstruct
+	public void listar(){
+		LivroDAO livro = new LivroDAO();
+		listarLivro = livro.listarLivro();
+		itensVenda = new ArrayList<>();
+		venda = new Venda();
+		venda.setPrecoTotal(0.00);
+		//gerando novo string
+	}
+	
+	//Get e Set do Listar editoras
+	public List<Editora> getListaEditora() {
+		EditoraDAO dao = new EditoraDAO();
+		listaEditora = dao.listarEditora();
+		return listaEditora;
+	}
+	
+	//Get e Set do Listar autor
+	public List<Autor> getListaAutor() {
+		AutorDAO dao = new AutorDAO();
+		listaAutor = dao.listarAutor();
+		return listaAutor;
+	}
+	
+	//Get e Set do genero
+	public List<Genero> getListaGenero() {
+		GeneroDAO dao = new GeneroDAO();
+		listaGenero = dao.listarGenero();
+		return listaGenero;
+	}
+
+	public void setListaGenero(List<Genero> listaGenero) {
+		this.listaGenero = listaGenero;
+	}
+
+	//Get e Set do Livro
+	public Livro getLivro() {
+		return livro;
+	}
+
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+	
+	
+	//Método para cadastrar o livro
+	public void cadastrar(){
+		LivroDAO dao = new LivroDAO();
+		boolean cadastrou = dao.cadastrarLivro(livro);
+		if(cadastrou == true){
+			listarLivro = dao.listarLivro();
+			livro = new Livro();
+			JavaUtil.adicionarMensagemSucesso("Livro cadastrado com sucesso!");
+		}
+	}
+	
+	//Método para excluir o livro selecionado
+	public void excluir(ActionEvent evento){
+		livro = (Livro) evento.getComponent().getAttributes().get("livroSelecionado");
+		LivroDAO dao = new LivroDAO();
+		dao.excluir(livro);
+		listarLivro = dao.listarLivro();
+		
+		JavaUtil.adicionarMensagemSucesso("Livro excluído com sucesso!");
+		
+	}
+	
+	//Pegar livro selecionado
+	public void editar(ActionEvent evento){
+		livro = (Livro) evento.getComponent().getAttributes().get("livroSelecionado");
+		LivroDAO dao = new LivroDAO();
+		listarLivro = dao.listarLivro();
+	}
+	
+	
+	//Método para Alterar os dados do livro selecionado
+	public void alterar(){
+		LivroDAO dao = new LivroDAO();
+		boolean alterado = dao.editar(livro);
+		if(alterado == true){
+			listarLivro = dao.listarLivro();
+			JavaUtil.adicionarMensagemSucesso("Livro alterado com sucesso!");
+		}
+		else{
+			JavaUtil.adicionarMensagemSucesso("Erro ao editar banco");
+		}
+		
+	}
+	
+	public void filtrar(){
+		LivroDAO dao = new LivroDAO();
+				
+		if(livroSelecionado == ""){
+			listarLivro = dao.listarLivro();
+		}
+		else{
+			if (comboSelecionado.equalsIgnoreCase("titulo")){
+				listarLivro = dao.buscarPorLivro(livroSelecionado);
+				
+			}
+			else if(comboSelecionado.equalsIgnoreCase("autor")){
+				int idAutor = dao.buscarAutor(livroSelecionado);
+				listarLivro = dao.buscarLivroPorAutor(idAutor);
+			}
+			else{
+				int idEditora = dao.buscarEditora(livroSelecionado);
+				listarLivro = dao.buscarLivroPorEditora(idEditora);
+			}
+		}
+	}
+}

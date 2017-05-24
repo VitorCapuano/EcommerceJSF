@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
+<ui:include src="/base.xhtml" />
+
+<body>
+	<div class="container">
+		<div class="row" style="margin-top: 30px">
+			<h3><h:outputText value="#{mensagem.TituloCadastroAdmin}"/></h3>
+			<h:messages id="mensagem" styleClass="alert alert-success" style="list-style: none;"/>
+			<h:form id="formListagem">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoNome}"/>
+							<h:inputText value="#{Admin.admin.nome}" styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="CPF"/>
+							<h:inputText value="#{Admin.admin.cpf}" styleClass="form-control" />
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoCEP}"/>
+							<h:inputText value="#{Admin.admin.cep}" styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoRua}"/>
+							<h:inputText value="#{Admin.admin.rua}" styleClass="form-control" />
+						</div>
+					</div>
+					<div class="col-md-1">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoNumero}"/>
+							<h:inputText value="#{Admin.admin.numero}" styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoBairro}"/>
+							<h:inputText value="#{Admin.admin.bairro}" styleClass="form-control" />
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoCidade}"/>
+							<h:inputText value="#{Admin.admin.cidade}" styleClass="form-control" />
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoTelefone}"/>
+							<h:inputText value="#{Admin.admin.telefone}" styleClass="form-control" />
+						</div>
+					</div>
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoCelular}"/>
+							<h:inputText value="#{Admin.admin.celular}" styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoEmail}"/>
+							<h:inputText value="#{Admin.admin.email}" styleClass="form-control" />
+						</div>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-2">
+						<div class="form-group">
+							<h:outputLabel value="#{mensagem.campoSenha}"/>
+							<h:inputSecret value="#{Admin.admin.senha}" styleClass="form-control" />
+						</div>
+					</div>
+				</div>
+				<h:commandButton value="#{mensagem.botaoCadastrar}" styleClass="btn btn-primary" actionListener="#{Admin.cadastrar}"/>	
+			</h:form>
+		</div>		
+	</div>
+</body>
+</html>

@@ -1,7 +1,5 @@
 package br.com.ecommerce.modelo;
 
-import java.math.BigDecimal;
-
 public class Livro {
 	private int idLivro;
 	private String titulo;
@@ -9,27 +7,27 @@ public class Livro {
 	private Editora editora;
 	private Genero genero;
 	private Autor autor;
-	private BigDecimal preco;
-	private BigDecimal desconto;
-	private BigDecimal precoAtual;
+	private double preco;
+	private double desconto;
+	private double precoAtual;
 	
 		
-	public BigDecimal getPrecoAtual() {
+	public double getPrecoAtual() {
 		return precoAtual;
 	}
-	public void setPrecoAtual(BigDecimal precoAtual) {
+	public void setPrecoAtual(double precoAtual) {
 		this.precoAtual = precoAtual;
 	}
-	public BigDecimal getDesconto() {
+	public double getDesconto() {
 		return desconto;
 	}
-	public void setDesconto(BigDecimal desconto) {
+	public void setDesconto(double desconto) {
 		this.desconto = desconto;
 	}
-	public BigDecimal getPreco() {
+	public double getPreco() {
 		return preco;
 	}
-	public void setPreco(BigDecimal preco) {
+	public void setPreco(double preco) {
 		this.preco = preco;
 	}
 	public int getIdLivro() {

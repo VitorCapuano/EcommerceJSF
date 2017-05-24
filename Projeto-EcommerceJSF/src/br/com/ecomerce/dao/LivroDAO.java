@@ -30,9 +30,9 @@ public class LivroDAO {
 			p.setInt(3, livro.getEditora().getIdEditora());
 			p.setInt(4, livro.getGenero().getGeneroId());
 			p.setInt(5, livro.getAutor().getIdAutor());
-			p.setBigDecimal(6, livro.getPreco());
-			p.setBigDecimal(7, livro.getDesconto());
-			p.setBigDecimal(8, livro.getPrecoAtual());
+			p.setDouble(6, livro.getPreco());
+			p.setDouble(7, livro.getDesconto());
+			p.setDouble(8, livro.getPrecoAtual());
 			p.execute();
 			cadastrou = true;
         }catch (Exception e) {
@@ -55,9 +55,9 @@ public class LivroDAO {
 				Livro livro = new Livro();
 				livro.setIdLivro(rs.getInt("livro_id"));
 				livro.setTitulo(rs.getString("titulo"));
-				livro.setPreco(rs.getBigDecimal("preco"));
-				livro.setDesconto(rs.getBigDecimal("desconto"));
-				livro.setPrecoAtual(rs.getBigDecimal("precototal"));
+				livro.setPreco(rs.getDouble("preco"));
+				livro.setDesconto(rs.getDouble("desconto"));
+				livro.setPrecoAtual(rs.getDouble("precototal"));
 				livro.setDescricao(rs.getString("descricao"));
 				lista.add(livro);
 			}
@@ -93,9 +93,9 @@ public class LivroDAO {
 			p.setInt(3, livro.getEditora().getIdEditora());
 			p.setInt(4, livro.getGenero().getGeneroId());
 			p.setInt(5, livro.getAutor().getIdAutor());
-			p.setBigDecimal(6, livro.getDesconto());
-			p.setBigDecimal(7, livro.getPreco());
-			p.setBigDecimal(8, livro.getPrecoAtual());
+			p.setDouble(6, livro.getDesconto());
+			p.setDouble(7, livro.getPreco());
+			p.setDouble(8, livro.getPrecoAtual());
 			p.setInt(9, livro.getIdLivro());
 			p.execute();
 			alterou = true;
@@ -121,9 +121,9 @@ public class LivroDAO {
 				Livro livro = new Livro();
 				livro.setIdLivro(rs.getInt("livro_id"));
 				livro.setTitulo(rs.getString("titulo"));
-				livro.setPreco(rs.getBigDecimal("preco"));
-				livro.setDesconto(rs.getBigDecimal("desconto"));
-				livro.setPrecoAtual(rs.getBigDecimal("precototal"));
+				livro.setPreco(rs.getDouble("preco"));
+				livro.setDesconto(rs.getDouble("desconto"));
+				livro.setPrecoAtual(rs.getDouble("precototal"));
 				livro.setDescricao(rs.getString("descricao"));
 				lista.add(livro);
 			}
@@ -148,9 +148,9 @@ public class LivroDAO {
 				Livro livro = new Livro();
 				livro.setIdLivro(rs.getInt("livro_id"));
 				livro.setTitulo(rs.getString("titulo"));
-				livro.setPreco(rs.getBigDecimal("preco"));
-				livro.setDesconto(rs.getBigDecimal("desconto"));
-				livro.setPrecoAtual(rs.getBigDecimal("precototal"));
+				livro.setPreco(rs.getDouble("preco"));
+				livro.setDesconto(rs.getDouble("desconto"));
+				livro.setPrecoAtual(rs.getDouble("precototal"));
 				livro.setDescricao(rs.getString("descricao"));
 				lista.add(livro);
 			}
@@ -197,9 +197,9 @@ public class LivroDAO {
 				Livro livro = new Livro();
 				livro.setIdLivro(rs.getInt("livro_id"));
 				livro.setTitulo(rs.getString("titulo"));
-				livro.setPreco(rs.getBigDecimal("preco"));
-				livro.setDesconto(rs.getBigDecimal("desconto"));
-				livro.setPrecoAtual(rs.getBigDecimal("precototal"));
+				livro.setPreco(rs.getDouble("preco"));
+				livro.setDesconto(rs.getDouble("desconto"));
+				livro.setPrecoAtual(rs.getDouble("precototal"));
 				livro.setDescricao(rs.getString("descricao"));
 				lista.add(livro);
 			}

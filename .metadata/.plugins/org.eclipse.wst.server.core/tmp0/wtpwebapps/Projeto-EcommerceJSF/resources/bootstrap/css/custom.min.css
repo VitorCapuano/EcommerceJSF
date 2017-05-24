@@ -2,6 +2,21 @@ body{padding-top:50px}body>.navbar{-webkit-transition:background-color .3s ease-
 
 
 /*Navbar*/
+.navbar{
+	padding-top: 5px;
+	min-height: 70px;
+}
+
+.navbar-nav li a{
+	text-decoration: none!important;
+}
+
+.entrar{
+	background: #ecf0f1;
+	color: #2c3e50;
+	font-weight: bold;
+	padding: 12px 17px;
+}
 
 .glyphicon-user, .glyphicon-lock{
 	font-size: 1.2em;
@@ -151,6 +166,19 @@ body{padding-top:50px}body>.navbar{-webkit-transition:background-color .3s ease-
     line-height: 20px;
 }
 
+.btn-cadastrar{
+	margin-bottom: 30px;
+}
+
 .omitir{
 	display: none;
+}
+
+.cabecalho{
+	background: #2c3e50; 
+	color: #FFF;
+}
+
+.ui-panel .ui-panel-content{
+	padding: 0px!important;
 }

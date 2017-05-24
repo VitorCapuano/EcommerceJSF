@@ -88,3 +88,53 @@ mai 17, 2017 11:41:50.92 [4068:7592:0517/114150.923:ERROR:ssl_client_socket_impl
 
 mai 19, 2017 14:37:27.14 NEW SESSION
 mai 19, 2017 14:37:27.15 [5768:5772:0519/143727.142:ERROR:ssl_client_socket_impl.cc(1135)] handshake failed; returned -1, SSL error code 1, net_error -101
+
+mai 20, 2017 21:53:35.27 NEW SESSION
+mai 20, 2017 21:53:35.29 1495328015285	addons.update-checker	WARN	Update manifest for aushelper@mozilla.org did not contain an updates property
+mai 20, 2017 21:53:35.30 1495328015319	addons.update-checker	WARN	Update manifest for e10srollout@mozilla.org did not contain an updates property
+mai 20, 2017 21:53:35.34 1495328015347	addons.update-checker	WARN	Update manifest for firefox@getpocket.com did not contain an updates property
+mai 20, 2017 21:53:35.35 1495328015368	addons.update-checker	WARN	Update manifest for webcompat@mozilla.org did not contain an updates property
+mai 20, 2017 21:53:35.37 1495328015386	addons.update-checker	WARN	Update manifest for {972ce4c6-7e08-4474-a285-3208198ce6fd} did not contain an updates property
+mai 20, 2017 23:50:41.53 [GPU 6076] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+mai 20, 2017 23:50:41.93 
+mai 20, 2017 23:50:41.93 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+mai 20, 2017 23:50:41.94 
+
+mai 21, 2017 24:02:07.27 NEW SESSION
+mai 21, 2017 24:02:07.27 console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+mai 21, 2017 24:09:51.01 Warning: An attempt was made to write to the DEVTOOLS_COPY_UNIQUE_CSS_SELECTOR_OPENED_COUNT histogram, which is not defined in Histograms.json
+mai 21, 2017 24:09:51.02 [GPU 1592] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+mai 21, 2017 24:09:51.03 [GPU 1592] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+mai 21, 2017 24:09:51.04 [GPU 1592] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+mai 21, 2017 24:10:44.09 [GPU 1592] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+mai 21, 2017 24:10:44.10 [GPU 1592] WARNING: pipe error: 109: file c:/builds/moz2_slave/m-rel-w32-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+mai 21, 2017 24:10:44.51 
+mai 21, 2017 24:10:44.52 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+mai 21, 2017 24:10:44.53 
+
+mai 23, 2017 16:00:56.51 NEW SESSION
+mai 23, 2017 16:00:56.51 [1200:180:0523/160056.512:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:01:20.00 [1200:180:0523/160120.004:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:01:29.91 [1200:2972:0523/160129.914:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-105).
+mai 23, 2017 16:01:29.94 [1200:2972:0523/160129.914:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-105).
+mai 23, 2017 16:02:16.13 [1200:180:0523/160216.131:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:04:11.33 [1200:180:0523/160411.336:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:07:52.44 [1200:2972:0523/160752.445:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 23, 2017 16:07:56.65 [1200:180:0523/160756.614:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:08:19.31 [1200:2972:0523/160819.309:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 23, 2017 16:09:08.22 [1200:2972:0523/160908.224:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 23, 2017 16:10:53.07 [1200:2972:0523/161053.072:ERROR:gcm_channel_status_request.cc(127)] GCM channel request failed.
+mai 23, 2017 16:13:36.66 [5740:7156:0523/161336.668:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:14:06.07 [5740:7156:0523/161406.073:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:14:08.70 [5740:6248:0523/161408.702:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-105).
+mai 23, 2017 16:14:08.71 [5740:6248:0523/161408.702:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-105).
+mai 23, 2017 16:14:46.58 [5740:7156:0523/161446.582:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:16:34.05 [5740:7156:0523/161634.057:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:19:21.91 [5740:7156:0523/161921.912:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:25:38.36 [5924:1220:0523/162538.359:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:26:00.48 [5924:1220:0523/162600.484:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:26:11.72 [5924:6380:0523/162611.723:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-105).
+mai 23, 2017 16:26:11.73 [5924:6380:0523/162611.723:ERROR:account_tracker.cc(356)] OnGetTokenFailure: Connection failed (-105).
+mai 23, 2017 16:26:54.93 [5924:1220:0523/162654.929:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:28:30.42 [5924:1220:0523/162830.425:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105
+mai 23, 2017 16:32:15.73 [5924:1220:0523/163215.731:ERROR:connection_factory_impl.cc(386)] Failed to connect to MCS endpoint with error -105

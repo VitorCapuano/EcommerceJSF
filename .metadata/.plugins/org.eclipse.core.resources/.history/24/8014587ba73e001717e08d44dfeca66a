@@ -1,0 +1,46 @@
+package br.com.ecommerce.modelo;
+
+import java.math.BigDecimal;
+
+public class ItemVenda {
+	private int quantidade;
+	private double valorParcial;
+	private Livro livro;
+	private Venda venda;
+	
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	public double getValorParcial() {
+		return valorParcial;
+	}
+	public void setValorParcial(double valorParcial) {
+		this.valorParcial = valorParcial;
+	}
+	public Livro getLivro() {
+		return livro;
+	}
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+	public Venda getVenda() {
+		return venda;
+	}
+	public void setVenda(Venda venda) {
+		this.venda = venda;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "ItemVenda [quantidade=" + quantidade + ", valorParcial=" + valorParcial + ", livro=" + livro
+				+ ", venda=" + venda + "]";
+	}
+	
+	
+	
+}
