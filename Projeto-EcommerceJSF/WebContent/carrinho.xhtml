@@ -28,12 +28,12 @@
 							</h:outputText>
 						</span>
 						
-						<p:commandButton icon="ui-icon-plus" styleClass="btn btn-default" actionListener="#{Pedido.aumentar}" update=":formCarrinho:carrinhoCompras">
+						<p:commandButton icon="ui-icon-plus" styleClass="btn btn-default" actionListener="#{Pedido.aumentar}" update=":formCarrinho">
 							<f:attribute name="selecionado" value="#{carrinho}"/>
 						</p:commandButton>
 						
 						<p:commandButton icon="ui-icon-minus" styleClass="btn btn-default" actionListener="#{Pedido.diminuir}"
-							update=":formCarrinho:carrinhoCompras" ajax="true">
+							update=":formCarrinho" ajax="true">
 							<f:attribute name="livroSel" value="#{carrinho}"/>
 						</p:commandButton>
 					</span>
@@ -61,17 +61,21 @@
 				
 				<p:column>
 					<p:commandButton styleClass="btn btn-danger" value="Remover" actionListener="#{Pedido.removerItem}"
-						update=":formCarrinho:carrinhoCompras">
+						update=":formCarrinho:">
 						<f:attribute name="livroSelecionado" value="#{carrinho}" />
 					</p:commandButton>
 				</p:column>
 				<!-- atualiza o form toda vez que inserir no carrinho -->
 				<p:poll interval="1" update="@form, :carrinhoCompras" ajax="true"/>
+				
+				<br/>
 			</p:dataTable>
+			<p:outputLabel value="Total R$" /><span style="margin-left: 20px;">
+			<h:outputText value="#{Pedido.pedido.precoTotal}">
+				<f:convertNumber locale="pt_BR" minFractionDigits="2"/>
+			</h:outputText></span>
 			<br/>
 			<p:commandButton styleClass="btn btn-success" value="Finalizar compra"/>
-<!-- 						<f:attribute name="livroSelecionado" value="#{carrinnho}" /> -->
-<!-- 					</p:commandButton> -->
 		</h:form>
 	</div>
 </div>

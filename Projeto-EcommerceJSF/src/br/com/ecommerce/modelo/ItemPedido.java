@@ -4,7 +4,6 @@ public class ItemPedido {
 	private Pedido pedido;
 	private Livro livro;
 	private Integer quantidade;
-	private Double preco;
 	private Double precoComDesconto;
 	private Double precoFinal;
 	
@@ -38,11 +37,5 @@ public class ItemPedido {
 	}
 	public void setPrecoComDesconto(Double precoComDesconto) {
 		this.precoComDesconto = precoComDesconto;
-	}
-	public Double getPreco() {
-		return preco;
-	}
-	public void setPreco(Double preco) {
-		this.preco = preco;
 	}
 }

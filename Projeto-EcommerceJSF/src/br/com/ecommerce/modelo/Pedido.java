@@ -4,6 +4,7 @@ public class Pedido {
 	private int idPedido;
 	private Livro livro;
 	private Pessoa cliente;
+	private Double precoTotal;
 	
 	public int getIdPedido() {
 		return idPedido;
@@ -22,5 +23,11 @@ public class Pedido {
 	}
 	public void setCliente(Pessoa cliente) {
 		this.cliente = cliente;
+	}
+	public Double getPrecoTotal() {
+		return precoTotal;
+	}
+	public void setPrecoTotal(Double precoTotal) {
+		this.precoTotal = precoTotal;
 	}
 }

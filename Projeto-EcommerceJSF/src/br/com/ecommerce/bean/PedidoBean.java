@@ -5,21 +5,30 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.event.ActionEvent;
+
 import br.com.ecomerce.dao.LivroDAO;
 import br.com.ecommerce.modelo.ItemPedido;
 import br.com.ecommerce.modelo.Livro;
+import br.com.ecommerce.modelo.Pedido;
 import br.com.ecommerce.util.JavaUtil;
 
 @ManagedBean(name = "Pedido")
 @SessionScoped
 public class PedidoBean {
+	private Pedido pedido;
 	private List<Livro> livros;
 	private List<ItemPedido> carrinhoCompra;
 	private Livro livro = new Livro();
 	
+	public Pedido getPedido() {
+		return pedido;
+	}
+	
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
 	public List<Livro> getLivros() {
 		return livros;
 	}
@@ -45,7 +54,10 @@ public class PedidoBean {
 	}
 	
 	@PostConstruct
-	public void listar(){
+	public void novo(){
+		pedido = new Pedido();
+		pedido.setPrecoTotal(0.0);
+		
 		LivroDAO livro = new LivroDAO();
 		livros = livro.listarLivro();
 		carrinhoCompra = new ArrayList();
@@ -66,7 +78,6 @@ public class PedidoBean {
 
 		if (achou < 0) {
 			ItemPedido iPedido = new ItemPedido();
-			iPedido.setPreco(livro.getPreco());
 			iPedido.setPrecoComDesconto(livro.getPrecoAtual());
 			iPedido.setPrecoFinal(livro.getPrecoAtual());
 			iPedido.setQuantidade(1);
@@ -75,6 +86,7 @@ public class PedidoBean {
 		} else {
 			JavaUtil.adicionarMensagemErro("Livro já adicionado ao carrinho");
 		}
+		calcularTotal();
 	}
 
 	public void removerItem(ActionEvent e) {
@@ -91,6 +103,7 @@ public class PedidoBean {
 		if (achou > -1) {
 			carrinhoCompra.remove(achou);
 		}
+		alteraTotal();
 	}
 
 	// incrementa a quantidade de livros e atualiza o valor total
@@ -119,6 +132,7 @@ public class PedidoBean {
 			double v = l.getPrecoAtual() * iPedido.getQuantidade();
 			iPedido.setPrecoFinal(v);
 		}
+		calcularTotal();
 	}
 
 	public void diminuir(ActionEvent e) {
@@ -135,6 +149,26 @@ public class PedidoBean {
 			ItemPedido iPedido = carrinhoCompra.get(achouL);
 			iPedido.setQuantidade(iPedido.getQuantidade() - 1);
 			iPedido.setPrecoFinal(iPedido.getPrecoFinal() - iPedido.getPrecoComDesconto());
+		}
+		alteraTotal();
+	}
+	
+	// calcula total
+	public void calcularTotal() {
+		pedido.setPrecoTotal(0.0);
+		
+		for(int i = 0; i < carrinhoCompra.size(); i++) {
+			ItemPedido iPedido = carrinhoCompra.get(i);
+			pedido.setPrecoTotal(pedido.getPrecoTotal()+iPedido.getPrecoFinal());
+		}
+	}
+	
+	public void alteraTotal() {
+		pedido.setPrecoTotal(0.0);
+		
+		for(int i = 0; i < carrinhoCompra.size(); i++) {
+			ItemPedido iPedido = carrinhoCompra.get(i);
+			pedido.setPrecoTotal(iPedido.getPrecoFinal()-pedido.getPrecoTotal());
 		}
 	}
 }
