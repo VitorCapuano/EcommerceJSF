@@ -7,6 +7,7 @@ public class ItemPedido {
 	private Double precoComDesconto;
 	private Double precoFinal;
 	
+	
 	public Livro getLivro() {
 		return livro;
 	}

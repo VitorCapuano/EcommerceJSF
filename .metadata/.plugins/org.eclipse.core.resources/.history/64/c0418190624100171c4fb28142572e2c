@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<ui:include src="/base.xhtml" />
+
+<div class="container">
+	<br/>
+	<br/>
+	<div class="row">
+		<h3>Carrinho de compras</h3>
+		<h:form id="formCarrinho">
+			<p:dataTable id="carrinhoCompras" emptyMessage="Nenhum registro encontrado" value="#{Pedido.carrinhoCompra}" var="carrinho">
+				<p:column headerText="Titulo">
+					<span style="display: block; text-align: center;">
+						<h:outputText value="#{carrinho.livro.titulo}" />
+					</span>
+				</p:column>
+				
+				<p:column headerText="Quantidade">
+					<span style="display: block; text-align: center;">
+						<span>
+							<h:outputText id="quantidade" value="#{carrinho.quantidade}" >
+								<f:convertNumber locale="pt_BR" minIntegerDigits="2"/>
+							</h:outputText>
+						</span>
+						<p:commandButton icon="ui-icon-plus" styleClass="btn btn-default" actionListener="#{Pedido.aumentar}" update=":formCarrinho">
+							<f:attribute name="selecionado" value="#{carrinho}"/>
+						</p:commandButton>
+						
+						<p:commandButton icon="ui-icon-minus" styleClass="btn btn-default" actionListener="#{Pedido.diminuir}"
+							update=":formCarrinho" ajax="true">
+							<f:attribute name="livroSel" value="#{carrinho}"/>
+						</p:commandButton>
+					</span>
+				</p:column>
+				<p:column headerText="Preço">
+					<del style="display: block; text-align: center;">
+						<h:outputText id="precoInicial" value="#{carrinho.livro.preco}">
+							<f:convertNumber locale="pt_BR" minFractionDigits="2" />
+						</h:outputText>
+					</del>
+					<span style="display: block; text-align: center; color: red;">
+						<h:outputText id="precoAtual" value="#{carrinho.livro.precoAtual}">
+							<f:convertNumber locale="pt_BR" minFractionDigits="2"/>
+						</h:outputText>
+					</span>
+				</p:column>
+				
+				<p:column headerText="Preço Final">
+					<span style="display: block;text-align: center">
+						<h:outputText value="#{carrinho.precoFinal}">
+							<f:convertNumber locale="pt_BR" minFractionDigits="2"/>
+						</h:outputText>
+					</span>			
+				</p:column>
+				
+				<p:column>
+					<p:commandButton styleClass="btn btn-danger" value="Remover" actionListener="#{Pedido.removerItem}"
+						update=":formCarrinho :totalCarro">
+						<f:attribute name="livroSelecionado" value="#{carrinho}" />
+					</p:commandButton>
+				</p:column>
+				<!-- atualiza o form toda vez que inserir no carrinho -->
+				<p:poll interval="1" update="@form, :carrinhoCompras" ajax="true"/>
+				
+				<br/>
+			</p:dataTable>
+			<p:outputLabel value="Total R$" /><span style="margin-left: 20px;">
+			<h:outputText value="#{Pedido.pedido.precoTotal}">
+				<f:convertNumber locale="pt_BR" minFractionDigits="2"/>
+			</h:outputText></span>
+			<br/>
+			<p:commandButton styleClass="btn btn-success" value="Continuar comprando" action="#{Pedido.continuarComprando}"/>
+		</h:form>
+	</div>
+	
+		<div class="row" style="margin-top: 30px;">
+			<h2 style="margin-bottom: 30px;">Finzalizar a Compra</h2>	
+			<div class="col-md-9">
+				<div class="col-md-8">
+					<h6 style="margin-left: 150px">Simule o prazo de entrega para o seu CEP abaixo</h6>
+					<h:form styleClass="form-inline" style="margin-left: 150px;">
+						<div class="row">
+					    	<div class="form-group">
+					        	<h:inputText styleClass="form-control" id="cep"/>
+					        </div>
+					        <button type="submit" class="btn btn-default" id="calcular">Calcular</button>
+					    </div>
+					    <div class="row" style="margin-top: 10px;">
+					    	<p:selectOneRadio>
+					        	<f:selectItem itemLabel="Frete Rapido" itemValue="rapido" selected="true"/>
+					            <f:selectItem itemLabel="Frete Normal" itemValue="normal"/>
+							</p:selectOneRadio>
+						</div>
+					</h:form>
+				</div>
+				<div class="col-md-4">
+					<div class="row" style="font-size: 30px;">
+						Total:     <span class="total"> R$ <h:outputText id="precoTotal" value=""><f:convertNumber locale="pt_BR" minFractionDigits="2" /></h:outputText> </span>  
+						              <span style="display: block; font-size: 11px">Valor do Frete: R$ <span class="frete">0,00</span></span>
+					</div>
+					<div class="row" style="margin-top: 20px;">
+						<p:commandButton value="Finalizar" styleClass="btn btn-default btn-block" actionListener="#{Livro.finalizar}" style="padding: 20px;"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</html>

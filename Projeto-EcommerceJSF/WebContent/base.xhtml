@@ -69,8 +69,10 @@ xmlns:f="http://java.sun.com/jsf/core">
           		
           		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block" styleClass="pull-right">
           			<h:form id="totalCarro">
-          				<span class="glyphicon glyphicon-shopping-cart" style="color: #FFF; margin-top: 20px; font-size: 20px;"></span>
-          				<span class="badge" style="margin-top: -25px;"><h:outputText value="#{Pedido.totalCarrinho}"/></span>
+          				<a href="/Projeto-EcommerceJSF/faces/carrinho.xhtml">
+          					<span class="glyphicon glyphicon-shopping-cart" style="color: #FFF; margin-top: 20px; font-size: 20px;"></span>
+          					<span class="badge" style="margin-top: -25px;"><h:outputText value="#{Pedido.totalCarrinho}"/></span>
+          				</a>
           			</h:form>	
           		</h:panelGrid>
           		

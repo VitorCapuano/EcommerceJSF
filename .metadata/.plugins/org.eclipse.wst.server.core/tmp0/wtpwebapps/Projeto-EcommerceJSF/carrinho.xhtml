@@ -70,13 +70,46 @@
 				<br/>
 			</p:dataTable>
 			<p:outputLabel value="Total R$" /><span style="margin-left: 20px;">
-			<h:outputText value="#{Pedido.pedido.precoTotal}">
+			<h:outputText id="total" value="#{Pedido.pedido.precoTotal}">
 				<f:convertNumber locale="pt_BR" minFractionDigits="2"/>
 			</h:outputText></span>
 			<br/>
 			<p:commandButton styleClass="btn btn-success" value="Continuar comprando" action="#{Pedido.continuarComprando}"/>
-			<p:commandButton styleClass="btn btn-success" value="Finalizar compra"/>
 		</h:form>
 	</div>
-</div>
+	
+		<div class="row" style="margin-top: 30px;">
+			<h2 style="margin-bottom: 30px;">Finzalizar a Compra</h2>	
+			<div class="col-md-9">
+				<div class="col-md-8">
+					<h6 style="margin-left: 150px">Simule o prazo de entrega para o seu CEP abaixo</h6>
+					<h:form styleClass="form-inline" style="margin-left: 150px;">
+						<div class="row">
+					    	<div class="form-group">
+					        	<h:inputText styleClass="form-control" id="cep"/>
+					        </div>
+					        <p:commandButton value="Calcular" styleClass="btn btn-default" actionListener="#{Pedido.calcularFrete}" style="padding: 10px;" update=":precoTotal"/>
+					    </div>
+					    <div class="row" style="margin-top: 10px;">
+					    	<p:selectOneRadio value="#{Pedido.radioSelecionado}">
+					        	<f:selectItem itemLabel="Frete Rapido" itemValue="1"/>
+					            <f:selectItem itemLabel="Frete Normal" itemValue="2"/>
+							</p:selectOneRadio>
+						</div>
+					</h:form>
+				</div>
+				<div class="col-md-4">
+					<div class="row" style="font-size: 30px;">
+						<h:form id="precoTotal">
+						Total:     <span class="total"> R$ <h:outputText value="#{Pedido.pedido.precoComFrete}"><f:convertNumber locale="pt_BR" minFractionDigits="2" /></h:outputText> </span>  
+						            <span style="display: block; font-size: 11px">Valor do Frete: R$ <h:outputText value="#{Pedido.frete}"><f:convertNumber locale="pt_BR" minFractionDigits="2" /></h:outputText></span>
+						</h:form>              
+					</div>
+					<div class="row" style="margin-top: 20px;">
+						<p:commandButton value="Finalizar" styleClass="btn btn-default btn-block" actionListener="#{Pedido.finalizar}" style="padding: 10px;"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </html>

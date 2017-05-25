@@ -19,11 +19,31 @@ import br.com.ecommerce.util.JavaUtil;
 @ManagedBean(name = "Pedido")
 @SessionScoped
 public class PedidoBean {
+	private double frete;
+	private String radioSelecionado = "1";
 	private int totalCarrinho;
 	private Pedido pedido;
 	private List<Livro> livros;
 	private List<ItemPedido> carrinhoCompra;
 	private Livro livro = new Livro();
+	
+	public double getFrete() {
+		return frete;
+	}
+	
+	public void setFrete(double frete) {
+		this.frete = frete;
+	}
+	
+	public String getRadioSelecionado() {
+		return radioSelecionado;
+	}
+	
+	public void setRadioSelecionado(String radioSelecionado) {
+		this.radioSelecionado = radioSelecionado;
+	}
+	
+	
 	
 	public int getTotalCarrinho() {
 		return totalCarrinho;
@@ -66,8 +86,10 @@ public class PedidoBean {
 	
 	@PostConstruct
 	public void novo(){
+		frete = 0.0;
 		pedido = new Pedido();
 		pedido.setPrecoTotal(0.0);
+		pedido.setPrecoComFrete(0.0);
 		totalCarrinho = 0;
 		LivroDAO livro = new LivroDAO();
 		livros = livro.listarLivro();
@@ -198,5 +220,20 @@ public class PedidoBean {
 	
 	public void continuarComprando() throws IOException{
 		FacesContext.getCurrentInstance().getExternalContext().redirect("livros.xhtml");
+	}
+	
+	public void calcularFrete(){
+		if(radioSelecionado.equals("1")){
+			pedido.setPrecoComFrete(pedido.getPrecoTotal()+5);
+			frete = 5.0;
+		}
+		else{
+			pedido.setPrecoComFrete(pedido.getPrecoTotal()+10);
+			frete = 10.0;
+		}
+	}
+	
+	public void finalizar(){
+		
 	}
 }

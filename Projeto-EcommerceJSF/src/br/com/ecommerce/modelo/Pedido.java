@@ -5,6 +5,15 @@ public class Pedido {
 	private Livro livro;
 	private Pessoa cliente;
 	private Double precoTotal;
+	private Double precoComFrete;
+	
+	public Double getPrecoComFrete() {
+		return precoComFrete;
+	}
+	
+	public void setPrecoComFrete(Double precoComFrete) {
+		this.precoComFrete = precoComFrete;
+	}
 	
 	public int getIdPedido() {
 		return idPedido;
