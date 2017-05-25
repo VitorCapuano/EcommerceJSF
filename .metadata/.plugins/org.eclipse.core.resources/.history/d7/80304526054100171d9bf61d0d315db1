@@ -133,10 +133,8 @@ public class PedidoBean {
 		Livro l = livros.get(achouP);
 		if (achouL > -1 && achouP > -1) {
 			iPedido.setQuantidade(iPedido.getQuantidade() + 1);
-			if(iPedido.getQuantidade() >= 0){
-				double v = l.getPrecoAtual() * iPedido.getQuantidade();
-				iPedido.setPrecoFinal(v);
-			}
+			double v = l.getPrecoAtual() * iPedido.getQuantidade();
+			iPedido.setPrecoFinal(v);
 		}
 		calcularTotal();
 	}
@@ -154,9 +152,7 @@ public class PedidoBean {
 		if(achouL > -1) {
 			ItemPedido iPedido = carrinhoCompra.get(achouL);
 			iPedido.setQuantidade(iPedido.getQuantidade() - 1);
-			if(iPedido.getQuantidade() >= 0){
-				iPedido.setPrecoFinal(iPedido.getPrecoFinal() - iPedido.getPrecoComDesconto());
-			}
+			iPedido.setPrecoFinal(iPedido.getPrecoFinal() - iPedido.getPrecoComDesconto());
 		}
 		alteraTotal();
 	}

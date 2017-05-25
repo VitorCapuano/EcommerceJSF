@@ -133,10 +133,8 @@ public class PedidoBean {
 		Livro l = livros.get(achouP);
 		if (achouL > -1 && achouP > -1) {
 			iPedido.setQuantidade(iPedido.getQuantidade() + 1);
-			if(iPedido.getQuantidade() >= 0){
-				double v = l.getPrecoAtual() * iPedido.getQuantidade();
-				iPedido.setPrecoFinal(v);
-			}
+			double v = l.getPrecoAtual() * iPedido.getQuantidade();
+			iPedido.setPrecoFinal(v);
 		}
 		calcularTotal();
 	}

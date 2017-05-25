@@ -74,8 +74,7 @@ public class PedidoBean {
 		int achou = -1;
 		//array dele e carrinhoCompra
 		for (int posicao = 0; posicao < carrinhoCompra.size(); posicao++) {
-			if (carrinhoCompra.get(posicao).getLivro().equals(livro)
-					&& carrinhoCompra.get(posicao).getPrecoComDesconto().equals(livro.getPrecoAtual())) {
+			if (carrinhoCompra.get(posicao).getLivro().equals(livro)) {
 				achou = posicao;
 			}
 		}
@@ -133,10 +132,8 @@ public class PedidoBean {
 		Livro l = livros.get(achouP);
 		if (achouL > -1 && achouP > -1) {
 			iPedido.setQuantidade(iPedido.getQuantidade() + 1);
-			if(iPedido.getQuantidade() >= 0){
-				double v = l.getPrecoAtual() * iPedido.getQuantidade();
-				iPedido.setPrecoFinal(v);
-			}
+			double v = l.getPrecoAtual() * iPedido.getQuantidade();
+			iPedido.setPrecoFinal(v);
 		}
 		calcularTotal();
 	}
@@ -154,17 +151,14 @@ public class PedidoBean {
 		if(achouL > -1) {
 			ItemPedido iPedido = carrinhoCompra.get(achouL);
 			iPedido.setQuantidade(iPedido.getQuantidade() - 1);
-			if(iPedido.getQuantidade() >= 0){
-				iPedido.setPrecoFinal(iPedido.getPrecoFinal() - iPedido.getPrecoComDesconto());
-			}
+			iPedido.setPrecoFinal(iPedido.getPrecoFinal() - iPedido.getPrecoComDesconto());
+			alteraTotal();
 		}
-		alteraTotal();
 	}
 	
 	// calcula total
 	public void calcularTotal() {
 		pedido.setPrecoTotal(0.0);
-		
 		for(int i = 0; i < carrinhoCompra.size(); i++) {
 			ItemPedido iPedido = carrinhoCompra.get(i);
 			pedido.setPrecoTotal(pedido.getPrecoTotal()+iPedido.getPrecoFinal());
@@ -173,10 +167,13 @@ public class PedidoBean {
 	
 	public void alteraTotal() {
 		pedido.setPrecoTotal(0.0);
-		
 		for(int i = 0; i < carrinhoCompra.size(); i++) {
 			ItemPedido iPedido = carrinhoCompra.get(i);
+<<<<<<< HEAD
 			pedido.setPrecoTotal(pedido.getPrecoTotal()+iPedido.getPrecoFinal());
+=======
+			pedido.setPrecoTotal(pedido.getPrecoTotal()-iPedido.getPrecoFinal());
+>>>>>>> 994c33d29419982e961c331af77bc9182d31c7c9
 		}
 	}
 	
