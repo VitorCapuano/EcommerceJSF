@@ -6,19 +6,24 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 import br.com.ecomerce.dao.LivroDAO;
+import br.com.ecomerce.dao.VendaDAO;
 import br.com.ecommerce.modelo.ItemPedido;
 import br.com.ecommerce.modelo.Livro;
 import br.com.ecommerce.modelo.Pedido;
+import br.com.ecommerce.modelo.Venda;
 import br.com.ecommerce.util.JavaUtil;
 
 @ManagedBean(name = "Pedido")
 @SessionScoped
 public class PedidoBean {
+	@ManagedProperty(value="#{Autentica}")
+	private AutenticaBean usuario;
 	private double frete;
 	private String radioSelecionado = "1";
 	private int totalCarrinho;
@@ -26,6 +31,24 @@ public class PedidoBean {
 	private List<Livro> livros;
 	private List<ItemPedido> carrinhoCompra;
 	private Livro livro = new Livro();
+	private List<Venda> vendas;
+	
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+	
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
+	}
+	
+	
+	public AutenticaBean getUsuario() {
+		return usuario;
+	}
+	
+	public void setUsuario(AutenticaBean usuario) {
+		this.usuario = usuario;
+	}
 	
 	public double getFrete() {
 		return frete;
@@ -117,6 +140,7 @@ public class PedidoBean {
 			iPedido.setPrecoFinal(livro.getPrecoAtual());
 			iPedido.setQuantidade(1);
 			iPedido.setLivro(livro);
+			iPedido.setCpf(usuario.getClienteLogado().getCpf());
 			carrinhoCompra.add(iPedido);
 		} else {
 			JavaUtil.adicionarMensagemErro("Livro já adicionado ao carrinho");
@@ -234,6 +258,15 @@ public class PedidoBean {
 	}
 	
 	public void finalizar(){
+		//for (int i = 0; i < carrinhoCompra.size(); i++) {
+			
+			
+			//System.out.println(carrinhoCompra.get(i).getLivro().getIdLivro()+"\n");
+			//System.out.println(carrinhoCompra.get(i).getLivro().getPrecoAtual());
+			//System.out.println(usuario.getClienteLogado().getCpf()+"\n");
+		//}
 		
+		VendaDAO dao = new VendaDAO();
+		boolean cadastrado = dao.cadastrarVendas(carrinhoCompra);
 	}
 }

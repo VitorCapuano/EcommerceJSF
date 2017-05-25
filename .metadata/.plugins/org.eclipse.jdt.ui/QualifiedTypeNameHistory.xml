@@ -34,8 +34,6 @@
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="javax.faces.event.ActionEvent"/>
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.ItemVenda"/>
-<fullyQualifiedTypeName name="br.com.ecommerce.modelo.Venda"/>
-<fullyQualifiedTypeName name="br.com.ecomerce.dao.VendaDAO"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.sql.Date"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
@@ -44,4 +42,8 @@
 <fullyQualifiedTypeName name="br.com.ecommerce.modelo.Pessoa"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.bean.AutenticaBean"/>
+<fullyQualifiedTypeName name="javax.faces.bean.ManagedProperty"/>
+<fullyQualifiedTypeName name="br.com.ecommerce.modelo.Venda"/>
+<fullyQualifiedTypeName name="br.com.ecomerce.dao.VendaDAO"/>
 </qualifiedTypeNameHistroy>

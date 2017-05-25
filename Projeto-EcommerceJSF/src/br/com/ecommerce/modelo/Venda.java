@@ -3,40 +3,38 @@ package br.com.ecommerce.modelo;
 import java.sql.Date;
 
 public class Venda {
-	private Date horario;
 	private Double precoTotal;
-	private Pessoa pessoa;
-	private Livro livro;
+	private String cpf;
+	private int idLivro;
 	
 	
 	
-	public Livro getLivro() {
-		return livro;
+	public int getIdLivro() {
+		return idLivro;
 	}
-	public void setLivro(Livro livro) {
-		this.livro = livro;
+	
+	public void setIdLivro(int idLivro) {
+		this.idLivro = idLivro;
+	}
+	
+	public Double getPrecoTotal() {
+		return precoTotal;
 	}
 	public void setPrecoTotal(Double precoTotal) {
 		this.precoTotal = precoTotal;
 	}
-	public Date getHorario() {
-		return horario;
+	public String getCpf() {
+		return cpf;
 	}
-	public void setHorario(Date horario) {
-		this.horario = horario;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
-	public double getPrecoTotal() {
-		return precoTotal;
+
+	@Override
+	public String toString() {
+		return "Venda [precoTotal=" + precoTotal + ", cpf=" + cpf + ", idLivro=" + idLivro + "]";
 	}
-	public void setPrecoTotal(double precoTotal) {
-		this.precoTotal = precoTotal;
-	}
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
-	}
-	
+
+			
 	
 }

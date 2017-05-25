@@ -1,0 +1,34 @@
+package br.com.ecommerce.modelo;
+
+import java.sql.Date;
+
+public class Venda {
+	private Date horario;
+	private Double precoTotal;
+	private String cpf;
+	
+	public String getCpf() {
+		return cpf;
+	}
+	
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	public void setPrecoTotal(Double precoTotal) {
+		this.precoTotal = precoTotal;
+	}
+	public Date getHorario() {
+		return horario;
+	}
+	public void setHorario(Date horario) {
+		this.horario = horario;
+	}
+	public double getPrecoTotal() {
+		return precoTotal;
+	}
+	public void setPrecoTotal(double precoTotal) {
+		this.precoTotal = precoTotal;
+	}
+	
+}

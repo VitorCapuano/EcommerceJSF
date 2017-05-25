@@ -6,6 +6,15 @@ public class ItemPedido {
 	private Integer quantidade;
 	private Double precoComDesconto;
 	private Double precoFinal;
+	private String cpf;
+	
+	public String getCpf() {
+		return cpf;
+	}
+	
+	public void setCpf(String string) {
+		this.cpf = string;
+	}
 	
 	
 	public Livro getLivro() {

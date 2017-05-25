@@ -141,3 +141,4 @@ mai 23, 2017 16:32:15.73 [5924:1220:0523/163215.731:ERROR:connection_factory_imp
 
 mai 25, 2017 13:54:44.09 NEW SESSION
 mai 25, 2017 13:54:44.10 [8260:4868:0525/135444.095:ERROR:connection.cc(1954)] Passwords sqlite error 2067, errno 0: UNIQUE constraint failed: logins.origin_url, logins.username_element, logins.username_value, logins.password_element, logins.signon_realm, sql: INSERT INTO logins (origin_url, action_url, username_element, username_value, password_element, password_value, submit_element, signon_realm, preferred, date_created, blacklisted_by_user, scheme, password_type, possible_usernames, times_used, form_data, date_synced, display_name, icon_url, federation_url, skip_zero_click, generation_upload_status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+mai 25, 2017 16:50:36.71 [8260:6536:0525/165036.716:ERROR:render_process_host_impl.cc(2094)] Request for unknown Channel-associated interface: device::mojom::ScreenOrientationListener
