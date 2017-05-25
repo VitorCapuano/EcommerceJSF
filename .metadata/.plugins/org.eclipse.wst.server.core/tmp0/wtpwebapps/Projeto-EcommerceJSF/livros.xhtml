@@ -79,7 +79,7 @@ xmlns:p="http://primefaces.org/ui">
 	            	</span>
         	<div class="btn-group" role="group">    
 	            <p:commandButton styleClass="btn btn-primary" actionListener="#{Pedido.adicionarItem}" value="#{mensagem.botaoAdicionarCarrinho}"
-					update=":mensagem" ajax="true" style="font-size: 12px; padding: 10px 17px;">
+					update=":mensagem totalCarro" ajax="true" style="font-size: 12px; padding: 10px 17px;">
 					<f:attribute name="livroAdicionado" value="#{livro}" />
 				</p:commandButton> 	<!-- envia para o carrinho -->
 				<p:commandButton styleClass="btn btn-success" value="Adicionar a lista de desejos" actionListener="#{Livro.listaDesejo}" 

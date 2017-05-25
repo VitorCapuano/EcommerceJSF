@@ -68,6 +68,13 @@ xmlns:f="http://java.sun.com/jsf/core">
           		</h:panelGrid>
           		
           		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block" styleClass="pull-right">
+          			<h:form id="totalCarro">
+          				<span class="glyphicon glyphicon-shopping-cart" style="color: #FFF; margin-top: 20px; font-size: 20px;"></span>
+          				<span class="badge" style="margin-top: -25px;"><h:outputText value="#{Pedido.totalCarrinho}"/></span>
+          			</h:form>	
+          		</h:panelGrid>
+          		
+          		<h:panelGrid rendered="#{Autentica.clienteLogado != null}" style="display: inline-block" styleClass="pull-right">
           			<h:form>
           				<h:commandButton value="#{mensagem.botaoSair}" actionListener="#{Autentica.Sair}" styleClass="btn btn-link" style="margin: 8px 0px 0px 10px;"/>
           			</h:form>	

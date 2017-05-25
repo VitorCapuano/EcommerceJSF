@@ -60,7 +60,7 @@
 				
 				<p:column>
 					<p:commandButton styleClass="btn btn-danger" value="Remover" actionListener="#{Pedido.removerItem}"
-						update=":formCarrinho:">
+						update=":formCarrinho :totalCarro">
 						<f:attribute name="livroSelecionado" value="#{carrinho}" />
 					</p:commandButton>
 				</p:column>

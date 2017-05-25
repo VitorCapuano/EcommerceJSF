@@ -19,10 +19,19 @@ import br.com.ecommerce.util.JavaUtil;
 @ManagedBean(name = "Pedido")
 @SessionScoped
 public class PedidoBean {
+	private int totalCarrinho;
 	private Pedido pedido;
 	private List<Livro> livros;
 	private List<ItemPedido> carrinhoCompra;
 	private Livro livro = new Livro();
+	
+	public int getTotalCarrinho() {
+		return totalCarrinho;
+	}
+	
+	public void setTotalCarrinho(int totalCarrinho) {
+		this.totalCarrinho = totalCarrinho;
+	}
 	
 	public Pedido getPedido() {
 		return pedido;
@@ -59,7 +68,7 @@ public class PedidoBean {
 	public void novo(){
 		pedido = new Pedido();
 		pedido.setPrecoTotal(0.0);
-		
+		totalCarrinho = 0;
 		LivroDAO livro = new LivroDAO();
 		livros = livro.listarLivro();
 		carrinhoCompra = new ArrayList();
@@ -91,6 +100,12 @@ public class PedidoBean {
 			JavaUtil.adicionarMensagemErro("Livro já adicionado ao carrinho");
 		}
 		calcularTotal();
+		somarCarrinho();
+	}
+
+	private void somarCarrinho() {
+	 totalCarrinho = carrinhoCompra.size();
+		
 	}
 
 	public void removerItem(ActionEvent e) {
@@ -108,6 +123,7 @@ public class PedidoBean {
 			carrinhoCompra.remove(achou);
 		}
 		calcularTotal();
+		somarCarrinho();
 	}
 
 	// incrementa a quantidade de livros e atualiza o valor total
