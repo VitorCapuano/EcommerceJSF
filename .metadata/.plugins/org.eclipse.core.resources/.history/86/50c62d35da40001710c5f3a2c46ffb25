@@ -1,0 +1,15 @@
+package br.com.ecommerce.modelo;
+
+public class Livro {
+	private int idLivro;
+	private String titulo;
+	private String descricao;
+	private Editora editora;
+	private Genero genero;
+	private Autor autor;
+	private double preco;
+	private double desconto;
+	private double precoAtual;
+	
+		
+	

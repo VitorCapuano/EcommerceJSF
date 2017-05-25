@@ -1,0 +1,71 @@
+package br.com.ecommerce.modelo;
+
+public class Livro {
+	private int idLivro;
+	private String titulo;
+	private String descricao;
+	private Editora editora;
+	private Genero genero;
+	private Autor autor;
+	private double preco;
+	private double desconto;
+	private double precoAtual;
+	public int getIdLivro() {
+		return idLivro;
+	}
+	public void setIdLivro(int idLivro) {
+		this.idLivro = idLivro;
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public Editora getEditora() {
+		return editora;
+	}
+	public void setEditora(Editora editora) {
+		this.editora = editora;
+	}
+	public Genero getGenero() {
+		return genero;
+	}
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
+	public Autor getAutor() {
+		return autor;
+	}
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
+	public double getPreco() {
+		return preco;
+	}
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
+	public double getDesconto() {
+		return desconto;
+	}
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
+	public double getPrecoAtual() {
+		return precoAtual;
+	}
+	public void setPrecoAtual(double precoAtual) {
+		this.precoAtual = precoAtual;
+	}
+	
+
+	
+	
+}

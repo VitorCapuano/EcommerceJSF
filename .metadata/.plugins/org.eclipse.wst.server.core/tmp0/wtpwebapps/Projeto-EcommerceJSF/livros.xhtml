@@ -5,7 +5,8 @@ xmlns:h="http://java.sun.com/jsf/html"
 xmlns:f="http://java.sun.com/jsf/core"
 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 xmlns:p="http://primefaces.org/ui">
-<ui:include src="/base.xhtml" />	
+<ui:include src="/base.xhtml" />
+	
 	<div class="col-md-2" style="background: #e7e7e7; height: 600px; border-bottom: 1px solid #c3c3c3">
 		<div class="row">
 			<div class="col-md-12">
@@ -30,7 +31,7 @@ xmlns:p="http://primefaces.org/ui">
 					</p:selectManyCheckbox>
 			  	</h:form>
 			 </div>
-			 <div class="col-md-12">
+			<div class="col-md-12">
 				<h4><h:outputText value="#{mensagem.campoPreco}"/></h4>
 				<h:form id="formTwo">
 					<p:selectManyCheckbox layout="grid" columns="1">
@@ -41,10 +42,11 @@ xmlns:p="http://primefaces.org/ui">
 				</h:form>  	
 			 </div>	
 		</div>
-	</div>		
-		
+	</div>
 	<div class="col-md-9" style=" display: block; margin-top: 40px;">
 		<div class="row">
+			<h:messages id="mensagem" styleClass="alert alert-success" style="list-style: none;"/>
+			<!-- Filtro do combobox -->
 			<h:form styleClass="form-inline" style="margin: 0px 0px 20px 35px" id="formThree">
 				<div class="form-group">
 					<h:inputText value="#{Livro.livroSelecionado}" styleClass="form-control"/>
@@ -56,111 +58,36 @@ xmlns:p="http://primefaces.org/ui">
 					<h:commandButton value="#{mensagem.botaoPesquisar}" styleClass="btn btn-primary" style="margin-left: 10px;" actionListener="#{Livro.filtrar}"  />
 				</div>
 			</h:form>
-		</div>
-		<ui:repeat value="#{Livro.listarLivro}" var="livro">
-			<div class="col-md-3 item" style="margin-top: 20px;">
-				<h:outputText value="#{livro.titulo}" style="font-size: 16px; color: #a3a3a3"/>
-				<img src="" width="170" height="200" style="border: 1px solid #c3c3c3"/>
-				 <del style="margin-right: 20px; display: block">
-				 	R$ <h:outputText value="#{livro.preco}">
-				 			<f:convertNumber locale="pt_BR" minFractionDigits="2" />
-				 		</h:outputText></del>
-				<span style="font-size: 1.4em; font-weight: bold; color: orange">
-	                <span class="precoComDesconto">
-	                	R$ <h:outputText value="#{livro.precoAtual}">
+		</div>	
+		<!-- fim do Filtro do combobox -->			
+					
+	<ui:repeat value="#{Livro.listarLivro}" var="livro">
+		<div class="col-md-3 item" style="margin-top: 20px;">
+			<h:outputText value="#{livro.titulo}" style="font-size: 16px; color: #a3a3a3"/>
+			<img src="" width="170" height="200" style="border: 1px solid #c3c3c3"/>
+			<del style="margin-right: 20px; display: block">R$ <h:outputText value="#{livro.preco}">
+						<f:convertNumber locale="pt_BR" minFractionDigits="2" />
+				</h:outputText>
+			</del>
+			<span style="font-size: 1.4em; font-weight: bold; color: orange">
+	                <span class="precoComDesconto">R$ <h:outputText value="#{livro.precoAtual}">
 	                			<f:convertNumber locale="pt_BR" minFractionDigits="2" />
 	                		</h:outputText></span>
-	                <span class="desconto" style="font-size: 0.6em; color: blue;">
-	                	(-	<h:outputText value="#{livro.desconto}">
+	                <span class="desconto" style="font-size: 0.6em; color: blue;">(-<h:outputText value="#{livro.desconto}">
 	                			<f:convertNumber locale="pt_BR" minFractionDigits="0" />
 	                		</h:outputText>)</span>
 	            	</span>
-	            <p:commandButton styleClass="btn btn-primary" value="#{mensagem.botaoAdicionarCarrinho}" actionListener="#{Livro.adicionar}" update=":tabela :precoTotal"><!-- envia para o carrinho -->
-	            	<f:attribute name="livroComprado" value="#{livro}"/>
-	            </p:commandButton>
+        	<div class="btn-group" role="group">    
+	            <p:commandButton styleClass="btn btn-primary" actionListener="#{Pedido.adicionarItem}" value="#{mensagem.botaoAdicionarCarrinho}"
+					update=":mensagem" ajax="true" style="font-size: 12px; padding: 10px 17px;">
+					<f:attribute name="livroAdicionado" value="#{livro}" />
+				</p:commandButton> 	<!-- envia para o carrinho -->
+				<p:commandButton styleClass="btn btn-success" value="Adicionar a lista de desejos" actionListener="#{Livro.listaDesejo}" 
+					update=":mensagem" style="font-size: 12px; margin-top: 10px; padding: 10px 2px;">
+					<f:attribute name="livroSelecionado" value="#{livro}"/>
+				</p:commandButton> <!-- envia lista de desejos -->
 			</div>
-		</ui:repeat>
-			<div class="row">
-				<div class="container">
-					<div class="col-md-10" style="margin-top: 40px;">
-						<p:panel header="Carrinho de Compras" style="border: none" >
-							<p:dataTable id="tabela" emptyMessage="Nenhum livro adicionado" value="#{Livro.itensVenda}" var="itens" >
-								<p:column headerText="Titulo" >
-									<h:outputText value="#{itens.livro.titulo}" />
-								</p:column>
-								<p:column headerText="Preço Unitário" styleClass="precoUnitario">
-									<h:outputText value="#{itens.valorParcial}">
-										<f:convertNumber locale="pt_BR" minFractionDigits="2" />
-									</h:outputText>
-								</p:column>
-								<p:column headerText="Quantidade" styleClass="quantidade">
-									<h:outputText value="#{itens.quantidade}"/>
-								</p:column>
-								<p:column>
-									<p:commandButton value="Remover do Carrinho" styleClass="btn btn-primary" actionListener="#{Livro.remover}" update=":tabela :precoTotal">
-										<f:attribute name="itemAdicionado" value="#{itens}"/>
-									</p:commandButton>
-								</p:column>
-							</p:dataTable>
-						</p:panel>
-					</div>
-					<div class="col-md-9" style="display: block; margin-top: 30px;">
-              				<div class="col-md-8">
-              					<h6 style="margin-left: 150px">Simule o prazo de entrega para o seu CEP abaixo</h6>
-            					<h:form styleClass="form-inline" style="margin-left: 150px;">
-            						<div class="row">
-				                      	<div class="form-group">
-				                      		<h:inputText styleClass="form-control" id="cep"/>
-				                      	</div>
-				                      	<button type="submit" class="btn btn-default" id="calcular">Calcular</button>
-				                    </div>
-				                    <div class="row" style="margin-top: 10px;">
-				                    	<p:selectOneRadio>
-				                    		<f:selectItem itemLabel="Frete Rapido" itemValue="rapido" selected="true"/>
-				                    		<f:selectItem itemLabel="Frete Normal" itemValue="normal"/>
-				                    	</p:selectOneRadio>
-				                    </div>
-            					</h:form>
-            				</div>
-            			
-            			
-            				<div class="col-md-4">
-					            <div class="row" style="font-size: 30px;">
-					              Total:     <span class="total"> R$ <h:outputText id="precoTotal" value="#{Livro.venda.precoTotal}"><f:convertNumber locale="pt_BR" minFractionDigits="2" /></h:outputText> </span>  
-					              <span style="display: block; font-size: 11px">Valor do Frete: R$ <span class="frete">0,00</span></span>
-					            </div>
-					            <div class="row" style="margin-top: 20px;">
-					              <button type="submit" class="btn btn-default btn-block">Finalizar</button>
-					              <p:commandButton value="Finalizar" styleClass="btn btn-default btn-block" actionListener="#{Livro.finalizar}"/>
-					            </div>
-					        </div>
-					</div>
-				</div>
-			</div>
-	</div>
-	<script>
-	var frete = 0;
-	var total = 0;
-	var totalCarrinho = 0;
-		$(function(){
-			$('input[type="radio"]').on('click', function(){
-				var variavel = $(this).val();
-				if(variavel == "rapido"){
-					frete = 12.5;
-				}
-				else{
-					frete = 4.0;
-				}
-				$('.frete').text(frete);	
-			});
-			
-			/*
-			$('#calcular').on('click', function(e){
-				e.preventDefault();
-								
-					
-			});
-			*/
-		});
-	</script>	
+		</div>
+	</ui:repeat>
+</div>		
 </html>

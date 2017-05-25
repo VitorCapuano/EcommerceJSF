@@ -7,27 +7,28 @@ public class Livro {
 	private Editora editora;
 	private Genero genero;
 	private Autor autor;
-	private double preco;
-	private double desconto;
-	private double precoAtual;
+	private Double preco;
+	private Double desconto;
+	private Double precoAtual;
 	
-		
-	public double getPrecoAtual() {
+	
+	
+	public Double getPrecoAtual() {
 		return precoAtual;
 	}
-	public void setPrecoAtual(double precoAtual) {
+	public void setPrecoAtual(Double precoAtual) {
 		this.precoAtual = precoAtual;
 	}
-	public double getDesconto() {
+	public Double getDesconto() {
 		return desconto;
 	}
-	public void setDesconto(double desconto) {
+	public void setDesconto(Double desconto) {
 		this.desconto = desconto;
 	}
-	public double getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreco(double preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 	public int getIdLivro() {
