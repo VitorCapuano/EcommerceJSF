@@ -70,8 +70,7 @@ public class PedidoBean {
 		// verifica se ja existe o livro no carrinho
 		int achou = -1;
 		for (int posicao = 0; posicao < carrinhoCompra.size(); posicao++) {
-			if (carrinhoCompra.get(posicao).getLivro().equals(livro)
-					&& carrinhoCompra.get(posicao).getPrecoComDesconto().equals(livro.getPrecoAtual())) {
+			if (carrinhoCompra.get(posicao).getLivro().equals(livro)) {
 				achou = posicao;
 			}
 		}
@@ -149,14 +148,13 @@ public class PedidoBean {
 			ItemPedido iPedido = carrinhoCompra.get(achouL);
 			iPedido.setQuantidade(iPedido.getQuantidade() - 1);
 			iPedido.setPrecoFinal(iPedido.getPrecoFinal() - iPedido.getPrecoComDesconto());
+			alteraTotal();
 		}
-		alteraTotal();
 	}
 	
 	// calcula total
 	public void calcularTotal() {
 		pedido.setPrecoTotal(0.0);
-		
 		for(int i = 0; i < carrinhoCompra.size(); i++) {
 			ItemPedido iPedido = carrinhoCompra.get(i);
 			pedido.setPrecoTotal(pedido.getPrecoTotal()+iPedido.getPrecoFinal());
@@ -165,10 +163,9 @@ public class PedidoBean {
 	
 	public void alteraTotal() {
 		pedido.setPrecoTotal(0.0);
-		
 		for(int i = 0; i < carrinhoCompra.size(); i++) {
 			ItemPedido iPedido = carrinhoCompra.get(i);
-			pedido.setPrecoTotal(iPedido.getPrecoFinal()-pedido.getPrecoTotal());
+			pedido.setPrecoTotal(pedido.getPrecoTotal()-iPedido.getPrecoFinal());
 		}
 	}
 }
