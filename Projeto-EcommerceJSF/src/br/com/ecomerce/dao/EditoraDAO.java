@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
-
 import br.com.ecommerce.conexao.Conexao;
 import br.com.ecommerce.modelo.Autor;
 import br.com.ecommerce.modelo.Editora;
