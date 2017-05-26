@@ -7,7 +7,7 @@
  
  	<application>
  		<locale-config>
- 			<default-locale>en</default-locale>
+ 			<default-locale>pt_BR</default-locale>
  		</locale-config>
  		<resource-bundle>
  			<base-name>idioma.mensagem</base-name>
